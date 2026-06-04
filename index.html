@@ -908,12 +908,14 @@
         </svg>
         <input id="search" type="search" placeholder="Search: VPC, queue, archive...">
       </label>
-<a class="nav-title nav-title-link" href="https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/saa-03-in-scope-services.html" target="_blank" rel="noopener noreferrer">AWS Services</a>
+<a class="nav-title nav-title-link" href="#exam-guide-facts">Exam Guide Facts</a>
+
+      <a class="nav-title nav-title-link" href="https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/saa-03-in-scope-services.html" target="_blank" rel="noopener noreferrer">AWS Services</a>
       <nav class="category-list" aria-label="AWS services">
         
       <a class="category-link" href="#analytics" data-category-link="Analytics">
         <span>Analytics</span>
-        <strong>14</strong>
+        <strong>16</strong>
       </a>
       <a class="category-link" href="#application-integration" data-category-link="Application Integration">
         <span>Application Integration</span>
@@ -933,7 +935,7 @@
       </a>
       <a class="category-link" href="#database" data-category-link="Database">
         <span>Database</span>
-        <strong>20</strong>
+        <strong>21</strong>
       </a>
       <a class="category-link" href="#developer-tools" data-category-link="Developer Tools">
         <span>Developer Tools</span>
@@ -941,15 +943,15 @@
       </a>
       <a class="category-link" href="#front-end-web-and-mobile" data-category-link="Front-End Web and Mobile">
         <span>Front-End Web and Mobile</span>
-        <strong>4</strong>
+        <strong>5</strong>
       </a>
       <a class="category-link" href="#machine-learning" data-category-link="Machine Learning">
         <span>Machine Learning</span>
-        <strong>11</strong>
+        <strong>13</strong>
       </a>
       <a class="category-link" href="#management-and-governance" data-category-link="Management and Governance">
         <span>Management and Governance</span>
-        <strong>28</strong>
+        <strong>30</strong>
       </a>
       <a class="category-link" href="#media-services" data-category-link="Media Services">
         <span>Media Services</span>
@@ -957,7 +959,7 @@
       </a>
       <a class="category-link" href="#migration-and-transfer" data-category-link="Migration and Transfer">
         <span>Migration and Transfer</span>
-        <strong>8</strong>
+        <strong>9</strong>
       </a>
       <a class="category-link" href="#networking-and-content-delivery" data-category-link="Networking and Content Delivery">
         <span>Networking and Content Delivery</span>
@@ -965,7 +967,7 @@
       </a>
       <a class="category-link" href="#security-identity-and-compliance" data-category-link="Security, Identity, and Compliance">
         <span>Security, Identity, and Compliance</span>
-        <strong>30</strong>
+        <strong>31</strong>
       </a>
       <a class="category-link" href="#serverless" data-category-link="Serverless">
         <span>Serverless</span>
@@ -983,6 +985,46 @@
         <div class="hero-copy">
           <p class="eyebrow">Mathias Exam revision sheet</p>
           <h1 id="page-title">AWS Certified Solutions Architect Associate</h1>
+        </div>
+      </section>
+
+      <section class="exam-facts" id="exam-guide-facts" aria-labelledby="exam-guide-facts-title">
+        <div class="overview-heading">
+          <p class="section-kicker">AWS exam guide details</p>
+          <h2 id="exam-guide-facts-title">Exam format, scoring, and scope</h2>
+        </div>
+        <div class="fact-grid">
+          <article class="fact-card">
+            <strong>Target candidate</strong>
+            <p>At least 1 year of hands-on experience designing cloud solutions with AWS services and the AWS Well-Architected Framework.</p>
+          </article>
+          <article class="fact-card">
+            <strong>Question style</strong>
+            <p>Multiple choice has one correct answer. Multiple response has two or more correct answers. Unanswered questions are incorrect, but there is no guessing penalty.</p>
+          </article>
+          <article class="fact-card">
+            <strong>Scored and unscored</strong>
+            <p>50 questions affect the score. 15 additional unscored questions are included and are not identified during the exam.</p>
+          </article>
+          <article class="fact-card">
+            <strong>Passing model</strong>
+            <p>Scaled score range is 100-1,000, with 720 as the minimum passing score. The exam is compensatory, so only the overall score must pass.</p>
+          </article>
+        </div>
+        <div class="weight-list">
+          <span>Domain weights</span>
+          <strong>Secure 30%</strong>
+          <strong>Resilient 26%</strong>
+          <strong>High-performing 24%</strong>
+          <strong>Cost-optimized 20%</strong>
+        </div>
+        <div class="scope-panel">
+          <h3>General concepts from the guide</h3>
+          <p>Compute, cost management, database, disaster recovery, high performance, governance, microservices and decoupling, migration and transfer, networking, resiliency, security, serverless/event-driven design, and storage.</p>
+        </div>
+        <div class="scope-panel out-of-scope">
+          <h3>Out-of-scope examples to avoid over-studying</h3>
+          <p>CloudSearch, MWAA, Lightsail, RDS on VMware, Cloud9, CDK, CloudShell, CodeBuild/CodeCommit/CodeDeploy, Location Service, GameLift, most IoT services, many specialist ML services, Elemental media services, Migration Evaluator, App Mesh, Cloud Map, Braket, RoboMaker, and Ground Station.</p>
         </div>
       </section>
 
@@ -1656,7 +1698,7 @@
           <div>
             <h2>Analytics</h2>
           </div>
-          <span>14 services</span>
+          <span>16 services</span>
         </div>
         <div class="service-grid">
           <article id="service-amazon-athena" class="service-card" data-card data-category="Analytics" data-search="amazon athena serverless sql queries over data in amazon s3. choose when you need ad hoc analysis of s3 data without loading it into a database. amazon transcribe provides speaker diarization, and amazon athena queries transcript files stored in s3. analytics">
@@ -1825,6 +1867,30 @@
             <div class="exam-use">
               <span>Exam cue</span>
               <strong>AWS Glue DataBrew handles visual data preparation, and Step Functions manages parallel runs, ordering, retries, error handling, and workflow state.</strong>
+            </div>
+          </article>
+          <article id="service-aws-data-pipeline" class="service-card" data-card data-category="Analytics" data-search="aws data pipeline managed service for moving and processing data across aws services and on-premises sources. know it as a data workflow service from the exam guide; prefer glue or modern ingestion services when a question asks for current low-operations etl. analytics">
+            <div class="service-topline">
+              <span class="service-icon"><img src="assets/aws-icons/aws-glue.svg" alt="" loading="lazy"></span>
+              <span class="service-category">Analytics</span>
+            </div>
+            <h3><a href="https://aws.amazon.com/datapipeline/" target="_blank" rel="noopener noreferrer">AWS Data Pipeline</a></h3>
+            <p>Managed service for moving and processing data across AWS services and on-premises sources.</p>
+            <div class="exam-use">
+              <span>Exam cue</span>
+              <strong>Know it as a data workflow service from the exam guide; prefer Glue or modern ingestion services when a question asks for current low-operations ETL.</strong>
+            </div>
+          </article>
+          <article id="service-amazon-managed-streaming-for-apache-kafka-amazon-msk" class="service-card" data-card data-category="Analytics" data-search="amazon managed streaming for apache kafka (amazon msk) managed apache kafka service for streaming data workloads. choose msk when the requirement specifically needs kafka compatibility or existing kafka clients. analytics">
+            <div class="service-topline">
+              <span class="service-icon"><img src="assets/aws-icons/kinesis-data-firehose.svg" alt="" loading="lazy"></span>
+              <span class="service-category">Analytics</span>
+            </div>
+            <h3><a href="https://aws.amazon.com/msk/" target="_blank" rel="noopener noreferrer">Amazon Managed Streaming for Apache Kafka (Amazon MSK)</a></h3>
+            <p>Managed Apache Kafka service for streaming data workloads.</p>
+            <div class="exam-use">
+              <span>Exam cue</span>
+              <strong>Choose MSK when the requirement specifically needs Kafka compatibility or existing Kafka clients.</strong>
             </div>
           </article></div>
       </section>
@@ -2332,7 +2398,7 @@
           <div>
             <h2>Database</h2>
           </div>
-          <span>20 services</span>
+          <span>21 services</span>
         </div>
         <div class="service-grid">
           <article id="service-amazon-rds-proxy" class="service-card" data-card data-category="Database" data-search="amazon rds proxy managed database proxy for amazon rds and aurora. choose to pool and manage database connections, especially for serverless or spiky workloads. database">
@@ -2577,6 +2643,18 @@
               <span>Exam cue</span>
               <strong>Enable Babelfish on Aurora PostgreSQL to run SQL Server-compatible queries, and use AWS SCT plus AWS DMS to convert schema and migrate data.</strong>
             </div>
+          </article>
+          <article id="service-amazon-timestream" class="service-card" data-card data-category="Database" data-search="amazon timestream time-series database for metrics, events, and iot-style time-stamped data. choose for time-series workloads where data is queried by time windows and retention tiers. database">
+            <div class="service-topline">
+              <span class="service-icon"><img src="assets/aws-icons/dynamodb.svg" alt="" loading="lazy"></span>
+              <span class="service-category">Database</span>
+            </div>
+            <h3><a href="https://aws.amazon.com/timestream/" target="_blank" rel="noopener noreferrer">Amazon Timestream</a></h3>
+            <p>Time-series database for metrics, events, and IoT-style time-stamped data.</p>
+            <div class="exam-use">
+              <span>Exam cue</span>
+              <strong>Choose for time-series workloads where data is queried by time windows and retention tiers.</strong>
+            </div>
           </article></div>
       </section>
       <section class="category-section" id="developer-tools" data-section>
@@ -2643,7 +2721,7 @@
           <div>
             <h2>Front-End Web and Mobile</h2>
           </div>
-          <span>4 services</span>
+          <span>5 services</span>
         </div>
         <div class="service-grid">
           <article id="service-aws-amplify" class="service-card" data-card data-category="Front-End Web and Mobile" data-search="aws amplify tools and hosting for web and mobile apps. choose for quickly building and hosting full-stack frontend applications. front-end web and mobile">
@@ -2693,6 +2771,18 @@
               <span>Exam cue</span>
               <strong>Amazon Cognito user pools provide managed user authentication, and API Gateway REST APIs can use a Cognito authorizer efficiently.</strong>
             </div>
+          </article>
+          <article id="service-amazon-pinpoint" class="service-card" data-card data-category="Front-End Web and Mobile" data-search="amazon pinpoint customer engagement service for targeted messages and campaigns. use when the scenario needs mobile or user messaging campaigns rather than infrastructure notifications. front-end web and mobile">
+            <div class="service-topline">
+              <span class="service-icon"><img src="assets/aws-icons/cognito-user-pool.svg" alt="" loading="lazy"></span>
+              <span class="service-category">Front-End Web and Mobile</span>
+            </div>
+            <h3><a href="https://aws.amazon.com/pinpoint/" target="_blank" rel="noopener noreferrer">Amazon Pinpoint</a></h3>
+            <p>Customer engagement service for targeted messages and campaigns.</p>
+            <div class="exam-use">
+              <span>Exam cue</span>
+              <strong>Use when the scenario needs mobile or user messaging campaigns rather than infrastructure notifications.</strong>
+            </div>
           </article></div>
       </section>
       <section class="category-section" id="machine-learning" data-section>
@@ -2700,7 +2790,7 @@
           <div>
             <h2>Machine Learning</h2>
           </div>
-          <span>11 services</span>
+          <span>13 services</span>
         </div>
         <div class="service-grid">
           <article id="service-amazon-comprehend" class="service-card" data-card data-category="Machine Learning" data-search="amazon comprehend natural language processing service. use for sentiment, entities, key phrases, and language insights from text. amazon textract extracts text from pdfs and images, and amazon comprehend medical identifies phi in the extracted text. machine learning">
@@ -2834,6 +2924,30 @@
               <span>Exam cue</span>
               <strong>Amazon SageMaker builds and trains ML models, and Amazon QuickSight visualizes the augmented data in BI dashboards with low operational overhead.</strong>
             </div>
+          </article>
+          <article id="service-amazon-forecast" class="service-card" data-card data-category="Machine Learning" data-search="amazon forecast managed forecasting service for time-series predictions. choose for demand, inventory, or business metric forecasting without building a custom ml model. machine learning">
+            <div class="service-topline">
+              <span class="service-icon"><img src="assets/aws-icons/sagemaker.svg" alt="" loading="lazy"></span>
+              <span class="service-category">Machine Learning</span>
+            </div>
+            <h3><a href="https://aws.amazon.com/forecast/" target="_blank" rel="noopener noreferrer">Amazon Forecast</a></h3>
+            <p>Managed forecasting service for time-series predictions.</p>
+            <div class="exam-use">
+              <span>Exam cue</span>
+              <strong>Choose for demand, inventory, or business metric forecasting without building a custom ML model.</strong>
+            </div>
+          </article>
+          <article id="service-amazon-fraud-detector" class="service-card" data-card data-category="Machine Learning" data-search="amazon fraud detector managed service for detecting potentially fraudulent online activity. use for fraud-risk prediction in application flows, not for aws account threat detection. machine learning">
+            <div class="service-topline">
+              <span class="service-icon"><img src="assets/aws-icons/guardduty.svg" alt="" loading="lazy"></span>
+              <span class="service-category">Machine Learning</span>
+            </div>
+            <h3><a href="https://aws.amazon.com/fraud-detector/" target="_blank" rel="noopener noreferrer">Amazon Fraud Detector</a></h3>
+            <p>Managed service for detecting potentially fraudulent online activity.</p>
+            <div class="exam-use">
+              <span>Exam cue</span>
+              <strong>Use for fraud-risk prediction in application flows, not for AWS account threat detection.</strong>
+            </div>
           </article></div>
       </section>
       <section class="category-section" id="management-and-governance" data-section>
@@ -2841,7 +2955,7 @@
           <div>
             <h2>Management and Governance</h2>
           </div>
-          <span>28 services</span>
+          <span>30 services</span>
         </div>
         <div class="service-grid">
           <article id="service-aws-auto-scaling" class="service-card" data-card data-category="Management and Governance" data-search="aws auto scaling scaling plans across multiple aws resources. use to coordinate scaling for resources such as ec2, ecs, dynamodb, and aurora. management and governance">
@@ -3180,6 +3294,30 @@
               <span>Exam cue</span>
               <strong>Amazon Macie is the purpose-built service for discovering PII in S3, and it must be configured in each Region where the buckets reside.</strong>
             </div>
+          </article>
+          <article id="service-aws-command-line-interface-aws-cli" class="service-card" data-card data-category="Management and Governance" data-search="aws command line interface (aws cli) command-line tool for managing aws services and automating operational tasks. know it as an administration and automation tool; it is not a managed application service by itself. management and governance">
+            <div class="service-topline">
+              <span class="service-icon"><img src="assets/aws-icons/cloudformation.svg" alt="" loading="lazy"></span>
+              <span class="service-category">Management and Governance</span>
+            </div>
+            <h3><a href="https://aws.amazon.com/cli/" target="_blank" rel="noopener noreferrer">AWS Command Line Interface (AWS CLI)</a></h3>
+            <p>Command-line tool for managing AWS services and automating operational tasks.</p>
+            <div class="exam-use">
+              <span>Exam cue</span>
+              <strong>Know it as an administration and automation tool; it is not a managed application service by itself.</strong>
+            </div>
+          </article>
+          <article id="service-aws-proton" class="service-card" data-card data-category="Management and Governance" data-search="aws proton service for provisioning and managing standardized infrastructure templates for application teams. use when platform teams need governed, repeatable service templates for developers. management and governance">
+            <div class="service-topline">
+              <span class="service-icon"><img src="assets/aws-icons/service-catalog.svg" alt="" loading="lazy"></span>
+              <span class="service-category">Management and Governance</span>
+            </div>
+            <h3><a href="https://aws.amazon.com/proton/" target="_blank" rel="noopener noreferrer">AWS Proton</a></h3>
+            <p>Service for provisioning and managing standardized infrastructure templates for application teams.</p>
+            <div class="exam-use">
+              <span>Exam cue</span>
+              <strong>Use when platform teams need governed, repeatable service templates for developers.</strong>
+            </div>
           </article></div>
       </section>
       <section class="category-section" id="media-services" data-section>
@@ -3220,7 +3358,7 @@
           <div>
             <h2>Migration and Transfer</h2>
           </div>
-          <span>8 services</span>
+          <span>9 services</span>
         </div>
         <div class="service-grid">
           <article id="service-aws-application-migration-service" class="service-card" data-card data-category="Migration and Transfer" data-search="aws application migration service lift-and-shift migration for servers to aws. use for rehosting physical, virtual, or cloud servers with minimal changes. migration and transfer">
@@ -3318,6 +3456,18 @@
             <div class="exam-use">
               <span>Exam cue</span>
               <strong>AWS Snowball Edge moves the data physically, and AWS Glue runs the transformation job in AWS with low overhead.</strong>
+            </div>
+          </article>
+          <article id="service-aws-server-migration-service-aws-sms" class="service-card" data-card data-category="Migration and Transfer" data-search="aws server migration service (aws sms) legacy service for migrating on-premises server workloads to aws. recognize it from the exam guide; prefer application migration service for modern rehosting scenarios. migration and transfer">
+            <div class="service-topline">
+              <span class="service-icon"><img src="assets/aws-icons/migration-hub.svg" alt="" loading="lazy"></span>
+              <span class="service-category">Migration and Transfer</span>
+            </div>
+            <h3><a href="https://docs.aws.amazon.com/server-migration-service/" target="_blank" rel="noopener noreferrer">AWS Server Migration Service (AWS SMS)</a></h3>
+            <p>Legacy service for migrating on-premises server workloads to AWS.</p>
+            <div class="exam-use">
+              <span>Exam cue</span>
+              <strong>Recognize it from the exam guide; prefer Application Migration Service for modern rehosting scenarios.</strong>
             </div>
           </article>
         </div>
@@ -3541,7 +3691,7 @@
           <div>
             <h2>Security, Identity, and Compliance</h2>
           </div>
-          <span>30 services</span>
+          <span>31 services</span>
         </div>
         <div class="service-grid">
           <article id="service-aws-sts" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="aws sts temporary security credentials for aws access. choose when access should be temporary, federated, or assumed through roles. security, identity, and compliance aws security token service">
@@ -3906,6 +4056,18 @@
             <div class="exam-use">
               <span>Exam cue</span>
               <strong>AWS Shield Advanced with the AWS DDoS Response Team provides managed DDoS mitigation support and visibility for attack events and sources with minimal configuration changes.</strong>
+            </div>
+          </article>
+          <article id="service-aws-single-sign-on" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="aws single sign-on earlier name for aws iam identity center, used for workforce single sign-on across aws accounts. map aws sso questions to iam identity center, permission sets, groups, and centralized account access. security, identity, and compliance">
+            <div class="service-topline">
+              <span class="service-icon"><img src="assets/aws-icons/iam-identity-center.svg" alt="" loading="lazy"></span>
+              <span class="service-category">Security, Identity, and Compliance</span>
+            </div>
+            <h3><a href="https://aws.amazon.com/iam/identity-center/" target="_blank" rel="noopener noreferrer">AWS Single Sign-On</a></h3>
+            <p>Earlier name for AWS IAM Identity Center, used for workforce single sign-on across AWS accounts.</p>
+            <div class="exam-use">
+              <span>Exam cue</span>
+              <strong>Map AWS SSO questions to IAM Identity Center, permission sets, groups, and centralized account access.</strong>
             </div>
           </article>
         </div>
