@@ -537,6 +537,516 @@
       font-size: 0.88rem;
     }
 
+    .global-infra {
+      margin: 0 0 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      padding: clamp(16px, 2.5vw, 24px);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .infra-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(280px, 1.45fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .infra-title-panel {
+      min-height: 100%;
+      border-radius: 8px;
+      background: #0f172a;
+      color: #fff;
+      padding: clamp(18px, 3vw, 28px);
+      display: grid;
+      align-content: center;
+      gap: 14px;
+    }
+
+    .infra-title-panel .aws-cloud {
+      display: inline-grid;
+      place-items: center;
+      width: 104px;
+      height: 68px;
+      border-radius: 34px;
+      background: var(--aws);
+      color: #111827;
+      font-weight: 900;
+      font-size: 1.55rem;
+      box-shadow: inset 0 -8px 0 rgba(0, 0, 0, 0.12);
+    }
+
+    .infra-title-panel h2 {
+      color: #fff;
+      font-size: clamp(1.85rem, 4vw, 3.3rem);
+      line-height: 1.05;
+    }
+
+    .infra-title-panel p {
+      margin: 0;
+      color: #dbeafe;
+      max-width: 560px;
+    }
+
+    .infra-summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .infra-stat {
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .infra-stat strong {
+      display: block;
+      font-size: 1.35rem;
+      line-height: 1;
+      color: #fff;
+    }
+
+    .infra-stat span {
+      display: block;
+      margin-top: 6px;
+      color: #bfdbfe;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .infra-overview {
+      display: grid;
+      gap: 12px;
+    }
+
+    .infra-pill-row {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(110px, 1fr));
+      gap: 9px;
+    }
+
+    .infra-pill {
+      min-height: 72px;
+      border: 1px solid #dbe4f0;
+      border-radius: 8px;
+      background: #f8fafc;
+      padding: 10px;
+    }
+
+    .infra-pill strong {
+      display: block;
+      color: #111827;
+      font-size: 0.95rem;
+    }
+
+    .infra-pill span {
+      display: block;
+      margin-top: 4px;
+      color: #667085;
+      font-size: 0.78rem;
+      line-height: 1.3;
+    }
+
+    .infra-map-card {
+      border: 1px solid #dbe4f0;
+      border-radius: 8px;
+      background: #f8fafc;
+      padding: 16px;
+    }
+
+    .infra-map {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .infra-node {
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      background: #fff;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .infra-node strong {
+      display: block;
+      color: #111827;
+      font-size: 1rem;
+    }
+
+    .infra-node span {
+      display: block;
+      margin-top: 6px;
+      color: #667085;
+      font-size: 0.82rem;
+    }
+
+    .infra-node.is-core {
+      border-color: rgba(255, 153, 0, 0.55);
+      background: #fff7ed;
+    }
+
+    .infra-flow {
+      position: relative;
+      min-height: 56px;
+      display: grid;
+      place-items: center;
+      color: #0f766e;
+      font-weight: 900;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .infra-flow::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 2px;
+      background: #99f6e4;
+    }
+
+    .infra-flow span {
+      position: relative;
+      z-index: 1;
+      border: 1px solid #99f6e4;
+      border-radius: 999px;
+      background: #ecfeff;
+      padding: 5px 9px;
+    }
+
+    .infra-layers {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .infra-layer-card {
+      border: 1px solid #dbe4f0;
+      border-radius: 8px;
+      background: #fff;
+      padding: 16px;
+    }
+
+    .infra-layer-card h3 {
+      margin: 0 0 12px;
+      color: #111827;
+    }
+
+    .infra-stack {
+      display: grid;
+      gap: 10px;
+    }
+
+    .infra-stack-item {
+      display: grid;
+      grid-template-columns: 112px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      background: #f8fafc;
+      padding: 12px;
+    }
+
+    .infra-stack-item strong {
+      color: #0f766e;
+      font-size: 0.9rem;
+    }
+
+    .infra-stack-item p {
+      margin: 0;
+      color: #475467;
+      font-size: 0.9rem;
+    }
+
+    .partition-diagram {
+      display: grid;
+      gap: 14px;
+    }
+
+    .az-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .az-box {
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      background: #eff6ff;
+      padding: 12px;
+      min-height: 114px;
+    }
+
+    .az-box strong {
+      display: block;
+      color: #1e3a8a;
+    }
+
+    .app-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 38px;
+      margin-top: 12px;
+      border-radius: 8px;
+      background: #fff;
+      color: #111827;
+      font-weight: 900;
+      box-shadow: inset 0 0 0 1px #cbd5e1;
+    }
+
+    .az-box.is-down {
+      border-color: #fecaca;
+      background: #fff1f2;
+    }
+
+    .az-box.is-down strong {
+      color: #991b1b;
+    }
+
+    .infra-elb {
+      border: 1px solid #ddd6fe;
+      border-radius: 8px;
+      background: #f5f3ff;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .infra-elb strong {
+      display: block;
+      color: #5b21b6;
+    }
+
+    .infra-elb span {
+      display: block;
+      margin-top: 4px;
+      color: #475467;
+      font-size: 0.86rem;
+    }
+
+    .infra-cue-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .infra-cue {
+      border-left: 4px solid var(--aws);
+      border-radius: 8px;
+      background: #fffbeb;
+      padding: 12px;
+    }
+
+    .infra-cue span {
+      display: block;
+      color: #92400e;
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .infra-cue strong {
+      display: block;
+      margin-top: 4px;
+      color: #263244;
+      font-size: 0.9rem;
+    }
+
+
+    .benefits-diagram {
+      margin: 0 0 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      padding: clamp(16px, 2.5vw, 24px);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .benefits-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1.4fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .benefits-title-panel {
+      min-height: 100%;
+      border-radius: 8px;
+      background: #082f49;
+      color: #fff;
+      padding: clamp(18px, 3vw, 28px);
+      display: grid;
+      align-content: center;
+      gap: 14px;
+    }
+
+    .benefits-title-panel .aws-cloud {
+      display: inline-grid;
+      place-items: center;
+      width: 104px;
+      height: 68px;
+      border-radius: 34px;
+      background: var(--aws);
+      color: #111827;
+      font-weight: 900;
+      font-size: 1.55rem;
+      box-shadow: inset 0 -8px 0 rgba(0, 0, 0, 0.12);
+    }
+
+    .benefits-title-panel h2 {
+      color: #fff;
+      font-size: clamp(1.75rem, 4vw, 3.15rem);
+      line-height: 1.05;
+    }
+
+    .benefits-title-panel p {
+      margin: 0;
+      color: #dbeafe;
+      max-width: 560px;
+    }
+
+    .benefits-overview-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .benefit-card {
+      border: 1px solid #dbe4f0;
+      border-radius: 8px;
+      background: #f8fafc;
+      padding: 16px;
+    }
+
+    .benefit-card h3 {
+      margin: 0 0 8px;
+      color: #111827;
+    }
+
+    .benefit-card p {
+      margin: 0;
+      color: #475467;
+      font-size: 0.92rem;
+    }
+
+    .benefit-card ul {
+      display: grid;
+      gap: 6px;
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: #344054;
+      font-size: 0.88rem;
+    }
+
+    .benefit-card li::marker {
+      color: var(--teal);
+    }
+
+    .benefit-card.is-performance {
+      border-left: 4px solid #2563eb;
+    }
+
+    .benefit-card.is-reliability {
+      border-left: 4px solid #0f766e;
+    }
+
+    .benefit-card.is-security {
+      border-left: 4px solid #dc2626;
+    }
+
+    .benefit-card.is-scalability {
+      border-left: 4px solid #7c3aed;
+    }
+
+    .benefit-card.is-cost {
+      border-left: 4px solid var(--aws);
+      grid-column: 1 / -1;
+    }
+
+    .benefits-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .benefits-step {
+      position: relative;
+      border: 1px solid #dbe4f0;
+      border-radius: 8px;
+      background: #fff;
+      padding: 14px;
+      min-height: 112px;
+    }
+
+    .benefits-step span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-weight: 900;
+      font-size: 0.86rem;
+    }
+
+    .benefits-step strong {
+      display: block;
+      margin-top: 10px;
+      color: #111827;
+    }
+
+    .benefits-step p {
+      margin: 5px 0 0;
+      color: #667085;
+      font-size: 0.84rem;
+    }
+
+    .benefits-cue-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .benefits-cue {
+      border-left: 4px solid var(--teal);
+      border-radius: 8px;
+      background: #ecfeff;
+      padding: 12px;
+    }
+
+    .benefits-cue span {
+      display: block;
+      color: #0f766e;
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .benefits-cue strong {
+      display: block;
+      margin-top: 4px;
+      color: #263244;
+      font-size: 0.9rem;
+    }
+
+
     .category-section {
       scroll-margin-top: 24px;
       margin-top: 20px;
@@ -908,6 +1418,14 @@
         </svg>
         <input id="search" type="search" placeholder="Search: VPC, queue, archive...">
       </label>
+<a class="category-link" href="#aws-global-infrastructure">
+        <span>Global Infrastructure</span>
+        <strong>Map</strong>
+      </a>
+<a class="category-link" href="#aws-global-infrastructure-benefits">
+        <span>Infrastructure Benefits</span>
+        <strong>Map</strong>
+      </a>
 <a class="nav-title nav-title-link" href="https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/saa-03-in-scope-services.html" target="_blank" rel="noopener noreferrer">AWS Services</a>
       <nav class="category-list" aria-label="AWS services">
         
@@ -1646,6 +2164,263 @@
               <strong>Choose object, block, file, or archive storage based on access pattern, sharing, latency, durability, and retrieval time.</strong>
             </div>
           </article>
+        </div>
+      </section>
+
+      <section class="global-infra" id="aws-global-infrastructure">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Readable revision diagram</p>
+            <h2><a href="https://aws.amazon.com/about-aws/global-infrastructure/" target="_blank" rel="noopener noreferrer">AWS Global Infrastructure</a></h2>
+          </div>
+          <span>Regions, AZs, edge, network</span>
+        </div>
+
+        <div class="infra-hero">
+          <div class="infra-title-panel">
+            <span class="aws-cloud">AWS</span>
+            <h2>AWS Global Infrastructure</h2>
+            <p>Designed to deliver workloads that are flexible, reliable, scalable, secure, and performant across a global footprint.</p>
+            <div class="infra-summary">
+              <div class="infra-stat">
+                <strong>38</strong>
+                <span>Geographic Regions</span>
+              </div>
+              <div class="infra-stat">
+                <strong>120</strong>
+                <span>Availability Zones</span>
+              </div>
+              <div class="infra-stat">
+                <strong>3+</strong>
+                <span>AZs in most Regions</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="infra-overview">
+            <div class="infra-pill-row">
+              <div class="infra-pill">
+                <strong>Flexible</strong>
+                <span>Choose placement by workload need.</span>
+              </div>
+              <div class="infra-pill">
+                <strong>Reliable</strong>
+                <span>Use Multi-AZ and health checks.</span>
+              </div>
+              <div class="infra-pill">
+                <strong>Scalable</strong>
+                <span>Expand capacity and users globally.</span>
+              </div>
+              <div class="infra-pill">
+                <strong>Secure</strong>
+                <span>Use isolated Regions, AZs, and controls.</span>
+              </div>
+              <div class="infra-pill">
+                <strong>Performant</strong>
+                <span>Use edge and backbone networking.</span>
+              </div>
+            </div>
+
+            <div class="infra-map-card">
+              <div class="infra-map">
+                <div class="infra-node">
+                  <strong>Customers</strong>
+                  <span>Users and companies worldwide</span>
+                </div>
+                <div class="infra-flow"><span>Deliver</span></div>
+                <div class="infra-node is-core">
+                  <strong>AWS Global Infrastructure</strong>
+                  <span>Regions, AZs, edge locations, and global network</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="infra-layers">
+          <article class="infra-layer-card">
+            <h3>Infrastructure Building Blocks</h3>
+            <div class="infra-stack">
+              <div class="infra-stack-item">
+                <strong>AWS Region</strong>
+                <p>A separate geographic area where AWS clusters data centers. Choose Regions for latency, data residency, services, and disaster recovery.</p>
+              </div>
+              <div class="infra-stack-item">
+                <strong>Availability Zone</strong>
+                <p>One or more discrete data centers inside a Region. AZs are physically separated but connected with low-latency, high-bandwidth networking.</p>
+              </div>
+              <div class="infra-stack-item">
+                <strong>Data center</strong>
+                <p>Dedicated facility with redundant power, networking, and cooling. An AZ can include one or more data centers.</p>
+              </div>
+              <div class="infra-stack-item">
+                <strong>Edge location</strong>
+                <p>Points of presence used by services such as CloudFront and Route 53 to serve users with lower latency.</p>
+              </div>
+              <div class="infra-stack-item">
+                <strong>Global network</strong>
+                <p>Purpose-built private backbone that connects Regions, AZs, and edge locations with high availability and low latency.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="infra-layer-card">
+            <h3>Partitioning for Resilience</h3>
+            <div class="partition-diagram">
+              <div class="az-row">
+                <div class="az-box">
+                  <strong>Availability Zone A</strong>
+                  <span class="app-badge">App</span>
+                </div>
+                <div class="az-box">
+                  <strong>Availability Zone B</strong>
+                  <span class="app-badge">App</span>
+                </div>
+                <div class="az-box is-down">
+                  <strong>Availability Zone C</strong>
+                  <span class="app-badge">Outage</span>
+                </div>
+              </div>
+              <div class="infra-elb">
+                <strong>Elastic Load Balancing</strong>
+                <span>Routes traffic only to healthy targets across remaining AZs.</span>
+              </div>
+              <div class="infra-stack-item">
+                <strong>Natural events</strong>
+                <p>Lightning, tornadoes, earthquakes, power issues, or network failures should affect only part of the architecture when the app is spread across AZs.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="infra-cue-grid">
+          <div class="infra-cue">
+            <span>Exam cue</span>
+            <strong>For high availability inside one Region, deploy across at least two AZs and use load balancing or failover.</strong>
+          </div>
+          <div class="infra-cue">
+            <span>Exam cue</span>
+            <strong>For disaster recovery across geographic failure, compare backup and restore, pilot light, warm standby, and active-active across Regions.</strong>
+          </div>
+          <div class="infra-cue">
+            <span>Exam cue</span>
+            <strong>For low global latency, think CloudFront, Route 53 latency routing, Global Accelerator, and edge locations.</strong>
+          </div>
+          <div class="infra-cue">
+            <span>Exam cue</span>
+            <strong>For cost questions, watch cross-AZ and cross-Region data transfer before choosing the most available design.</strong>
+          </div>
+        </div>
+      </section>
+      <section class="benefits-diagram" id="aws-global-infrastructure-benefits">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Readable revision diagram</p>
+            <h2><a href="https://aws.amazon.com/about-aws/global-infrastructure/" target="_blank" rel="noopener noreferrer">AWS Global Infrastructure Benefits</a></h2>
+          </div>
+          <span>Performance, HA, security, scale, cost</span>
+        </div>
+
+        <div class="benefits-hero">
+          <div class="benefits-title-panel">
+            <span class="aws-cloud">AWS</span>
+            <h2>AWS Global Infrastructure Benefits</h2>
+            <p>Use the global footprint, redundant design, edge network, and managed infrastructure to build architectures that meet business and exam requirements.</p>
+          </div>
+
+          <div class="benefits-overview-grid">
+            <article class="benefit-card is-performance">
+              <h3>Performance</h3>
+              <p>AWS infrastructure is built to respond to changing needs while keeping workloads close to users.</p>
+              <ul>
+                <li>Use Regions near users to reduce latency.</li>
+                <li>Use CloudFront, Global Accelerator, and edge locations for global performance.</li>
+                <li>Scale compute and networking resources instead of overbuilding for peak demand.</li>
+              </ul>
+            </article>
+
+            <article class="benefit-card is-reliability">
+              <h3>Availability and Reliability</h3>
+              <p>Regions contain multiple isolated Availability Zones so failures do not have to stop the application.</p>
+              <ul>
+                <li>Use physical redundancy across AZs.</li>
+                <li>Avoid single points of failure with load balancers and health checks.</li>
+                <li>Replicate data and services across AZs or Regions when the RTO/RPO requires it.</li>
+              </ul>
+            </article>
+
+            <article class="benefit-card is-security">
+              <h3>Security</h3>
+              <p>AWS global infrastructure supports strict security requirements for banks, public sector, and sensitive workloads.</p>
+              <ul>
+                <li>Use monitored facilities, controlled physical access, and redundant controls.</li>
+                <li>Choose Regions for data residency and compliance needs.</li>
+                <li>Layer IAM, encryption, network isolation, logging, and managed detection.</li>
+              </ul>
+            </article>
+
+            <article class="benefit-card is-scalability">
+              <h3>Scalability</h3>
+              <p>Provision the amount of resources you actually need, then scale up or down as demand changes.</p>
+              <ul>
+                <li>Use Auto Scaling, managed databases, queues, and serverless services for demand changes.</li>
+                <li>Quickly launch resources in additional AZs or Regions when the business grows.</li>
+                <li>Prefer elastic capacity over fixed capacity when demand is unpredictable.</li>
+              </ul>
+            </article>
+
+            <article class="benefit-card is-cost">
+              <h3>Low Cost</h3>
+              <p>The global footprint and large customer base create economies of scale that reduce the total cost of infrastructure.</p>
+              <ul>
+                <li>Pay for what you use instead of buying for maximum capacity.</li>
+                <li>Use managed services to reduce operations and maintenance work.</li>
+                <li>Balance cost with availability; Multi-AZ and cross-Region designs can add data-transfer cost.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
+        <div class="benefits-flow" aria-label="AWS benefit flow">
+          <div class="benefits-step">
+            <span>1</span>
+            <strong>Global footprint</strong>
+            <p>Regions, AZs, edge locations, and network links are available worldwide.</p>
+          </div>
+          <div class="benefits-step">
+            <span>2</span>
+            <strong>More customers</strong>
+            <p>Large adoption spreads infrastructure cost across many workloads.</p>
+          </div>
+          <div class="benefits-step">
+            <span>3</span>
+            <strong>Economies of scale</strong>
+            <p>AWS can operate at scale and pass efficiency into service pricing.</p>
+          </div>
+          <div class="benefits-step">
+            <span>4</span>
+            <strong>Lower TCO</strong>
+            <p>Managed services and pay-as-you-go capacity reduce total ownership cost.</p>
+          </div>
+        </div>
+
+        <div class="benefits-cue-grid">
+          <div class="benefits-cue">
+            <span>Exam cue</span>
+            <strong>If the keyword is latency or global users, choose placement, CloudFront, Route 53, or Global Accelerator.</strong>
+          </div>
+          <div class="benefits-cue">
+            <span>Exam cue</span>
+            <strong>If the keyword is no single point of failure, spread across AZs and use load balancing or managed Multi-AZ services.</strong>
+          </div>
+          <div class="benefits-cue">
+            <span>Exam cue</span>
+            <strong>If the keyword is unpredictable demand, use elastic services instead of fixed capacity.</strong>
+          </div>
+          <div class="benefits-cue">
+            <span>Exam cue</span>
+            <strong>If the keyword is lower operations or TCO, prefer managed services and pay-as-you-go resources.</strong>
+          </div>
         </div>
       </section>
 
