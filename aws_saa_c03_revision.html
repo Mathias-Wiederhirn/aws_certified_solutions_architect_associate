@@ -1254,6 +1254,69 @@
     }
 
 
+    .flashcard-section {
+      margin: 0 0 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      padding: clamp(16px, 2.5vw, 24px);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .flashcard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 12px;
+    }
+
+    .study-flashcard {
+      min-height: 220px;
+      border: 1px solid #dbe4f0;
+      border-top: 4px solid #0f766e;
+      border-radius: 8px;
+      background: #fff;
+      padding: 16px;
+      display: grid;
+      align-content: space-between;
+      gap: 12px;
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.06);
+    }
+
+    .study-flashcard h3 {
+      margin: 0;
+      color: #111827;
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+
+    .study-flashcard p {
+      margin: 0;
+      color: #344054;
+      font-size: 0.92rem;
+    }
+
+    .study-flashcard strong {
+      color: #111827;
+    }
+
+    .flashcard-answer {
+      border-left: 3px solid var(--aws);
+      background: #fffbeb;
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .flashcard-answer span {
+      display: block;
+      color: #92400e;
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+
     .category-section {
       scroll-margin-top: 24px;
       margin-top: 20px;
@@ -1640,6 +1703,10 @@
       <a class="category-link" href="#ec2-storage-networking">
         <span>EC2 Storage Networking</span>
         <strong>Map</strong>
+      </a>
+<a class="category-link" href="#resiliency-storage-flashcards">
+        <span>Resiliency Flashcards</span>
+        <strong>9</strong>
       </a>
 <a class="nav-title nav-title-link" href="https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/saa-03-in-scope-services.html" target="_blank" rel="noopener noreferrer">AWS Services</a>
       <nav class="category-list" aria-label="AWS services">
@@ -2798,6 +2865,80 @@
           <div class="benefits-cue"><span>Exam cue</span><strong>Use multiple AZs, load balancing, and Auto Scaling to improve fault tolerance for EC2 applications.</strong></div>
         </div>
       </section>
+      <section class="flashcard-section" id="resiliency-storage-flashcards">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Visible flashcards</p>
+            <h2>Resiliency and Storage Flashcards</h2>
+          </div>
+          <span>9 cards</span>
+        </div>
+        <div class="flashcard-grid">
+          <article class="study-flashcard">
+            <h3>If you need synchronous data replication across Availability Zones for Amazon RDS, what is the best solution?</h3>
+            <div class="flashcard-answer">
+              <span>Answer</span>
+              <p><strong>Multi-AZ deployment.</strong> RDS synchronously replicates to a standby in another AZ for high availability and failover.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>If you need asynchronous data replication to another Amazon RDS instance in another AWS Region, what is the best solution?</h3>
+            <div class="flashcard-answer">
+              <span>Answer</span>
+              <p><strong>Add a read replica.</strong> Cross-Region read replicas use asynchronous replication and can support DR or read scaling.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>You need an RDS disaster recovery plan with RTO of 60 seconds and RPO of 1 second. What database is best?</h3>
+            <div class="flashcard-answer">
+              <span>Answer</span>
+              <p><strong>Amazon Aurora Global Database.</strong> It spans multiple Regions with storage-based replication and very low RPO/RTO targets.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>What is high availability?</h3>
+            <div class="flashcard-answer">
+              <span>Answer</span>
+              <p>Designing systems to stay up and provide service as often as possible, usually by using redundancy and automatic failover.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>What is fault tolerance?</h3>
+            <div class="flashcard-answer">
+              <span>Answer</span>
+              <p>The ability of a system to keep operating when one or more components fail.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>What is disaster recovery?</h3>
+            <div class="flashcard-answer">
+              <span>Answer</span>
+              <p>Planning how to restore systems after a larger failure. The exam usually gives RTO and RPO to choose the right DR strategy.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Which AWS service can create DNS failover for a static website hosted on Amazon S3?</h3>
+            <div class="flashcard-answer">
+              <span>Answer</span>
+              <p><strong>Amazon Route 53</strong> with a failover routing policy and health checks.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>What Amazon S3 storage class would you choose to store cold data?</h3>
+            <div class="flashcard-answer">
+              <span>Answer</span>
+              <p><strong>Amazon S3 Glacier.</strong> Use Glacier classes for archive and cold data where retrieval delay is acceptable.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>What storage solution would you choose for a parallel file system for frequently accessed data?</h3>
+            <div class="flashcard-answer">
+              <span>Answer</span>
+              <p><strong>Amazon FSx for Lustre.</strong> Use it for high-performance parallel file storage for HPC, analytics, and machine learning workloads.</p>
+            </div>
+          </article>
+        </div>
+      </section>
 
       <div id="empty" class="empty-state">No matching services found. Try a broader keyword.</div>
       <section class="category-section" id="analytics" data-section>
@@ -3616,7 +3757,7 @@
             <p>Managed relational database service.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for standard relational engines where AWS handles backups, patching, and failover options. Amazon RDS Custom for Oracle provides OS-level access, and a cross-Region read replica supports disaster recovery.</strong>
+              <strong>Use for standard relational engines where AWS handles backups, patching, and failover options. Multi-AZ gives synchronous standby replication across AZs for high availability; cross-Region read replicas use asynchronous replication for read scaling or DR.</strong>
             </div>
           </article>
           <article id="service-amazon-redshift" class="service-card" data-card data-category="Database" data-search="amazon redshift managed cloud data warehouse. use for analytics and reporting, not oltp transaction processing. kinesis data firehose ingests data with high availability and loads amazon redshift for sql analytics. database">
@@ -3640,7 +3781,7 @@
             <p>Multi-Region Aurora architecture with low-latency replication. Choose it for low RPO/RTO disaster recovery or global reads.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Aurora Global Database provides low-latency cross-Region replication, and warm standby gives the lowest RTO of the options.</strong>
+              <strong>Aurora Global Database uses storage-based replication across Regions and is the exam fit for very low RPO/RTO disaster recovery targets such as seconds.</strong>
             </div>
           </article>
           <article id="service-amazon-dynamodb-accelerator-dax" class="service-card" data-card data-category="Database" data-search="amazon dynamodb accelerator (dax) in-memory cache for dynamodb. use it when dynamodb read latency must be microseconds to sub-milliseconds. dynamodb with dax provides sub-millisecond reads, dynamodb export stores history in s3, and athena runs one-time sql queries. dynamodb accelerator (dax) is a managed in-memory cache built for dynamodb and can reduce read response times from milliseconds to microseconds. database">
@@ -5317,7 +5458,7 @@
             <p>Low-cost archival storage classes.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose for long-term archive data with retrieval time and cost tradeoffs.</strong>
+              <strong>Choose for archive or cold data when retrieval delay is acceptable and low storage cost matters.</strong>
             </div>
           </article>
           <article id="service-aws-storage-gateway" class="service-card" data-card data-category="Storage" data-search="aws storage gateway hybrid storage connecting on-premises apps to aws storage. use for file, volume, or tape gateway patterns in hybrid environments. storage">
@@ -5377,7 +5518,7 @@
             <p>High-performance shared file system for HPC, machine learning, and parallel processing workloads. It can link to S3 datasets.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Amazon FSx for Lustre provides high-performance shared storage for HPC workloads and can link to S3 for dataset access and postprocessing. Elastic Fabric Adapter optimizes low-latency HPC networking, and FSx for Lustre with scratch storage provides high-performance shared storage for HPC workloads.</strong>
+              <strong>Amazon FSx for Lustre provides high-performance parallel file storage for frequently accessed HPC, analytics, and machine learning data, and can link to S3 datasets.</strong>
             </div>
           </article>
           <article id="service-amazon-fsx-for-windows-file-server" class="service-card" data-card data-category="Storage" data-search="amazon fsx for windows file server managed windows file system with smb and active directory integration. best fit for windows file share workloads. amazon fsx for windows file server preserves smb access and supports multi-az high availability. amazon fsx for windows file server provides highly available smb storage with active directory integration. storage">
