@@ -3072,7 +3072,7 @@
               <strong>Know as the browser-based way to manage AWS services.</strong>
             </div>
           </article>
-          <article id="service-aws-organizations" class="service-card" data-card data-category="Management and Governance" data-search="aws organizations multi-account management and consolidated billing. use for account hierarchy, service control policies, and centralized billing. aws organizations with organizational units and a service control policy centrally restricts which ec2 instance types accounts can create. management and governance">
+          <article id="service-aws-organizations" class="service-card" data-card data-category="Management and Governance" data-search="aws organizations multi-account management and consolidated billing. use for account hierarchy, service control policies, and centralized billing. aws organizations with organizational units and a service control policy centrally restricts which ec2 instance types accounts can create. management and governance service control policy allow list deny list maximum permissions">
             <div class="service-topline">
               <span class="service-icon"><img src="assets/aws-icons/aws-organizations.svg" alt="" loading="lazy"></span>
               <span class="service-category">Management and Governance</span>
@@ -3081,7 +3081,7 @@
             <p>Multi-account management and consolidated billing.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for account hierarchy, service control policies, and centralized billing. AWS Organizations with organizational units and a service control policy centrally restricts which EC2 instance types accounts can create.</strong>
+              <strong>Use for account hierarchy, service control policies, and centralized billing. SCPs set maximum permissions for accounts and OUs; use them for allow-list guardrails or deny-list guardrails.</strong>
             </div>
           </article>
           <article id="service-aws-service-catalog" class="service-card" data-card data-category="Management and Governance" data-search="aws service catalog approved product catalogs for users. use to let teams deploy pre-approved infrastructure while enforcing governance. aws service catalog lets the company centrally define approved products and portfolios that customers can deploy for self-service. management and governance">
@@ -3192,7 +3192,7 @@
               <strong>AWS Shield Advanced with the AWS DDoS Response Team provides managed DDoS mitigation support and visibility for attack events and sources with minimal configuration changes.</strong>
             </div>
           </article>
-          <article id="service-aws-organizations-service-control-policy-scp" class="service-card" data-card data-category="Management and Governance" data-search="aws organizations service control policy (scp) aws organizations policy type that sets maximum available permissions for accounts or ous. use scps to centrally restrict actions such as disallowed ec2 instance types. aws organizations with organizational units and a service control policy centrally restricts which ec2 instance types accounts can create. management and governance">
+          <article id="service-aws-organizations-service-control-policy-scp" class="service-card" data-card data-category="Management and Governance" data-search="aws organizations service control policy (scp) aws organizations policy type that sets maximum available permissions for accounts or ous. use scps to centrally restrict actions such as disallowed ec2 instance types. aws organizations with organizational units and a service control policy centrally restricts which ec2 instance types accounts can create. management and governance service control policy allow list deny list maximum permissions">
             <div class="service-topline">
               <span class="service-icon"><img src="assets/aws-icons/aws-organizations.svg" alt="" loading="lazy"></span>
               <span class="service-category">Management and Governance</span>
@@ -3201,7 +3201,7 @@
             <p>AWS Organizations policy type that sets maximum available permissions for accounts or OUs. Use SCPs to centrally restrict actions such as disallowed EC2 instance types.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>AWS Organizations with organizational units and a service control policy centrally restricts which EC2 instance types accounts can create.</strong>
+              <strong>SCPs can block services by default and allow only approved services, or allow by default and deny specific risky actions. They limit maximum permissions but do not grant access by themselves.</strong>
             </div>
           </article>
           <article id="service-elastic-fabric-adapter-efa" class="service-card" data-card data-category="Management and Governance" data-search="elastic fabric adapter (efa) ec2 network interface for tightly coupled hpc and machine learning workloads that need low-latency, high-throughput node communication. elastic fabric adapter optimizes low-latency hpc networking, and fsx for lustre with scratch storage provides high-performance shared storage for hpc workloads. management and governance">
@@ -3605,7 +3605,7 @@
               <strong>Use to simplify many-to-many VPC and hybrid network connectivity. Direct Connect provides dedicated low-latency connectivity, and Transit Gateway centralizes connectivity for the three VPCs.</strong>
             </div>
           </article>
-          <article id="service-amazon-vpc" class="service-card" data-card data-category="Networking and Content Delivery" data-search="amazon vpc isolated virtual network in aws. know subnets, route tables, security groups, nacls, nat gateways, internet gateways, and endpoints. vpc peering privately connects two vpcs, including cross-account vpcs, without a managed appliance. networking and content delivery">
+          <article id="service-amazon-vpc" class="service-card" data-card data-category="Networking and Content Delivery" data-search="amazon vpc isolated virtual network in aws. know subnets, route tables, security groups, nacls, nat gateways, internet gateways, and endpoints. vpc peering privately connects two vpcs, including cross-account vpcs, without a managed appliance. networking and content delivery network acl security group gateway endpoint interface endpoint">
             <div class="service-topline">
               <span class="service-icon"><img src="assets/aws-icons/vpc-peering.svg" alt="" loading="lazy"></span>
               <span class="service-category">Networking and Content Delivery</span>
@@ -3615,7 +3615,7 @@
             <p>Isolated virtual network in AWS.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Know subnets, route tables, security groups, NACLs, NAT gateways, internet gateways, and endpoints. VPC peering privately connects two VPCs, including cross-account VPCs, without a managed appliance.</strong>
+              <strong>Know subnets, route tables, security groups, NACLs, NAT gateways, internet gateways, and endpoints. Network ACLs are subnet-level and stateless with allow and deny rules. Security groups are ENI or instance-level, stateful, and allow-only. VPC endpoint types are gateway endpoints for S3 and DynamoDB, and interface endpoints through AWS PrivateLink for most other services.</strong>
             </div>
           </article>
           <article id="service-amazon-api-gateway-canary-release" class="service-card" data-card data-category="Networking and Content Delivery" data-search="amazon api gateway canary release deployment pattern that sends a controlled percentage of api traffic to a new version before full promotion. use it to reduce release risk for rest apis. an api gateway canary release sends a small percentage of production traffic to the new deployment, then promotes it after validation to minimize customer impact and data loss. networking and content delivery">
@@ -3651,7 +3651,7 @@
           <span>31 services</span>
         </div>
         <div class="service-grid">
-          <article id="service-aws-sts" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="aws sts temporary security credentials for aws access. choose when access should be temporary, federated, or assumed through roles. security, identity, and compliance aws security token service">
+          <article id="service-aws-sts" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="aws sts temporary security credentials for aws access. choose when access should be temporary, federated, or assumed through roles. security, identity, and compliance aws security token service short-term temporary credentials">
             <div class="service-topline">
               <span class="service-icon"><img src="assets/aws-icons/iam-role.svg" alt="" loading="lazy"></span>
               <span class="service-category">Security, Identity, and Compliance</span>
@@ -3661,7 +3661,7 @@
             <p>Temporary security credentials for AWS access.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose when access should be temporary, federated, or assumed through roles.</strong>
+              <strong>Choose when access should be temporary, federated, or assumed through roles. AWS Security Token Service provides short-term credentials for access to AWS resources.</strong>
             </div>
           </article>
           <article id="service-aws-artifact" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="aws artifact access to aws compliance reports and agreements. use when a question asks where to find audit reports or compliance documents. security, identity, and compliance">
@@ -3688,7 +3688,7 @@
               <strong>Choose for continuous audit preparation and mapping evidence to control frameworks.</strong>
             </div>
           </article>
-          <article id="service-aws-certificate-manager" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="aws certificate manager provisions and manages tls certificates. use for certificates on elb, cloudfront, api gateway, and other integrated services. security, identity, and compliance">
+          <article id="service-aws-certificate-manager" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="aws certificate manager provisions and manages tls certificates. use for certificates on elb, cloudfront, api gateway, and other integrated services. security, identity, and compliance sni multiple domains same ip ssl tls">
             <div class="service-topline">
               <span class="service-icon"><img src="assets/aws-icons/acm.svg" alt="" loading="lazy"></span>
               <span class="service-category">Security, Identity, and Compliance</span>
@@ -3697,7 +3697,7 @@
             <p>Provisions and manages TLS certificates.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for certificates on ELB, CloudFront, API Gateway, and other integrated services.</strong>
+              <strong>Use for certificates on ELB, CloudFront, API Gateway, and other integrated services. ACM supports TLS for multiple domains on the same IP when the integrated endpoint uses SNI.</strong>
             </div>
           </article>
           <article id="service-aws-cloudhsm" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="aws cloudhsm dedicated hardware security modules. choose when strict compliance requires customer-managed hsms and key control. security, identity, and compliance">
@@ -3736,7 +3736,7 @@
               <strong>Use to analyze relationships and root causes after GuardDuty or Security Hub findings.</strong>
             </div>
           </article>
-          <article id="service-aws-directory-service" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="aws directory service managed microsoft ad and directory options. use for aws workloads needing active directory integration. aws iam identity center integrated with aws directory service for microsoft active directory and a two-way trust lets users remain managed in on-premises active directory while. security, identity, and compliance">
+          <article id="service-aws-directory-service" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="aws directory service managed microsoft ad and directory options. use for aws workloads needing active directory integration. aws iam identity center integrated with aws directory service for microsoft active directory and a two-way trust lets users remain managed in on-premises active directory while. security, identity, and compliance microsoft active directory on premises credentials">
             <div class="service-topline">
               <span class="service-icon"><img src="assets/aws-icons/directory-service.svg" alt="" loading="lazy"></span>
               <span class="service-category">Security, Identity, and Compliance</span>
@@ -3746,7 +3746,7 @@
             <p>Managed Microsoft AD and directory options.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for AWS workloads needing Active Directory integration. AWS IAM Identity Center integrated with AWS Directory Service for Microsoft Active Directory and a two-way trust lets users remain managed in on-premises Active Directory while.</strong>
+              <strong>Use for AWS workloads needing Active Directory integration. AWS Directory Service for Microsoft Active Directory can connect AWS resources and on-premises resources while users keep on-premises AD credentials.</strong>
             </div>
           </article>
           <article id="service-aws-firewall-manager" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="aws firewall manager central firewall and security policy management. use across multiple accounts for waf, shield advanced, security groups, and network firewall policies. security, identity, and compliance">
@@ -3855,7 +3855,7 @@
             <p>Stores, rotates, and retrieves secrets.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose for database credentials, API keys, and automatic secret rotation. AWS Secrets Manager stores database credentials securely and supports automatic rotation with IAM role access.</strong>
+              <strong>Choose for database credentials, API keys, and automatic secret rotation. Secrets Manager encrypts secrets, helps rotate them, and removes hardcoded database credentials from applications.</strong>
             </div>
           </article>
           <article id="service-aws-security-hub" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="aws security hub centralizes security findings and posture checks. use for aggregated security view across aws accounts and services. amazon guardduty continuously monitors malicious activity and can send findings to aws security hub for centralized reporting and dashboards. security, identity, and compliance">
@@ -3882,7 +3882,7 @@
               <strong>Know Standard is automatic; Advanced adds enhanced protection, response, and cost safeguards.</strong>
             </div>
           </article>
-          <article id="service-aws-waf" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="aws waf web application firewall. use to protect http/https apps from common web exploits with rules and managed rule groups. aws waf in front of the alb can block sql injection patterns through web acls. security, identity, and compliance">
+          <article id="service-aws-waf" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="aws waf web application firewall. use to protect http/https apps from common web exploits with rules and managed rule groups. aws waf in front of the alb can block sql injection patterns through web acls. security, identity, and compliance rate-based rule osi model web acl">
             <div class="service-topline">
               <span class="service-icon"><img src="assets/aws-icons/aws-waf.svg" alt="" loading="lazy"></span>
               <span class="service-category">Security, Identity, and Compliance</span>
@@ -3891,10 +3891,10 @@
             <p>Web application firewall.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use to protect HTTP/HTTPS apps from common web exploits with rules and managed rule groups. AWS WAF in front of the ALB can block SQL injection patterns through web ACLs.</strong>
+              <strong>Use to protect HTTP/HTTPS apps from common web exploits with rules and managed rule groups. Create a rate-based rule to limit requests from a single IP. Know the OSI layer because a firewall can inspect only what its layer can read.</strong>
             </div>
           </article>
-          <article id="service-iam" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="iam identity and access management for aws resources. know users, groups, roles, policies, least privilege, permission boundaries, and cross-account access. security, identity, and compliance aws identity and access management">
+          <article id="service-iam" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="iam identity and access management for aws resources. know users, groups, roles, policies, least privilege, permission boundaries, and cross-account access. security, identity, and compliance aws identity and access management no permissions by default trust policy permission policy">
             <div class="service-topline">
               <span class="service-icon"><img src="assets/aws-icons/iam.svg" alt="" loading="lazy"></span>
               <span class="service-category">Security, Identity, and Compliance</span>
@@ -3904,7 +3904,7 @@
             <p>Identity and access management for AWS resources.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Know users, groups, roles, policies, least privilege, permission boundaries, and cross-account access.</strong>
+              <strong>Know users, groups, roles, policies, least privilege, permission boundaries, and cross-account access. New IAM users, groups, and roles start with no permissions until permissions are explicitly granted.</strong>
             </div>
           </article>          <article id="service-aws-private-ca" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="aws private ca aws private certificate authority managed private certificate authority service. choose for issuing and managing private certificates for internal workloads. security identity and compliance aws private certificate authority">
             <div class="service-topline">
@@ -3976,7 +3976,7 @@
             <p>IAM identity assumed by users, applications, or AWS services. Roles can receive identity-based policies and are preferred over long-term credentials.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>AWS Secrets Manager stores database credentials securely and supports automatic rotation with IAM role access. Create an IAM role in the company's account that trusts the vendor's IAM role, then attach least-privilege policies to the company-side role.</strong>
+              <strong>IAM roles use a trust policy to define who can assume the role and a permissions policy to define what actions the role can perform. For cross-account access, create a role that trusts the external principal and attach least-privilege permissions.</strong>
             </div>
           </article>
           <article id="service-aws-identity-and-access-management-iam-user" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="aws identity and access management (iam) user long-term iam identity for a person or workload. prefer roles for cross-account access and temporary credentials. attach the aws managed administratoraccess identity-based policy to the iam user group, then place the five iam users in that group. security, identity, and compliance">
@@ -4107,7 +4107,7 @@
               <strong>Use to automate and manage backups across AWS services and accounts.</strong>
             </div>
           </article>
-          <article id="service-amazon-ebs" class="service-card" data-card data-category="Storage" data-search="amazon ebs block storage volumes for ec2. choose for persistent, low-latency block storage attached to ec2 instances. storage amazon elastic block store">
+          <article id="service-amazon-ebs" class="service-card" data-card data-category="Storage" data-search="amazon ebs block storage volumes for ec2. choose for persistent, low-latency block storage attached to ec2 instances. storage amazon elastic block store ebs encryption when creating volume">
             <div class="service-topline">
               <span class="service-icon"><img src="assets/aws-icons/ebs.svg" alt="" loading="lazy"></span>
               <span class="service-category">Storage</span>
@@ -4117,7 +4117,7 @@
             <p>Block storage volumes for EC2.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose for persistent, low-latency block storage attached to EC2 instances.</strong>
+              <strong>Choose for persistent, low-latency block storage attached to EC2 instances. Turn on EBS encryption when creating sensitive data volumes, or use default EBS encryption for new volumes.</strong>
             </div>
           </article>
           <article id="service-amazon-efs" class="service-card" data-card data-category="Storage" data-search="amazon efs managed elastic nfs file system. use for shared linux file storage across multiple instances or containers. storage amazon elastic file system">
@@ -4145,7 +4145,7 @@
               <strong>Choose when a workload needs a specific managed file system protocol or performance profile.</strong>
             </div>
           </article>
-          <article id="service-amazon-s3" class="service-card" data-card data-category="Storage" data-search="amazon s3 object storage service. use for durable, scalable object storage, static hosting, data lakes, backups, and lifecycle policies. s3 glacier deep archive after one month is the lowest-cost choice for data kept indefinitely and rarely accessed. storage">
+          <article id="service-amazon-s3" class="service-card" data-card data-category="Storage" data-search="amazon s3 object storage service. use for durable, scalable object storage, static hosting, data lakes, backups, and lifecycle policies. s3 glacier deep archive after one month is the lowest-cost choice for data kept indefinitely and rarely accessed. storage versioning mfa delete prevent deletion overwrite">
             <div class="service-topline">
               <span class="service-icon"><img src="assets/aws-icons/s3.svg" alt="" loading="lazy"></span>
               <span class="service-category">Storage</span>
@@ -4155,7 +4155,7 @@
             <p>Object storage service.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for durable, scalable object storage, static hosting, data lakes, backups, and lifecycle policies. S3 Glacier Deep Archive after one month is the lowest-cost choice for data kept indefinitely and rarely accessed.</strong>
+              <strong>Use for durable, scalable object storage, static hosting, data lakes, backups, and lifecycle policies. Protect objects from deletion or overwrite with S3 Versioning and MFA Delete.</strong>
             </div>
           </article>
           <article id="service-amazon-s3-glacier" class="service-card" data-card data-category="Storage" data-search="amazon s3 glacier low-cost archival storage classes. choose for long-term archive data with retrieval time and cost tradeoffs. storage">
