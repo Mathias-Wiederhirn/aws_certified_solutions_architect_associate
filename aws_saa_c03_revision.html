@@ -1708,6 +1708,10 @@
         <span>Resiliency Flashcards</span>
         <strong>9</strong>
       </a>
+<a class="category-link" href="#domain1-security-review">
+        <span>Domain 1 Security Review</span>
+        <strong>16</strong>
+      </a>
 <a class="nav-title nav-title-link" href="https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/saa-03-in-scope-services.html" target="_blank" rel="noopener noreferrer">AWS Services</a>
       <nav class="category-list" aria-label="AWS services">
         
@@ -2223,6 +2227,130 @@
                 <strong>Choose bandwidth allocation</strong>
                 <p>Match <a class="skill-service-link" href="#service-aws-site-to-site-vpn" data-service-target="service-aws-site-to-site-vpn">VPN</a> or <a class="skill-service-link" href="#service-aws-direct-connect" data-service-target="service-aws-direct-connect">Direct Connect</a> capacity to traffic needs without overbuying.</p>
               </article>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="flashcard-section" id="domain1-security-review">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Domain 1 review</p>
+            <h2>Secure Architectures Checklist</h2>
+          </div>
+          <span>16 review points</span>
+        </div>
+        <div class="flashcard-grid">
+          <article class="study-flashcard">
+            <h3>Least privilege in a multi-account environment</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>Use <a class="skill-service-link" href="#service-aws-organizations" data-service-target="service-aws-organizations">Organizations</a>, <a class="skill-service-link" href="#service-aws-control-tower" data-service-target="service-aws-control-tower">Control Tower</a>, IAM roles, permission sets, and SCPs. SCPs limit maximum permissions; they do not grant access.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>IAM user vs IAM role</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>Use users for long-term named identities when required. Prefer roles for AWS services, cross-account access, federation, and temporary credentials through STS.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Policy types to compare</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>Identity policies define what a user, group, or role can do. Resource policies define who can access a resource. Permission policies attach to roles. SCPs set account or OU guardrails.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Overlapping allow and deny rules</h3>
+            <div class="flashcard-answer">
+              <span>Exam cue</span>
+              <p>Explicit deny wins. Otherwise access needs an allow, and guardrails such as SCPs or permission boundaries can still cap the final permission.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Federation into AWS</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>Use IAM Identity Center, IAM roles, STS, Amazon Cognito, or directory integration so users sign in with existing identities instead of long-term IAM credentials.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Default VPC vs custom VPC</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>A VPC is regional and belongs to one AWS account. Default VPCs are ready to launch into; custom VPCs give deliberate control over CIDR, subnets, routes, and security boundaries.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Subnet resiliency and segmentation</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>Subnets are Availability Zone scoped. Use public subnets for approved internet entry points and private subnets for application or data tiers.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Secure VPC traffic controls</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>Combine route tables, security groups, NACLs, NAT gateways, VPC endpoints, and gateways. Security groups are stateful allow rules; NACLs are stateless allow and deny rules.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Private access to AWS services and applications</h3>
+            <div class="flashcard-answer">
+              <span>Exam cue</span>
+              <p>Use gateway endpoints for S3 and DynamoDB. Use interface endpoints and PrivateLink for private service access without internet gateway, NAT gateway, or VPC peering.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Hybrid and external connectivity</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>Use Site-to-Site VPN for encrypted connectivity over the internet, Client VPN for user access, Direct Connect for dedicated private connectivity, and Transit Gateway for hub routing.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Threat and application protection services</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>Use Shield for DDoS protection, WAF for layer 7 web rules such as SQL injection controls, GuardDuty for threat detection, and Macie for sensitive data discovery in S3.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Secrets Manager vs Parameter Store</h3>
+            <div class="flashcard-answer">
+              <span>Exam cue</span>
+              <p>Choose Secrets Manager when secrets need managed rotation. Parameter Store is useful for configuration values and basic secure parameters.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>KMS vs CloudHSM</h3>
+            <div class="flashcard-answer">
+              <span>Exam cue</span>
+              <p>Use KMS for managed key service integration with AWS services. Use CloudHSM when strict compliance requires dedicated customer-managed hardware security modules.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>S3 encryption choices</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>Client-side encryption happens before upload. Server-side encryption options include S3-managed keys, KMS keys, or customer-provided keys.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Compliance and evidence</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>Use AWS Artifact for AWS compliance reports and agreements. Use CloudTrail, CloudWatch, VPC Flow Logs, Config, and Security Hub for evidence, monitoring, and visibility.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Data protection and disaster recovery</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>Use AWS Backup for centralized backup, EBS snapshots, RDS/Aurora snapshots, DynamoDB point-in-time recovery, EFS backup, FSx backup, and S3 Cross-Region Replication when objects need continuous asynchronous copy.</p>
             </div>
           </article>
         </div>
@@ -4428,7 +4556,7 @@
             <p>Operational management for AWS and hybrid resources.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for patching, Session Manager, Parameter Store, automation, inventory, and run commands.</strong>
+              <strong>Use for patching, Session Manager, Parameter Store, automation, inventory, and run commands. Parameter Store can store configuration values and secure strings, but Secrets Manager is the rotation-focused secret service.</strong>
             </div>
           </article>
           <article id="service-aws-trusted-advisor" class="service-card" data-card data-category="Management and Governance" data-search="aws trusted advisor best-practice checks and recommendations. use for cost optimization, security, fault tolerance, performance, and service limits. management and governance">
@@ -4853,7 +4981,7 @@
             <p>Dedicated private network connection to AWS.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for consistent bandwidth, private connectivity, and hybrid network requirements. Direct Connect provides dedicated low-latency connectivity, and Transit Gateway centralizes connectivity for the three VPCs.</strong>
+              <strong>Use for consistent bandwidth, dedicated private connectivity, and hybrid network requirements. Pair with VPN when encrypted backup connectivity is required.</strong>
             </div>
           </article>
           <article id="service-elastic-load-balancing" class="service-card" data-card data-category="Networking and Content Delivery" data-search="elastic load balancing distributes traffic across targets. use alb for http/https layer 7, nlb for ultra-high performance tcp/udp/tls, and gwlb for appliances. networking and content delivery">
@@ -4886,7 +5014,7 @@
               <span class="service-category">Networking and Content Delivery</span>
             </div>
             <h3><a href="https://aws.amazon.com/privatelink/" target="_blank" rel="noopener noreferrer">AWS PrivateLink</a></h3>
-            <p>Private access to services over AWS network using VPC endpoints.</p>
+            <p>Private access to services over the AWS network using interface VPC endpoints. Use it to expose services privately to many VPCs without peering or public internet exposure.</p>
             <div class="exam-use">
               <span>Exam cue</span>
               <strong>Use to connect privately to AWS services, SaaS, or your own endpoint services without public internet.</strong>
@@ -4913,7 +5041,7 @@
             <p>Encrypted VPN between on-premises network and AWS.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose for quick hybrid connectivity over the internet, often paired with Direct Connect as backup.</strong>
+              <strong>Choose for encrypted hybrid connectivity over the internet, often paired with Direct Connect as backup.</strong>
             </div>
           </article>
           <article id="service-aws-transit-gateway" class="service-card" data-card data-category="Networking and Content Delivery" data-search="aws transit gateway central hub connecting vpcs and on-premises networks. use to simplify many-to-many vpc and hybrid network connectivity. direct connect provides dedicated low-latency connectivity, and transit gateway centralizes connectivity for the three vpcs. networking and content delivery">
@@ -4938,7 +5066,7 @@
             <p>Isolated virtual network in AWS.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Know subnets, route tables, security groups, NACLs, NAT gateways, internet gateways, and endpoints. Network ACLs are subnet-level and stateless with allow and deny rules. Security groups are ENI or instance-level, stateful, and allow-only. VPC endpoint types are gateway endpoints for S3 and DynamoDB, and interface endpoints through AWS PrivateLink for most other services.</strong>
+              <strong>Know VPC is regional and subnets are AZ-scoped. Use public/private subnet segmentation, route tables, security groups, NACLs, NAT gateways, internet gateways, and endpoints. Gateway endpoints cover S3 and DynamoDB; interface endpoints use PrivateLink.</strong>
             </div>
           </article>
           <article id="service-amazon-api-gateway-canary-release" class="service-card" data-card data-category="Networking and Content Delivery" data-search="amazon api gateway canary release deployment pattern that sends a controlled percentage of api traffic to a new version before full promotion. use it to reduce release risk for rest apis. an api gateway canary release sends a small percentage of production traffic to the new deployment, then promotes it after validation to minimize customer impact and data loss. networking and content delivery">
@@ -4996,7 +5124,7 @@
             <p>Access to AWS compliance reports and agreements.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use when a question asks where to find audit reports or compliance documents.</strong>
+              <strong>Use when a question asks where to find AWS audit reports, compliance reports, or online agreements.</strong>
             </div>
           </article>
           <article id="service-aws-audit-manager" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="aws audit manager automates evidence collection for audits. choose for continuous audit preparation and mapping evidence to control frameworks. security, identity, and compliance">
@@ -5032,7 +5160,7 @@
             <p>Dedicated hardware security modules.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose when strict compliance requires customer-managed HSMs and key control.</strong>
+              <strong>Choose when strict compliance requires dedicated customer-managed HSMs, direct key control, or FIPS hardware requirements beyond standard KMS usage.</strong>
             </div>
           </article>
           <article id="service-amazon-cognito" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="amazon cognito user sign-up, sign-in, and identity federation for apps. use for application user authentication and temporary aws credentials through identity pools. security, identity, and compliance">
@@ -5041,10 +5169,10 @@
               <span class="service-category">Security, Identity, and Compliance</span>
             </div>
             <h3><a href="https://aws.amazon.com/cognito/" target="_blank" rel="noopener noreferrer">Amazon Cognito</a></h3>
-            <p>User sign-up, sign-in, and identity federation for apps.</p>
+            <p>User sign-up, sign-in, user pools, identity pools, and identity federation for applications.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for application user authentication and temporary AWS credentials through identity pools.</strong>
+              <strong>Use user pools for application authentication and identity pools to broker federated access to temporary AWS credentials.</strong>
             </div>
           </article>
           <article id="service-amazon-detective" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="amazon detective investigates security findings and behavior. use to analyze relationships and root causes after guardduty or security hub findings. security, identity, and compliance">
@@ -5130,7 +5258,7 @@
             <p>Managed encryption key service.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for creating and controlling encryption keys integrated with AWS services.</strong>
+              <strong>Use for managed encryption keys integrated with AWS services. Choose KMS before CloudHSM unless strict compliance requires dedicated customer-managed HSMs.</strong>
             </div>
           </article>
           <article id="service-amazon-macie" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="amazon macie sensitive data discovery and protection for s3. choose when the scenario asks to find or protect pii/sensitive data in s3. dynamodb provides low-latency hierarchical access, and macie can detect financial data in monthly s3 exports with sns notifications. security, identity, and compliance">
@@ -5178,7 +5306,7 @@
             <p>Stores, rotates, and retrieves secrets.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose for database credentials, API keys, and automatic secret rotation. Secrets Manager encrypts secrets, helps rotate them, and removes hardcoded database credentials from applications.</strong>
+              <strong>Choose for database credentials, API keys, high-value secrets, and automatic secret rotation. Prefer it over Parameter Store when managed rotation is a requirement.</strong>
             </div>
           </article>
           <article id="service-aws-security-hub" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="aws security hub centralizes security findings and posture checks. use for aggregated security view across aws accounts and services. amazon guardduty continuously monitors malicious activity and can send findings to aws security hub for centralized reporting and dashboards. security, identity, and compliance">
@@ -5202,7 +5330,7 @@
             <p>DDoS protection service.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Know Standard is automatic; Advanced adds enhanced protection, response, and cost safeguards.</strong>
+              <strong>Know Standard is automatic for common DDoS protection; Advanced adds enhanced detection, response support, cost safeguards, and DDoS Response Team access.</strong>
             </div>
           </article>
           <article id="service-aws-waf" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="aws waf web application firewall. use to protect http/https apps from common web exploits with rules and managed rule groups. aws waf in front of the alb can block sql injection patterns through web acls. security, identity, and compliance rate-based rule osi model web acl">
@@ -5427,7 +5555,7 @@
             <p>Centralized backup service.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use to automate and manage backups across AWS services and accounts.</strong>
+              <strong>Use to centrally configure, schedule, monitor, and copy backups across Regions for supported resources such as EBS, EC2, RDS/Aurora, DynamoDB, EFS, Storage Gateway, and FSx.</strong>
             </div>
           </article>
           <article id="service-amazon-ebs" class="service-card" data-card data-category="Storage" data-search="amazon ebs block storage volumes for ec2. choose for persistent, low-latency block storage attached to ec2 instances. storage amazon elastic block store ebs encryption when creating volume">
@@ -5475,7 +5603,7 @@
             </div>
             <h3><a href="https://aws.amazon.com/s3/" target="_blank" rel="noopener noreferrer">Amazon S3</a></h3>
             <span class="service-full-name">Amazon Simple Storage Service</span>
-            <p>Object storage service.</p>
+            <p>Object storage service. Supports encryption in transit with HTTPS and encryption at rest through server-side or client-side encryption choices.</p>
             <div class="exam-use">
               <span>Exam cue</span>
               <strong>Use for durable, scalable object storage, static hosting, data lakes, backups, and lifecycle policies. Protect objects from deletion or overwrite with S3 Versioning and MFA Delete.</strong>
@@ -5502,7 +5630,7 @@
             <p>Hybrid storage connecting on-premises apps to AWS storage.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for file, volume, or tape gateway patterns in hybrid environments.</strong>
+              <strong>Use for hybrid environments that need file, volume, or tape gateway patterns connecting on-premises applications to AWS storage.</strong>
             </div>
           </article>
           <article id="service-amazon-ebs-fast-snapshot-restore" class="service-card" data-card data-category="Storage" data-search="amazon ebs fast snapshot restore pre-warms ebs snapshots so new volumes initialize quickly. useful for auto scaling fleets that must launch fast. ebs fast snapshot restore reduces initialization latency for volumes created from the snapshot used by the ami. storage">
