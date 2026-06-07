@@ -1712,6 +1712,10 @@
         <span>Domain 1 Security Review</span>
         <strong>16</strong>
       </a>
+<a class="category-link" href="#domain1-walkthrough-questions">
+        <span>Domain 1 Walkthroughs</span>
+        <strong>3</strong>
+      </a>
 <a class="nav-title nav-title-link" href="https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/saa-03-in-scope-services.html" target="_blank" rel="noopener noreferrer">AWS Services</a>
       <nav class="category-list" aria-label="AWS services">
         
@@ -1817,11 +1821,11 @@
               </article>
               <article class="skill-card">
                 <strong>Apply security best practices to <a class="skill-service-link" href="#service-iam" data-service-target="service-iam">IAM</a> and root users</strong>
-                <p>Use MFA, protect the root user, avoid long-term credentials, and apply least privilege to reduce blast radius.</p>
+                <p>Use MFA, complex passwords, protect the root user, avoid root access keys and long-term credentials, and apply least privilege to reduce blast radius.</p>
               </article>
               <article class="skill-card">
                 <strong>Understand AWS accounts and the root user</strong>
-                <p>AWS accounts start with one root user that has full permissions. Protect it with MFA, avoid daily use, and create limited identities for normal administration.</p>
+                <p>AWS accounts start with one root user that has full permissions that cannot be reduced. Protect it with MFA and a complex password, avoid daily use, avoid root access keys, and create limited identities for normal administration.</p>
               </article>
               <article class="skill-card">
                 <strong>Know that <a class="skill-service-link" href="#service-iam" data-service-target="service-iam">IAM</a> is global</strong>
@@ -2352,6 +2356,53 @@
               <span>Know</span>
               <p>Use AWS Backup for centralized backup, EBS snapshots, RDS/Aurora snapshots, DynamoDB point-in-time recovery, EFS backup, FSx backup, and S3 Cross-Region Replication when objects need continuous asynchronous copy.</p>
             </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="flashcard-section" id="domain1-walkthrough-questions">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Walkthrough questions</p>
+            <h2>Domain 1 Exam Question Practice</h2>
+          </div>
+          <span>3 walkthroughs</span>
+        </div>
+        <div class="flashcard-grid">
+          <article class="study-flashcard">
+            <h3>Root user secure login: select two best practices.</h3>
+            <p>The CIO is concerned about root user security. Which controls help secure root account sign-in?</p>
+            <div class="flashcard-answer">
+              <span>Correct answers</span>
+              <p><strong>Enable MFA for root user logins</strong> and <strong>use complex passwords for member account root users</strong>.</p>
+            </div>
+            <p><strong>Distractors:</strong> Do not use root access keys for routine access. The root user cannot assume a role into its own account, and deleting the root account means closing the AWS account and deleting resources.</p>
+          </article>
+          <article class="study-flashcard">
+            <h3>Same subnet, different inbound rules for two EC2 applications.</h3>
+            <p>Application A allows HTTP only. Application B allows HTTPS only. Both run on EC2 instances in the same subnet.</p>
+            <div class="flashcard-answer">
+              <span>Correct answer</span>
+              <p><strong>Use security groups.</strong> Security groups are instance or ENI level, stateful, and allow different rules for instances in the same subnet.</p>
+            </div>
+            <p><strong>Distractors:</strong> NACLs apply at the subnet boundary, route tables direct traffic but do not filter it, and VPC peering connects VPCs without filtering application traffic.</p>
+          </article>
+          <article class="study-flashcard">
+            <h3>Most secure key management for regulatory data encryption.</h3>
+            <p>The solution must securely generate, store, and control cryptographic data keys with durability.</p>
+            <div class="flashcard-answer">
+              <span>Correct answer</span>
+              <p><strong>Use AWS KMS</strong> to generate KMS keys and data keys, and use KMS key policies to control access.</p>
+            </div>
+            <p><strong>Distractors:</strong> ACM stores TLS certificates, not data keys. Instance store is ephemeral and fails durability needs. S3 is object storage, not a direct key-management system, and KMS policies apply to KMS keys.</p>
+          </article>
+          <article class="study-flashcard">
+            <h3>Multiple-choice method for the exam</h3>
+            <div class="flashcard-answer">
+              <span>Technique</span>
+              <p>Read the full stem, identify key words, decide exactly what the question asks, eliminate distractors, then reread the plausible answers before choosing.</p>
+            </div>
+            <p>For “select two” questions, there is no partial credit, so evaluate every option and make sure both selected answers satisfy the stem.</p>
           </article>
         </div>
       </section>
@@ -5066,7 +5117,7 @@
             <p>Isolated virtual network in AWS.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Know VPC is regional and subnets are AZ-scoped. Use public/private subnet segmentation, route tables, security groups, NACLs, NAT gateways, internet gateways, and endpoints. Gateway endpoints cover S3 and DynamoDB; interface endpoints use PrivateLink.</strong>
+              <strong>Know VPC is regional and subnets are AZ-scoped. Security groups are instance or ENI level and fit different rules for instances in the same subnet; NACLs apply at the subnet boundary. Gateway endpoints cover S3 and DynamoDB; interface endpoints use PrivateLink.</strong>
             </div>
           </article>
           <article id="service-amazon-api-gateway-canary-release" class="service-card" data-card data-category="Networking and Content Delivery" data-search="amazon api gateway canary release deployment pattern that sends a controlled percentage of api traffic to a new version before full promotion. use it to reduce release risk for rest apis. an api gateway canary release sends a small percentage of production traffic to the new deployment, then promotes it after validation to minimize customer impact and data loss. networking and content delivery">
@@ -5258,7 +5309,7 @@
             <p>Managed encryption key service.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for managed encryption keys integrated with AWS services. Choose KMS before CloudHSM unless strict compliance requires dedicated customer-managed HSMs.</strong>
+              <strong>Use for managed encryption keys and data keys integrated with AWS services. KMS key policies control access to KMS keys; choose CloudHSM only when dedicated customer-managed HSMs are required.</strong>
             </div>
           </article>
           <article id="service-amazon-macie" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="amazon macie sensitive data discovery and protection for s3. choose when the scenario asks to find or protect pii/sensitive data in s3. dynamodb provides low-latency hierarchical access, and macie can detect financial data in monthly s3 exports with sns notifications. security, identity, and compliance">
