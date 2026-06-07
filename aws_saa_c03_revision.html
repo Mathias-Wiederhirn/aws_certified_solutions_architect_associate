@@ -1716,6 +1716,10 @@
         <span>Domain 1 Walkthroughs</span>
         <strong>3</strong>
       </a>
+<a class="category-link" href="#domain2-resilience-review">
+        <span>Domain 2 Resilience Review</span>
+        <strong>18</strong>
+      </a>
 <a class="nav-title nav-title-link" href="https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/saa-03-in-scope-services.html" target="_blank" rel="noopener noreferrer">AWS Services</a>
       <nav class="category-list" aria-label="AWS services">
         
@@ -1920,7 +1924,7 @@
 
           <article class="domain-card">
             <h3><a href="https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03-domain2.html" target="_blank" rel="noopener noreferrer">Design Resilient Architectures</a></h3>
-            <p>Keep applications available when traffic spikes, components fail, or an Availability Zone has problems.</p>
+            <p>Keep applications available when traffic spikes, components fail, attacks happen, bugs appear, or an Availability Zone has problems.</p>
 
 
             <div class="service-chip-list">
@@ -1928,8 +1932,8 @@
 
             <h4>What it means for the exam</h4>
             <ul>
-              <li><strong>Loose coupling.</strong> Use queues, topics, events, and workflows so one failing component does not stop the whole application.</li>
-              <li><strong>High availability.</strong> Spread resources across multiple Availability Zones and use health checks, load balancing, and automatic replacement.</li>
+              <li><strong>Loose coupling.</strong> Use queues, topics, events, workflows, APIs, and load balancers so components can scale and fail independently.</li>
+              <li><strong>High availability.</strong> Spread resources across multiple Availability Zones and use health checks, load balancing, and automatic replacement with EC2 Auto Scaling.</li>
               <li><strong>Disaster recovery.</strong> Match the answer to RTO and RPO: backup and restore is cheapest, active-active is fastest and usually most expensive.</li>
             </ul>
             <h4>Skills to master</h4>
@@ -1940,7 +1944,7 @@
               </article>
               <article class="skill-card">
                 <strong>Choose scaling strategies</strong>
-                <p>Decide where horizontal or vertical scaling is needed and which service should scale.</p>
+                <p>Decide where horizontal or vertical scaling is needed. Use elasticity and automation to scale out and back in with demand.</p>
               </article>
               <article class="skill-card">
                 <strong>Choose loose-coupling services</strong>
@@ -1980,7 +1984,7 @@
               </article>
               <article class="skill-card">
                 <strong>Protect durability and availability of data</strong>
-                <p>Use backups, replication, Multi-AZ, and durable storage based on RPO and RTO.</p>
+                <p>Use backups, replication, Multi-AZ, durable storage, Route 53, Global Accelerator, and DR patterns based on RPO and RTO.</p>
               </article>
               <article class="skill-card">
                 <strong>Select the right DR strategy</strong>
@@ -2403,6 +2407,144 @@
               <p>Read the full stem, identify key words, decide exactly what the question asks, eliminate distractors, then reread the plausible answers before choosing.</p>
             </div>
             <p>For “select two” questions, there is no partial credit, so evaluate every option and make sure both selected answers satisfy the stem.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="flashcard-section" id="domain2-resilience-review">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Domain 2 review</p>
+            <h2>Resilient Architectures Checklist</h2>
+          </div>
+          <span>18 review points</span>
+        </div>
+        <div class="flashcard-grid">
+          <article class="study-flashcard">
+            <h3>What does resilient mean?</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>A resilient workload can recover from load stress, attacks, bugs, and component failure. Design for high availability, fault tolerance, disaster recovery, elasticity, and scalability.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Domain 2 task statements</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>Design scalable and loosely coupled architectures. Design highly available and/or fault-tolerant architectures.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Vertical vs horizontal scaling</h3>
+            <div class="flashcard-answer">
+              <span>Exam cue</span>
+              <p>Vertical scaling changes resource size. Horizontal scaling adds or removes resources. Elasticity uses automation to match horizontal capacity to changing demand.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>EC2 Auto Scaling vs AWS Auto Scaling</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>EC2 Auto Scaling manages EC2 fleet size and health. AWS Auto Scaling can coordinate scaling policies across supported services.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Self-healing EC2 across an AZ failure</h3>
+            <div class="flashcard-answer">
+              <span>Answer</span>
+              <p>Use Elastic Load Balancing across multiple AZs plus an EC2 Auto Scaling group to replace failed instances and keep traffic on healthy targets.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Cross-Region availability</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>Use Route 53 failover or latency-based routing, or Global Accelerator for routing users to healthy regional endpoints over the AWS global network.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>DR strategy ladder</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>Backup and restore is lowest cost and slower. Pilot light keeps core components ready. Warm standby runs a scaled-down environment. Multi-site active-active is fastest and usually most expensive.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>RTO and RPO</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>RTO is maximum acceptable downtime. RPO is maximum acceptable data loss measured from the last recovery point.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Read replicas vs Multi-AZ RDS</h3>
+            <div class="flashcard-answer">
+              <span>Exam cue</span>
+              <p>Read replicas scale reads and can help availability. RDS Multi-AZ is for high availability and failover, not read scaling from the standby.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Cache vs read replica</h3>
+            <div class="flashcard-answer">
+              <span>Exam cue</span>
+              <p>A read replica still has database connection and query overhead. Use CloudFront, ElastiCache, DAX, or application caching to offload frequent reads and reduce latency.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>RDS Proxy</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>RDS Proxy pools and shares database connections, improves scalability, reduces failover impact, and integrates with Secrets Manager and IAM.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Stateful legacy app horizontal scaling</h3>
+            <div class="flashcard-answer">
+              <span>Exam cue</span>
+              <p>If a legacy app writes to disk, use shared file storage such as EFS or FSx. If it stores session state in memory, know when sticky sessions or an external session store is needed.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Synchronous vs asynchronous integration</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>Synchronous requests require both sides to be available at the same time. Asynchronous designs use queues, events, streams, or workflows so components scale and fail independently.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Decoupling services</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>Use SQS for queues, SNS for pub/sub, EventBridge for event routing, Step Functions for workflows, API Gateway for managed APIs, and ELB for distributing traffic.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Serverless operational model</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>No infrastructure to provision or manage, automatic scaling by unit of consumption, pay-for-value pricing, and built-in availability and fault tolerance.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Managed file transfer</h3>
+            <div class="flashcard-answer">
+              <span>Exam cue</span>
+              <p>Use AWS Transfer Family when you need managed SFTP, FTPS, or FTP workflows backed by S3 or EFS without operating file transfer servers.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Observability and automated response</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>Use CloudWatch for metrics, logs, alarms, and automated actions. Use X-Ray for tracing. Use EventBridge to respond near real time to environment changes.</p>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Legacy and non-cloud-native DR</h3>
+            <div class="flashcard-answer">
+              <span>Know</span>
+              <p>Use Elastic Disaster Recovery for on-premises or cloud-based applications, AMIs and EC2 Image Builder for EC2 recovery images, and CloudFormation for repeatable rebuilds.</p>
+            </div>
           </article>
         </div>
       </section>
@@ -3394,7 +3536,7 @@
             <p>Serverless event bus for routing events between services and applications.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for event-driven architectures, SaaS events, scheduled events, and loose coupling. A Lambda resource-based policy should allow only lambda:InvokeFunction from the EventBridge service principal.</strong>
+              <strong>Use for event-driven architectures, SaaS events, scheduled events, loose coupling, and near real-time automated responses to environment changes.</strong>
             </div>
           </article>
           <article id="service-amazon-mq" class="service-card" data-card data-category="Application Integration" data-search="amazon mq managed message broker for activemq and rabbitmq. choose when migrating apps that require standard broker protocols or existing messaging compatibility. application integration">
@@ -3866,7 +4008,7 @@
               <span class="service-category">Database</span>
             </div>
             <h3><a href="https://aws.amazon.com/rds/proxy/" target="_blank" rel="noopener noreferrer">Amazon RDS Proxy</a></h3>
-            <p>Managed database proxy for Amazon RDS and Aurora.</p>
+            <p>Managed, highly available database proxy for Amazon RDS and Aurora that pools and shares database connections.</p>
             <div class="exam-use">
               <span>Exam cue</span>
               <strong>Choose to pool and manage database connections, especially for serverless or spiky workloads.</strong>
@@ -3930,7 +4072,7 @@
             <p>Managed Redis or Memcached caching.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose to reduce database load, store sessions, or provide low-latency cache access. ElastiCache for Redis provides very fast access and supports persistence features, making it a better fit than Memcached when data must survive restarts.</strong>
+              <strong>Choose to reduce database load, store sessions, or provide low-latency cache access. Use caching instead of read replicas when repeated reads should avoid database connection and query overhead.</strong>
             </div>
           </article>
           <article id="service-amazon-keyspaces" class="service-card" data-card data-category="Database" data-search="amazon keyspaces managed apache cassandra-compatible database. use for cassandra workloads without managing cassandra clusters. database amazon keyspaces (for apache cassandra)">
@@ -3968,7 +4110,7 @@
             <p>Managed relational database service.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for standard relational engines where AWS handles backups, patching, and failover options. Multi-AZ gives synchronous standby replication across AZs for high availability; cross-Region read replicas use asynchronous replication for read scaling or DR.</strong>
+              <strong>Use for standard relational engines where AWS handles backups, patching, and failover options. Multi-AZ gives synchronous standby replication across AZs for high availability but does not scale reads; read replicas use asynchronous replication for read scaling or DR.</strong>
             </div>
           </article>
           <article id="service-amazon-redshift" class="service-card" data-card data-category="Database" data-search="amazon redshift managed cloud data warehouse. use for analytics and reporting, not oltp transaction processing. kinesis data firehose ingests data with high availability and loads amazon redshift for sql analytics. database">
@@ -4004,7 +4146,7 @@
             <p>In-memory cache for DynamoDB. Use it when DynamoDB read latency must be microseconds to sub-milliseconds.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>DynamoDB with DAX provides sub-millisecond reads, DynamoDB export stores history in S3, and Athena runs one-time SQL queries. DynamoDB Accelerator (DAX) is a managed in-memory cache built for DynamoDB and can reduce read response times from milliseconds to microseconds.</strong>
+              <strong>DynamoDB with DAX provides sub-millisecond reads, DynamoDB export stores history in S3, and Athena runs one-time SQL queries. DynamoDB Accelerator (DAX) is a managed in-memory cache built for DynamoDB and can reduce read response times from milliseconds to microseconds for read-heavy DynamoDB workloads.</strong>
             </div>
           </article>
           <article id="service-amazon-dynamodb-global-tables" class="service-card" data-card data-category="Database" data-search="amazon dynamodb global tables multi-region dynamodb replication feature for active-active, highly available applications that need local reads and writes in multiple regions. dynamodb global tables provide automatic multi-region replication, and provisioned capacity with auto scaling is cost-effective for predictable gaming access patterns. database">
@@ -4878,7 +5020,7 @@
             <p>Managed SFTP, FTPS, FTP, and AS2 file transfer.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose to modernize file transfer workflows backed by S3 or EFS.</strong>
+              <strong>Choose to modernize SFTP, FTPS, or FTP file transfer workflows backed by S3 or EFS without managing transfer servers.</strong>
             </div>
           </article>          <article id="service-aws-sct" class="service-card" data-card data-category="Migration and Transfer" data-search="aws sct aws schema conversion tool converts database schemas during heterogeneous migrations. use with dms when moving from one database engine to another. migration and transfer aws schema conversion tool">
             <div class="service-topline">
@@ -5056,7 +5198,7 @@
             <p>Improves global application availability and performance using static anycast IPs.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose for routing users to healthy regional endpoints over the AWS global network. AWS Global Accelerator monitors regional endpoints and routes users to healthy ALBs with low latency.</strong>
+              <strong>Choose for routing users to healthy regional endpoints over the AWS global network. Global Accelerator improves availability and performance by monitoring endpoints and shifting traffic to healthy regional endpoints.</strong>
             </div>
           </article>
           <article id="service-aws-privatelink" class="service-card" data-card data-category="Networking and Content Delivery" data-search="aws privatelink private access to services over aws network using vpc endpoints. use to connect privately to aws services, saas, or your own endpoint services without public internet. networking and content delivery">
@@ -5717,7 +5859,7 @@
             <p>Managed NFS file system for Linux workloads. It is shared and multi-AZ, but not the native Windows SMB option.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Amazon EFS provides shared, durable file storage across Availability Zones for the catalog. Amazon EFS provides highly available shared file storage that can be mounted by multiple containers through an EKS StorageClass.</strong>
+              <strong>Amazon EFS provides shared, durable file storage across Availability Zones and is a common answer for horizontally scaling stateful Linux apps or containers that need shared files.</strong>
             </div>
           </article>
           <article id="service-amazon-fsx-for-lustre" class="service-card" data-card data-category="Storage" data-search="amazon fsx for lustre high-performance shared file system for hpc, machine learning, and parallel processing workloads. it can link to s3 datasets. amazon fsx for lustre provides high-performance shared storage for hpc workloads and can link to s3 for dataset access and postprocessing. elastic fabric adapter optimizes low-latency hpc networking, and fsx for lustre with scratch storage provides high-performance shared storage for hpc workloads. storage">
@@ -5741,7 +5883,7 @@
             <p>Managed Windows file system with SMB and Active Directory integration. Best fit for Windows file share workloads.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Amazon FSx for Windows File Server preserves SMB access and supports Multi-AZ high availability. Amazon FSx for Windows File Server provides highly available SMB storage with Active Directory integration.</strong>
+              <strong>Amazon FSx for Windows File Server preserves SMB access and supports Multi-AZ high availability for Windows stateful applications that need shared file storage.</strong>
             </div>
           </article>
           <article id="service-amazon-simple-storage-service-amazon-s3" class="service-card" data-card data-category="Storage" data-search="amazon simple storage service (amazon s3) highly durable object storage. use it for static assets, data lakes, backups, and archives, not as a native file system. s3 glacier deep archive after one month is the lowest-cost choice for data kept indefinitely and rarely accessed. s3 versioning preserves prior object versions, and mfa delete adds a strong control before permanent deletion. storage">
