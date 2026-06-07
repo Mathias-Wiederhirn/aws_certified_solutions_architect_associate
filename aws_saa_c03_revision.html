@@ -1720,6 +1720,10 @@
         <span>Domain 2 Resilience Review</span>
         <strong>18</strong>
       </a>
+<a class="category-link" href="#domain3-high-performance-review">
+        <span>Domain 3 Performance Review</span>
+        <strong>20</strong>
+      </a>
 <a class="nav-title nav-title-link" href="https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/saa-03-in-scope-services.html" target="_blank" rel="noopener noreferrer">AWS Services</a>
       <nav class="category-list" aria-label="AWS services">
         
@@ -1960,7 +1964,7 @@
               </article>
               <article class="skill-card">
                 <strong>Recommend compute, storage, network, and database options</strong>
-                <p>Match each layer to performance, resilience, and operational requirements.</p>
+                <p>Match each layer to performance, resilience, and operational requirements, then validate the choice with metrics, benchmarking, or load testing.</p>
               </article>
               <article class="skill-card">
                 <strong>Use purpose-built AWS services</strong>
@@ -1999,7 +2003,7 @@
 
           <article class="domain-card">
             <h3><a href="https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03-domain3.html" target="_blank" rel="noopener noreferrer">Design High-Performing Architectures</a></h3>
-            <p>Choose the right service, size, placement, and scaling pattern for the workload performance goal.</p>
+            <p>Choose the right service, size, placement, and scaling pattern for the workload performance goal. Use benchmarking, load testing, and data-driven tuning to keep improving the architecture.</p>
 
 
             <div class="service-chip-list">
@@ -2021,7 +2025,7 @@
               </article>
               <article class="skill-card">
                 <strong>Choose storage that can scale</strong>
-                <p>Pick storage services and configurations that can grow without redesigning the workload.</p>
+                <p>Pick storage services and configurations that can grow without redesigning the workload: EFS scales automatically, while EBS volume type, size, and IOPS can be adjusted.</p>
               </article>
               <article class="skill-card">
                 <strong>Decouple workloads for independent scaling</strong>
@@ -2041,7 +2045,7 @@
               </article>
               <article class="skill-card">
                 <strong>Configure read replicas</strong>
-                <p>Use replicas when read traffic needs to scale without overloading the primary database.</p>
+                <p>Use read replicas when read traffic needs to scale without overloading the primary database; use Multi-AZ for standby availability instead of read scaling.</p>
               </article>
               <article class="skill-card">
                 <strong>Design database architectures</strong>
@@ -2097,7 +2101,7 @@
               </article>
               <article class="skill-card">
                 <strong>Configure ingestion appropriately</strong>
-                <p>Match ingestion frequency, volume, speed, schema, and security needs to the right service.</p>
+                <p>Match ingestion frequency, volume, speed, schema, governance, transformation, latency, and security needs to the right service.</p>
               </article>
               <article class="skill-card">
                 <strong>Transform data formats</strong>
@@ -2544,6 +2548,158 @@
             <div class="flashcard-answer">
               <span>Know</span>
               <p>Use Elastic Disaster Recovery for on-premises or cloud-based applications, AMIs and EC2 Image Builder for EC2 recovery images, and CloudFormation for repeatable rebuilds.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="flashcard-section" id="domain3-high-performance-review">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Domain 3 review</p>
+            <h2>High-Performing Architectures Checklist</h2>
+          </div>
+          <span class="pill">20 review points</span>
+        </div>
+        <div class="flashcard-grid">
+          <article class="study-flashcard">
+            <h3>What does Domain 3 focus on?</h3>
+            <div class="flashcard-answer">
+              <p>Design high-performing architectures across storage, compute, databases, networking, and data ingestion or transformation. Use benchmarks and load testing to choose the right pattern.</p>
+              <strong>Exam cue: performance questions often combine several layers, not one service only.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Object, block, or file storage?</h3>
+            <div class="flashcard-answer">
+              <p>Use object storage for durable objects and data lakes, block storage for low-latency volumes attached to EC2, and file storage when multiple clients need a shared file system.</p>
+              <strong>Exam cue: match access pattern, latency, throughput, sharing, update frequency, durability, and availability.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>EBS vs EFS scaling</h3>
+            <div class="flashcard-answer">
+              <p>EBS volumes can be modified for type, size, and IOPS. EFS grows and shrinks automatically as files are added or removed.</p>
+              <strong>Exam cue: choose EBS for attached block storage; choose EFS for shared Linux/NFS file storage.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>S3 performance choices</h3>
+            <div class="flashcard-answer">
+              <p>S3 performance can be improved with multipart uploads, S3 Transfer Acceleration, CloudFront caching, and lifecycle movement to the right storage class.</p>
+              <strong>Exam cue: S3 is regional object storage and is resilient to an Availability Zone failure.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Which file service?</h3>
+            <div class="flashcard-answer">
+              <p>Use EFS for elastic Linux/NFS shares, FSx for Windows File Server for SMB/NTFS/Active Directory workloads, and FSx for Lustre for high-performance parallel file systems.</p>
+              <strong>Exam cue: Windows file share means FSx for Windows; HPC parallel file access means FSx for Lustre.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Choosing compute</h3>
+            <div class="flashcard-answer">
+              <p>Compute can be instances, containers, or functions. Choose based on runtime, operational control, scaling model, event pattern, and workload duration.</p>
+              <strong>Exam cue: EC2 gives control, containers package applications, and Lambda fits event-driven short-running code.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>EC2 performance levers</h3>
+            <div class="flashcard-answer">
+              <p>Instance family, instance size, CPU, memory, GPU, local SSD, network bandwidth, placement groups, enhanced networking, and EBS optimization all affect performance.</p>
+              <strong>Exam cue: pick the instance family that matches the bottleneck: compute, memory, storage, accelerated compute, or network.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Containers on AWS</h3>
+            <div class="flashcard-answer">
+              <p>ECS can run on EC2 for more host control or on Fargate to remove server management. EKS is managed Kubernetes. ALB supports port mapping for container targets.</p>
+              <strong>Exam cue: Fargate usually wins when the scenario says serverless containers or no instance management.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Lambda performance boundaries</h3>
+            <div class="flashcard-answer">
+              <p>Lambda scales automatically for event-driven work, but each invocation has a maximum runtime. Use Step Functions to coordinate longer workflows or multiple steps.</p>
+              <strong>Exam cue: Lambda@Edge runs logic closer to users with CloudFront.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Scaling metrics</h3>
+            <div class="flashcard-answer">
+              <p>Use CloudWatch metrics and alarms for scaling decisions. Common signals include CPU, request count, queue depth, healthy host count, surge queue length, and custom metrics.</p>
+              <strong>Exam cue: EC2 memory is not a default CloudWatch metric without an agent or custom metric.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Purpose-built databases</h3>
+            <div class="flashcard-answer">
+              <p>AWS database choices include relational, key-value, document, in-memory, graph, time-series, and ledger databases. Choose from the access pattern first.</p>
+              <strong>Exam cue: latency, consistency, durability, query shape, and scaling requirements drive the database answer.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>RDS, Aurora, and DynamoDB</h3>
+            <div class="flashcard-answer">
+              <p>RDS read replicas scale reads, while Multi-AZ improves availability. Aurora uses a shared cluster volume with replicas. DynamoDB provides single-digit millisecond performance at scale.</p>
+              <strong>Exam cue: read replica for read scaling; Multi-AZ for standby failover.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Caching and database connections</h3>
+            <div class="flashcard-answer">
+              <p>ElastiCache reduces repeated database reads, DAX accelerates DynamoDB access, and RDS Proxy pools database connections for applications such as Lambda.</p>
+              <strong>Exam cue: cache read-heavy data; proxy connection storms; do not use a read replica for session state.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Aurora Serverless</h3>
+            <div class="flashcard-answer">
+              <p>Aurora Serverless scales capacity in Aurora Capacity Units between configured minimum and maximum values and can pause when idle in supported configurations.</p>
+              <strong>Exam cue: choose it for intermittent, unpredictable, or variable relational workloads.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Network performance terms</h3>
+            <div class="flashcard-answer">
+              <p>Bandwidth, latency, jitter, and throughput shape network performance. Improve results by placing resources close to users and using edge services where appropriate.</p>
+              <strong>Exam cue: user proximity and the AWS edge network are frequent clues.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Hybrid and private connectivity</h3>
+            <div class="flashcard-answer">
+              <p>Use Site-to-Site VPN, Direct Connect, Transit Gateway, CloudHub, VPC peering, PrivateLink, and VPC endpoints depending on network scale and privacy requirements.</p>
+              <strong>Exam cue: gateway endpoints are for private S3 and DynamoDB access from a VPC.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Route 53, CloudFront, and Global Accelerator</h3>
+            <div class="flashcard-answer">
+              <p>Route 53 handles DNS routing policies and health checks, CloudFront caches content at edge locations, and Global Accelerator improves access to healthy regional endpoints.</p>
+              <strong>Exam cue: DNS routing means Route 53; cached content means CloudFront; static anycast IP acceleration means Global Accelerator.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Data transfer and migration</h3>
+            <div class="flashcard-answer">
+              <p>Use DataSync for online data movement, Snow Family for massive offline transfer, Transfer Family for managed SFTP/FTPS/FTP, DMS for database migration, and Storage Gateway for hybrid storage.</p>
+              <strong>Exam cue: choose the transfer service from source type, size, protocol, and network constraints.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Streaming ingestion</h3>
+            <div class="flashcard-answer">
+              <p>Kinesis Data Streams supports custom real-time stream processing, Data Firehose delivers streams to destinations with less management, and MSK runs managed Apache Kafka.</p>
+              <strong>Exam cue: choose Firehose for simple delivery; choose Data Streams when consumers and shard control matter.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Data lake and transformation</h3>
+            <div class="flashcard-answer">
+              <p>Use S3 for the data lake, Glue for ETL and cataloging, EMR for large-scale processing, Athena for serverless SQL, Lake Formation for governance, and QuickSight for dashboards.</p>
+              <strong>Exam cue: Parquet, partitioning, encryption, KMS, bucket policies, and access governance are common data lake clues.</strong>
             </div>
           </article>
         </div>
@@ -3311,7 +3467,7 @@
             <p>Serverless SQL queries over data in Amazon S3.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose when you need ad hoc analysis of S3 data without loading it into a database. Amazon Transcribe provides speaker diarization, and Amazon Athena queries transcript files stored in S3.</strong>
+              <strong>Choose when you need ad hoc analysis of S3 data without loading it into a database. Amazon Transcribe provides speaker diarization, and Amazon Athena queries transcript files stored in S3. Use Athena for serverless SQL queries over S3 data, especially data lake analysis.</strong>
             </div>
           </article>
           <article id="service-aws-data-exchange" class="service-card" data-card data-category="Analytics" data-search="aws data exchange service for finding and subscribing to third-party data sets. use when a scenario needs external data feeds integrated into aws workloads. analytics">
@@ -3335,7 +3491,7 @@
             <p>Managed delivery stream for loading streaming data into destinations.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use to ingest logs or events into S3, Redshift, OpenSearch, or third-party tools with little administration. Kinesis Data Firehose ingests data with high availability and loads Amazon Redshift for SQL analytics.</strong>
+              <strong>Use to ingest logs or events into S3, Redshift, OpenSearch, or third-party tools with little administration. Kinesis Data Firehose ingests data with high availability and loads Amazon Redshift for SQL analytics. Firehose is the managed choice for loading streaming data into destinations with less operational control.</strong>
             </div>
           </article>
           <article id="service-amazon-emr" class="service-card" data-card data-category="Analytics" data-search="amazon emr managed big data processing using frameworks like spark and hive. choose for large-scale batch analytics, etl, or data processing clusters. analytics">
@@ -3347,7 +3503,7 @@
             <p>Managed big data processing using frameworks like Spark and Hive.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose for large-scale batch analytics, ETL, or data processing clusters.</strong>
+              <strong>Choose for large-scale batch analytics, ETL, or data processing clusters. Use EMR for large-scale Spark, Hadoop, and big data processing.</strong>
             </div>
           </article>
           <article id="service-aws-glue" class="service-card" data-card data-category="Analytics" data-search="aws glue serverless data integration, cataloging, and etl service. use for etl jobs, crawlers, and a central data catalog for analytics services. aws snowball edge moves the data physically, and aws glue runs the transformation job in aws with low overhead. analytics">
@@ -3359,7 +3515,7 @@
             <p>Serverless data integration, cataloging, and ETL service.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for ETL jobs, crawlers, and a central Data Catalog for analytics services. AWS Snowball Edge moves the data physically, and AWS Glue runs the transformation job in AWS with low overhead.</strong>
+              <strong>Use for ETL jobs, crawlers, and a central Data Catalog for analytics services. AWS Snowball Edge moves the data physically, and AWS Glue runs the transformation job in AWS with low overhead. Use Glue for serverless ETL, the data catalog, and preparing data lake datasets.</strong>
             </div>
           </article>
           <article id="service-amazon-kinesis" class="service-card" data-card data-category="Analytics" data-search="amazon kinesis real-time streaming data ingestion and processing family. choose for high-throughput event streams, clickstreams, telemetry, or near-real-time processing. analytics">
@@ -3371,7 +3527,7 @@
             <p>Real-time streaming data ingestion and processing family.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose for high-throughput event streams, clickstreams, telemetry, or near-real-time processing.</strong>
+              <strong>Choose for high-throughput event streams, clickstreams, telemetry, or near-real-time processing. Kinesis Data Streams is for custom real-time consumers and shard control.</strong>
             </div>
           </article>
           <article id="service-aws-lake-formation" class="service-card" data-card data-category="Analytics" data-search="aws lake formation service to build and govern secure data lakes. use when the question focuses on data lake permissions, sharing, and governance. analytics">
@@ -3383,7 +3539,7 @@
             <p>Service to build and govern secure data lakes.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use when the question focuses on data lake permissions, sharing, and governance.</strong>
+              <strong>Use when the question focuses on data lake permissions, sharing, and governance. Use Lake Formation for centralized data lake permissions and governance.</strong>
             </div>
           </article>
           <article id="service-amazon-msk" class="service-card" data-card data-category="Analytics" data-search="amazon msk managed apache kafka service. choose when applications require kafka-compatible streaming without managing kafka infrastructure. analytics">
@@ -3395,7 +3551,7 @@
             <p>Managed Apache Kafka service.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose when applications require Kafka-compatible streaming without managing Kafka infrastructure.</strong>
+              <strong>Choose when applications require Kafka-compatible streaming without managing Kafka infrastructure. Choose MSK when the scenario requires managed Apache Kafka.</strong>
             </div>
           </article>
           <article id="service-amazon-opensearch-service" class="service-card" data-card data-category="Analytics" data-search="amazon opensearch service managed search, log analytics, and observability service. use for full-text search, log analytics, and dashboarding over operational data. analytics">
@@ -3419,7 +3575,7 @@
             <p>AWS business intelligence and visualization service family.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for dashboards, reports, and business analytics over AWS or external data.</strong>
+              <strong>Use for dashboards, reports, and business analytics over AWS or external data. Use QuickSight or Quick Suite for BI dashboards and visualization of analytics data.</strong>
             </div>
           </article>
           <article id="service-amazon-redshift" class="service-card" data-card data-category="Analytics" data-search="amazon redshift managed cloud data warehouse. choose for complex analytics over structured data at scale, especially columnar warehouse workloads. kinesis data firehose ingests data with high availability and loads amazon redshift for sql analytics. database">
@@ -3750,7 +3906,7 @@
             <p>Virtual servers in AWS.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose when you need full control over OS, instance type, networking, and compute configuration. Placing EC2 instances in the same Availability Zone avoids inter-AZ transfer charges, and a cluster placement group optimizes latency and throughput.</strong>
+              <strong>Choose when you need full control over OS, instance type, networking, and compute configuration. Placing EC2 instances in the same Availability Zone avoids inter-AZ transfer charges, and a cluster placement group optimizes latency and throughput. Instance family, size, network bandwidth, placement groups, enhanced networking, and EBS optimization are common performance clues.</strong>
             </div>
           </article>
           <article id="service-ec2-reserved-instances" class="service-card" data-card data-category="Compute" data-search="ec2 reserved instances committed ec2 pricing option for predictable usage. choose when ec2 usage is steady and you can commit to a term for lower cost. compute">
@@ -4011,7 +4167,7 @@
             <p>Managed, highly available database proxy for Amazon RDS and Aurora that pools and shares database connections.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose to pool and manage database connections, especially for serverless or spiky workloads.</strong>
+              <strong>Choose to pool and manage database connections, especially for serverless or spiky workloads. Use RDS Proxy to pool connections, especially when Lambda or bursty applications would create too many database connections.</strong>
             </div>
           </article>
           <article id="service-amazon-aurora" class="service-card" data-card data-category="Database" data-search="amazon aurora mysql/postgresql-compatible relational database built for aws. choose for high-performance, highly available relational workloads. amazon aurora multi-az with aurora replicas and aurora auto scaling handles unpredictable read demand while preserving high availability. database">
@@ -4023,7 +4179,7 @@
             <p>MySQL/PostgreSQL-compatible relational database built for AWS.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose for high-performance, highly available relational workloads. Amazon Aurora Multi-AZ with Aurora Replicas and Aurora Auto Scaling handles unpredictable read demand while preserving high availability.</strong>
+              <strong>Choose for high-performance, highly available relational workloads. Amazon Aurora Multi-AZ with Aurora Replicas and Aurora Auto Scaling handles unpredictable read demand while preserving high availability. Aurora replicas share a cluster volume, and Aurora Global Database fits very low RPO/RTO cross-Region relational recovery.</strong>
             </div>
           </article>
           <article id="service-amazon-aurora-serverless" class="service-card" data-card data-category="Database" data-search="amazon aurora serverless on-demand, auto-scaling aurora configuration. use for variable, intermittent, or unpredictable relational database workloads. database">
@@ -4060,7 +4216,7 @@
             <p>Serverless key-value and document NoSQL database.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for low-latency, high-scale workloads with predictable access patterns. DynamoDB provides low-latency hierarchical access, and Macie can detect financial data in monthly S3 exports with SNS notifications.</strong>
+              <strong>Use for low-latency, high-scale workloads with predictable access patterns. DynamoDB provides low-latency hierarchical access, and Macie can detect financial data in monthly S3 exports with SNS notifications. Choose on-demand capacity when access patterns are unknown, and DAX when DynamoDB reads need microsecond cache acceleration.</strong>
             </div>
           </article>
           <article id="service-amazon-elasticache" class="service-card" data-card data-category="Database" data-search="amazon elasticache managed redis or memcached caching. choose to reduce database load, store sessions, or provide low-latency cache access. elasticache for redis provides very fast access and supports persistence features, making it a better fit than memcached when data must survive restarts. database">
@@ -4072,7 +4228,7 @@
             <p>Managed Redis or Memcached caching.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose to reduce database load, store sessions, or provide low-latency cache access. Use caching instead of read replicas when repeated reads should avoid database connection and query overhead.</strong>
+              <strong>Choose to reduce database load, store sessions, or provide low-latency cache access. Use caching instead of read replicas when repeated reads should avoid database connection and query overhead. Use lazy loading or write-through caching patterns for repeated reads and low-latency access.</strong>
             </div>
           </article>
           <article id="service-amazon-keyspaces" class="service-card" data-card data-category="Database" data-search="amazon keyspaces managed apache cassandra-compatible database. use for cassandra workloads without managing cassandra clusters. database amazon keyspaces (for apache cassandra)">
@@ -4110,7 +4266,7 @@
             <p>Managed relational database service.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for standard relational engines where AWS handles backups, patching, and failover options. Multi-AZ gives synchronous standby replication across AZs for high availability but does not scale reads; read replicas use asynchronous replication for read scaling or DR.</strong>
+              <strong>Use for standard relational engines where AWS handles backups, patching, and failover options. Multi-AZ gives synchronous standby replication across AZs for high availability but does not scale reads; read replicas use asynchronous replication for read scaling or DR. Read replicas scale read-heavy workloads; Multi-AZ is the availability and failover pattern.</strong>
             </div>
           </article>
           <article id="service-amazon-redshift" class="service-card" data-card data-category="Database" data-search="amazon redshift managed cloud data warehouse. use for analytics and reporting, not oltp transaction processing. kinesis data firehose ingests data with high availability and loads amazon redshift for sql analytics. database">
@@ -4983,7 +5139,7 @@
             <p>Online data transfer service.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose for moving large amounts of data between on-premises storage and AWS storage services. Grouping 10 KB files into larger archive objects avoids small-object minimum storage charges, DataSync can migrate the grouped objects.</strong>
+              <strong>Choose for moving large amounts of data between on-premises storage and AWS storage services. Grouping 10 KB files into larger archive objects avoids small-object minimum storage charges, DataSync can migrate the grouped objects. Choose DataSync for online data movement between on-premises storage, AWS storage services, and accounts.</strong>
             </div>
           </article>
           <article id="service-aws-dms" class="service-card" data-card data-category="Migration and Transfer" data-search="aws dms database migration service. use to migrate databases with minimal downtime, including homogeneous or heterogeneous migrations. migration and transfer aws database migration service">
@@ -5020,7 +5176,7 @@
             <p>Managed SFTP, FTPS, FTP, and AS2 file transfer.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose to modernize SFTP, FTPS, or FTP file transfer workflows backed by S3 or EFS without managing transfer servers.</strong>
+              <strong>Choose to modernize SFTP, FTPS, or FTP file transfer workflows backed by S3 or EFS without managing transfer servers. Choose Transfer Family when managed SFTP, FTPS, or FTP is required.</strong>
             </div>
           </article>          <article id="service-aws-sct" class="service-card" data-card data-category="Migration and Transfer" data-search="aws sct aws schema conversion tool converts database schemas during heterogeneous migrations. use with dms when moving from one database engine to another. migration and transfer aws schema conversion tool">
             <div class="service-topline">
@@ -5162,7 +5318,7 @@
             <p>Global content delivery network.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose to cache and deliver static/dynamic content globally with low latency. Amazon CloudFront with S3 as the origin caches pages at edge locations for global scale.</strong>
+              <strong>Choose to cache and deliver static/dynamic content globally with low latency. Amazon CloudFront with S3 as the origin caches pages at edge locations for global scale. Use CloudFront to cache content at edge locations and reduce latency for global users.</strong>
             </div>
           </article>
           <article id="service-aws-direct-connect" class="service-card" data-card data-category="Networking and Content Delivery" data-search="aws direct connect dedicated private network connection to aws. use for consistent bandwidth, private connectivity, and hybrid network requirements. direct connect provides dedicated low-latency connectivity, and transit gateway centralizes connectivity for the three vpcs. networking and content delivery">
@@ -5198,7 +5354,7 @@
             <p>Improves global application availability and performance using static anycast IPs.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose for routing users to healthy regional endpoints over the AWS global network. Global Accelerator improves availability and performance by monitoring endpoints and shifting traffic to healthy regional endpoints.</strong>
+              <strong>Choose for routing users to healthy regional endpoints over the AWS global network. Global Accelerator improves availability and performance by monitoring endpoints and shifting traffic to healthy regional endpoints. Choose it for static anycast IPs and improved routing to healthy regional endpoints.</strong>
             </div>
           </article>
           <article id="service-aws-privatelink" class="service-card" data-card data-category="Networking and Content Delivery" data-search="aws privatelink private access to services over aws network using vpc endpoints. use to connect privately to aws services, saas, or your own endpoint services without public internet. networking and content delivery">
@@ -5210,7 +5366,7 @@
             <p>Private access to services over the AWS network using interface VPC endpoints. Use it to expose services privately to many VPCs without peering or public internet exposure.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use to connect privately to AWS services, SaaS, or your own endpoint services without public internet.</strong>
+              <strong>Use to connect privately to AWS services, SaaS, or your own endpoint services without public internet. Use endpoint services and interface endpoints for private service access; gateway endpoints are for S3 and DynamoDB.</strong>
             </div>
           </article>
           <article id="service-amazon-route-53" class="service-card" data-card data-category="Networking and Content Delivery" data-search="amazon route 53 dns and domain registration service. use for dns routing policies, health checks, failover, latency routing, and domain management. networking and content delivery">
@@ -5222,7 +5378,7 @@
             <p>DNS and domain registration service.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for DNS routing policies, health checks, failover, latency routing, and domain management.</strong>
+              <strong>Use for DNS routing policies, health checks, failover, latency routing, and domain management. Latency, geoproximity, and failover routing policies are key exam distinctions.</strong>
             </div>
           </article>
           <article id="service-aws-site-to-site-vpn" class="service-card" data-card data-category="Networking and Content Delivery" data-search="aws site-to-site vpn encrypted vpn between on-premises network and aws. choose for quick hybrid connectivity over the internet, often paired with direct connect as backup. networking and content delivery">
@@ -5714,7 +5870,7 @@
             <p>Serverless function compute.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for event-driven code, short-running tasks, API backends, automation, and pay-per-use compute. A Lambda resource-based policy should allow only lambda:InvokeFunction from the EventBridge service principal.</strong>
+              <strong>Use for event-driven code, short-running tasks, API backends, automation, and pay-per-use compute. A Lambda resource-based policy should allow only lambda:InvokeFunction from the EventBridge service principal. Remember the per-invocation runtime limit; use Step Functions for longer multi-step workflows and Lambda@Edge with CloudFront.</strong>
             </div>
           </article>          <article id="service-aws-sam-serverless" class="service-card" data-card data-category="Serverless" data-search="aws sam aws serverless application model framework for building serverless applications. choose for defining lambda api gateway and event source serverless apps. serverless aws serverless application model">
             <div class="service-topline">
@@ -5761,7 +5917,7 @@
             <p>Block storage volumes for EC2.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose for persistent, low-latency block storage attached to EC2 instances. Turn on EBS encryption when creating sensitive data volumes, or use default EBS encryption for new volumes.</strong>
+              <strong>Choose for persistent, low-latency block storage attached to EC2 instances. Turn on EBS encryption when creating sensitive data volumes, or use default EBS encryption for new volumes. Modify EBS volume type, size, or IOPS when block storage performance must scale without replacing the workload.</strong>
             </div>
           </article>
           <article id="service-amazon-efs" class="service-card" data-card data-category="Storage" data-search="amazon efs managed elastic nfs file system. use for shared linux file storage across multiple instances or containers. storage amazon elastic file system">
@@ -5774,7 +5930,7 @@
             <p>Managed elastic NFS file system.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for shared Linux file storage across multiple instances or containers.</strong>
+              <strong>Use for shared Linux file storage across multiple instances or containers. Use EFS when multiple Linux instances or containers need elastic NFS storage that scales automatically.</strong>
             </div>
           </article>
           <article id="service-amazon-fsx" class="service-card" data-card data-category="Storage" data-search="amazon fsx managed file systems such as windows file server, lustre, netapp ontap, and openzfs. choose when a workload needs a specific managed file system protocol or performance profile. storage">
@@ -5786,7 +5942,7 @@
             <p>Managed file systems such as Windows File Server, Lustre, NetApp ONTAP, and OpenZFS.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose when a workload needs a specific managed file system protocol or performance profile.</strong>
+              <strong>Choose when a workload needs a specific managed file system protocol or performance profile. Choose FSx for Windows for SMB, NTFS, and Active Directory; choose FSx for Lustre for high-performance parallel file systems.</strong>
             </div>
           </article>
           <article id="service-amazon-s3" class="service-card" data-card data-category="Storage" data-search="amazon s3 object storage service. use for durable, scalable object storage, static hosting, data lakes, backups, and lifecycle policies. s3 glacier deep archive after one month is the lowest-cost choice for data kept indefinitely and rarely accessed. storage versioning mfa delete prevent deletion overwrite">
@@ -5796,10 +5952,10 @@
             </div>
             <h3><a href="https://aws.amazon.com/s3/" target="_blank" rel="noopener noreferrer">Amazon S3</a></h3>
             <span class="service-full-name">Amazon Simple Storage Service</span>
-            <p>Object storage service. Supports encryption in transit with HTTPS and encryption at rest through server-side or client-side encryption choices.</p>
+            <p>Object storage service. Supports encryption in transit with HTTPS and encryption at rest through server-side or client-side encryption choices. It is regional object storage designed for high durability and Availability Zone resilience.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for durable, scalable object storage, static hosting, data lakes, backups, and lifecycle policies. Protect objects from deletion or overwrite with S3 Versioning and MFA Delete.</strong>
+              <strong>Use for durable, scalable object storage, static hosting, data lakes, backups, and lifecycle policies. Protect objects from deletion or overwrite with S3 Versioning and MFA Delete. For performance, look for multipart uploads, Transfer Acceleration, CloudFront caching, lifecycle policies, CRR, versioning, and Object Lock.</strong>
             </div>
           </article>
           <article id="service-amazon-s3-glacier" class="service-card" data-card data-category="Storage" data-search="amazon s3 glacier low-cost archival storage classes. choose for long-term archive data with retrieval time and cost tradeoffs. storage">
