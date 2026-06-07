@@ -1712,9 +1712,9 @@
         <span>Domain 1 Security Review</span>
         <strong>16</strong>
       </a>
-<a class="category-link" href="#domain1-walkthrough-questions">
-        <span>Domain 1 Walkthroughs</span>
-        <strong>3</strong>
+<a class="category-link" href="#elb-auto-scaling-review">
+        <span>ELB and Auto Scaling Review</span>
+        <strong>18</strong>
       </a>
 <a class="category-link" href="#domain2-resilience-review">
         <span>Domain 2 Resilience Review</span>
@@ -2368,49 +2368,140 @@
         </div>
       </section>
 
-      <section class="flashcard-section" id="domain1-walkthrough-questions">
+      <section class="flashcard-section" id="elb-auto-scaling-review">
         <div class="section-heading">
           <div>
-            <p class="section-kicker">Walkthrough questions</p>
-            <h2>Domain 1 Exam Question Practice</h2>
+            <p class="eyebrow">Screenshot review</p>
+            <h2>Elastic Load Balancing and Auto Scaling</h2>
           </div>
-          <span>3 walkthroughs</span>
+          <span class="pill">18 exam cues</span>
         </div>
         <div class="flashcard-grid">
           <article class="study-flashcard">
-            <h3>Root user secure login: select two best practices.</h3>
-            <p>The CIO is concerned about root user security. Which controls help secure root account sign-in?</p>
+            <h3>What does Elastic Load Balancing do?</h3>
             <div class="flashcard-answer">
-              <span>Correct answers</span>
-              <p><strong>Enable MFA for root user logins</strong> and <strong>use complex passwords for member account root users</strong>.</p>
+              <p>Elastic Load Balancing distributes incoming application traffic across multiple targets such as EC2 instances, containers, IP addresses, Lambda functions, and appliances.</p>
+              <strong>Exam cue: use ELB to improve availability, fault tolerance, and scaling across Availability Zones.</strong>
             </div>
-            <p><strong>Distractors:</strong> Do not use root access keys for routine access. The root user cannot assume a role into its own account, and deleting the root account means closing the AWS account and deleting resources.</p>
           </article>
           <article class="study-flashcard">
-            <h3>Same subnet, different inbound rules for two EC2 applications.</h3>
-            <p>Application A allows HTTP only. Application B allows HTTPS only. Both run on EC2 instances in the same subnet.</p>
+            <h3>Target groups and health checks</h3>
             <div class="flashcard-answer">
-              <span>Correct answer</span>
-              <p><strong>Use security groups.</strong> Security groups are instance or ENI level, stateful, and allow different rules for instances in the same subnet.</p>
+              <p>Listeners use rules to send traffic to target groups. Health checks periodically test targets, and the load balancer routes traffic only to healthy targets.</p>
+              <strong>Exam cue: unhealthy target or AZ failure means ELB shifts traffic to healthy targets.</strong>
             </div>
-            <p><strong>Distractors:</strong> NACLs apply at the subnet boundary, route tables direct traffic but do not filter it, and VPC peering connects VPCs without filtering application traffic.</p>
           </article>
           <article class="study-flashcard">
-            <h3>Most secure key management for regulatory data encryption.</h3>
-            <p>The solution must securely generate, store, and control cryptographic data keys with durability.</p>
+            <h3>Internet-facing vs internal load balancer</h3>
             <div class="flashcard-answer">
-              <span>Correct answer</span>
-              <p><strong>Use AWS KMS</strong> to generate KMS keys and data keys, and use KMS key policies to control access.</p>
+              <p>An internet-facing load balancer receives traffic from the internet. An internal load balancer serves private application tiers inside the VPC and has no public endpoint.</p>
+              <strong>Exam cue: choose internal load balancer for private-facing backend traffic.</strong>
             </div>
-            <p><strong>Distractors:</strong> ACM stores TLS certificates, not data keys. Instance store is ephemeral and fails durability needs. S3 is object storage, not a direct key-management system, and KMS policies apply to KMS keys.</p>
           </article>
           <article class="study-flashcard">
-            <h3>Multiple-choice method for the exam</h3>
+            <h3>Application Load Balancer</h3>
             <div class="flashcard-answer">
-              <span>Technique</span>
-              <p>Read the full stem, identify key words, decide exactly what the question asks, eliminate distractors, then reread the plausible answers before choosing.</p>
+              <p>ALB operates at layer 7 for HTTP, HTTPS, and gRPC. It supports advanced request routing, modern application architectures, target groups, containers, and Lambda targets.</p>
+              <strong>Exam cue: choose ALB for host-based routing, path-based routing, HTTP headers, web apps, and AWS WAF integration.</strong>
             </div>
-            <p>For “select two” questions, there is no partial credit, so evaluate every option and make sure both selected answers satisfy the stem.</p>
+          </article>
+          <article class="study-flashcard">
+            <h3>Network Load Balancer</h3>
+            <div class="flashcard-answer">
+              <p>NLB operates at layer 4 for TCP, UDP, and TLS. It is designed for extreme performance, very low latency, and millions of requests per second.</p>
+              <strong>Exam cue: choose NLB when the question mentions static IP, one Elastic IP per subnet, or high-performance TCP traffic.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Gateway Load Balancer</h3>
+            <div class="flashcard-answer">
+              <p>GWLB helps deploy and scale third-party virtual networking appliances such as firewalls, inspection tools, and security appliances.</p>
+              <strong>Exam cue: choose GWLB when traffic must transparently pass through appliances.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Classic Load Balancer</h3>
+            <div class="flashcard-answer">
+              <p>Classic Load Balancer is the older option for layer 4 and layer 7 traffic and is mainly relevant for legacy EC2-Classic style architectures.</p>
+              <strong>Exam cue: prefer ALB or NLB for modern exam scenarios unless the stem clearly says legacy.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>ELB security controls</h3>
+            <div class="flashcard-answer">
+              <p>Use security groups and NACLs around the VPC path. For web tiers, allow EC2 inbound traffic only from the load balancer security group.</p>
+              <strong>Exam cue: security groups protect instance/network interfaces; NACLs protect subnet boundaries.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>ELB features to remember</h3>
+            <div class="flashcard-answer">
+              <p>ELB can handle volatile traffic patterns, offload TLS encryption and decryption, support sticky sessions, and use deletion protection to prevent accidental removal.</p>
+              <strong>Exam cue: sticky sessions keep the same client on the same target but can cause uneven utilization.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>ELB monitoring and logging</h3>
+            <div class="flashcard-answer">
+              <p>CloudWatch reports load balancer metrics such as request counts, latency, error counts, active flows, new flows, and processed bytes. CloudTrail tracks API calls to ELB.</p>
+              <strong>Exam cue: metrics are for performance and alarms; CloudTrail is for who did what.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>AWS Auto Scaling</h3>
+            <div class="flashcard-answer">
+              <p>AWS Auto Scaling can build scaling plans and coordinate scaling across resource types such as EC2, Spot Fleets, ECS tasks, DynamoDB, and Aurora.</p>
+              <strong>Exam cue: it helps balance predictable performance, lowest cost, and capacity across services.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>EC2 Auto Scaling self-healing</h3>
+            <div class="flashcard-answer">
+              <p>EC2 Auto Scaling replaces unhealthy instances and can rebalance capacity across Availability Zones when an instance or AZ fails.</p>
+              <strong>Exam cue: ELB health checks plus Auto Scaling create a self-healing EC2 architecture.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Auto Scaling policies</h3>
+            <div class="flashcard-answer">
+              <p>Scaling can add or remove capacity based on metrics such as CPU utilization, request load, queue depth, or scheduled demand.</p>
+              <strong>Exam cue: scale out for demand increases and scale in when capacity is no longer needed.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Lifecycle hooks</h3>
+            <div class="flashcard-answer">
+              <p>Lifecycle hooks pause instance launch or termination so automation can run. EventBridge can invoke Lambda, Systems Manager can collect logs, and logs can be stored in S3 before termination.</p>
+              <strong>Exam cue: choose lifecycle hooks when the question says do cleanup or capture logs before terminating an instance.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Highly available web applications</h3>
+            <div class="flashcard-answer">
+              <p>Minimize interruptions by designing for failure, spreading services across AZs or Regions, adding redundancy, and using AWS services to keep resources available when needed.</p>
+              <strong>Exam cue: no single point of failure means multiple AZs plus health checks, load balancing, and automatic replacement.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Loosely coupled architecture</h3>
+            <div class="flashcard-answer">
+              <p>Use ELB, SQS, events, and decoupled components so one failure does not create a domino effect across the full application.</p>
+              <strong>Exam cue: loosely coupled systems scale and fail independently.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Stateless and parallel design</h3>
+            <div class="flashcard-answer">
+              <p>Move state out of application servers into services such as ElastiCache or DynamoDB. Use parallelism and smaller services to reduce bottlenecks.</p>
+              <strong>Exam cue: stateless web tiers are easier to scale horizontally behind a load balancer.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>VPC design benefits</h3>
+            <div class="flashcard-answer">
+              <p>VPC design is customizable with public and private subnets, corporate network extensions, security groups, NACLs, and private access to services such as S3 through VPC endpoints.</p>
+              <strong>Exam cue: public subnet for internet-facing tiers, private subnet for backend systems, security groups at instance level, NACLs at subnet level.</strong>
+            </div>
           </article>
         </div>
       </section>
@@ -2449,14 +2540,14 @@
             <h3>EC2 Auto Scaling vs AWS Auto Scaling</h3>
             <div class="flashcard-answer">
               <span>Know</span>
-              <p>EC2 Auto Scaling manages EC2 fleet size and health. AWS Auto Scaling can coordinate scaling policies across supported services.</p>
+              <p>EC2 Auto Scaling manages EC2 fleet size, health, replacement, and rebalancing. AWS Auto Scaling can coordinate scaling plans across supported services such as EC2, Spot Fleets, ECS, DynamoDB, and Aurora.</p>
             </div>
           </article>
           <article class="study-flashcard">
             <h3>Self-healing EC2 across an AZ failure</h3>
             <div class="flashcard-answer">
               <span>Answer</span>
-              <p>Use Elastic Load Balancing across multiple AZs plus an EC2 Auto Scaling group to replace failed instances and keep traffic on healthy targets.</p>
+              <p>Use Elastic Load Balancing across multiple AZs plus EC2 Auto Scaling. ELB health checks route traffic only to healthy targets, and Auto Scaling replaces failed instances or rebalances after an AZ failure.</p>
             </div>
           </article>
           <article class="study-flashcard">
@@ -3942,7 +4033,7 @@
             <p>Automatically adjusts EC2 capacity.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use to maintain availability and scale instances based on demand or schedules. Amazon SQS decouples job submission from processing, and EC2 Auto Scaling can scale workers based on queue depth.</strong>
+              <strong>Use to maintain availability and scale instances based on demand or schedules. Amazon SQS decouples job submission from processing, and EC2 Auto Scaling can scale workers based on queue depth. It replaces unhealthy instances, rebalances across AZs, and can use lifecycle hooks before launch or termination.</strong>
             </div>
           </article>
           <article id="service-aws-elastic-beanstalk" class="service-card" data-card data-category="Compute" data-search="aws elastic beanstalk platform service for deploying web applications. choose when developers want easy deployment while aws manages infrastructure details. aws elastic beanstalk manages the web app, and url swapping supports testing across multiple environments. compute">
@@ -4216,7 +4307,7 @@
             <p>Serverless key-value and document NoSQL database.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for low-latency, high-scale workloads with predictable access patterns. DynamoDB provides low-latency hierarchical access, and Macie can detect financial data in monthly S3 exports with SNS notifications. Choose on-demand capacity when access patterns are unknown, and DAX when DynamoDB reads need microsecond cache acceleration.</strong>
+              <strong>Use for low-latency, high-scale workloads with predictable access patterns. DynamoDB provides low-latency hierarchical access, and Macie can detect financial data in monthly S3 exports with SNS notifications. Choose on-demand capacity when access patterns are unknown, and DAX when DynamoDB reads need microsecond cache acceleration. Use it as durable external state storage when a stateless web tier must scale horizontally.</strong>
             </div>
           </article>
           <article id="service-amazon-elasticache" class="service-card" data-card data-category="Database" data-search="amazon elasticache managed redis or memcached caching. choose to reduce database load, store sessions, or provide low-latency cache access. elasticache for redis provides very fast access and supports persistence features, making it a better fit than memcached when data must survive restarts. database">
@@ -4228,7 +4319,7 @@
             <p>Managed Redis or Memcached caching.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose to reduce database load, store sessions, or provide low-latency cache access. Use caching instead of read replicas when repeated reads should avoid database connection and query overhead. Use lazy loading or write-through caching patterns for repeated reads and low-latency access.</strong>
+              <strong>Choose to reduce database load, store sessions, or provide low-latency cache access. Use caching instead of read replicas when repeated reads should avoid database connection and query overhead. Use lazy loading or write-through caching patterns for repeated reads and low-latency access. Use it to externalize session or state data so web/application servers can remain stateless and scale horizontally.</strong>
             </div>
           </article>
           <article id="service-amazon-keyspaces" class="service-card" data-card data-category="Database" data-search="amazon keyspaces managed apache cassandra-compatible database. use for cassandra workloads without managing cassandra clusters. database amazon keyspaces (for apache cassandra)">
@@ -4724,7 +4815,7 @@
             <p>Scaling plans across multiple AWS resources.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use to coordinate scaling for resources such as EC2, ECS, DynamoDB, and Aurora.</strong>
+              <strong>Use to coordinate scaling for resources such as EC2, ECS, DynamoDB, and Aurora. Use scaling plans to coordinate multiple resource types and balance performance with cost.</strong>
             </div>
           </article>
           <article id="service-aws-cli" class="service-card" data-card data-category="Management and Governance" data-search="aws cli command-line tool for aws services. know it for automation, scripting, and administrative operations. management and governance aws command line interface">
@@ -4761,7 +4852,7 @@
             <p>Records AWS API activity and account events.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for audit, compliance, security investigation, and tracking who did what. CloudTrail is the key traceability service for API calls and account activity.</strong>
+              <strong>Use for audit, compliance, security investigation, and tracking who did what. CloudTrail is the key traceability service for API calls and account activity. Use CloudTrail to track API calls made to Elastic Load Balancing and Auto Scaling.</strong>
             </div>
           </article>
           <article id="service-amazon-cloudwatch" class="service-card" data-card data-category="Management and Governance" data-search="amazon cloudwatch metrics, logs, alarms, dashboards, and events. use for monitoring resources, alerting, collecting logs, and operational visibility. ec2 detailed monitoring publishes one-minute cloudwatch metrics, which supports analysis at a granularity below two minutes. management and governance">
@@ -4773,7 +4864,7 @@
             <p>Metrics, logs, alarms, dashboards, and events.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for monitoring resources, alerting, collecting logs, and operational visibility. EC2 detailed monitoring publishes one-minute CloudWatch metrics, which supports analysis at a granularity below two minutes.</strong>
+              <strong>Use for monitoring resources, alerting, collecting logs, and operational visibility. EC2 detailed monitoring publishes one-minute CloudWatch metrics, which supports analysis at a granularity below two minutes. Use CloudWatch metrics for ELB request count, latency, errors, active flows, new flows, processed bytes, and alarms.</strong>
             </div>
           </article>
           <article id="service-aws-compute-optimizer" class="service-card" data-card data-category="Management and Governance" data-search="aws compute optimizer recommends optimal compute resources. use for rightsizing ec2, auto scaling, ebs, lambda, and related resources. aws compute optimizer analyzes ebs volume configuration and utilization and estimates monthly savings opportunities for optimization recommendations. management and governance">
@@ -5258,7 +5349,7 @@
             <p>Load balancer for deploying and scaling network appliances.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose when traffic must pass through firewalls, inspection, or security appliances.</strong>
+              <strong>Choose when traffic must pass through firewalls, inspection, or security appliances. GWLB is for scaling third-party network appliances such as firewalls and inspection systems with transparent traffic flow.</strong>
             </div>
           </article>
           <article id="service-network-load-balancer" class="service-card" data-card data-category="Networking and Content Delivery" data-search="network load balancer layer 4 load balancer for very high performance tcp, udp, and tls traffic. choose for static ip needs, ultra-low latency, or non-http protocols. networking and content delivery">
@@ -5270,7 +5361,7 @@
             <p>Layer 4 load balancer for very high performance TCP, UDP, and TLS traffic.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose for static IP needs, ultra-low latency, or non-HTTP protocols.</strong>
+              <strong>Choose for static IP needs, ultra-low latency, or non-HTTP protocols. NLB is layer 4 for TCP, UDP, and TLS, with ultra-low latency, extreme performance, and optional static IP or Elastic IP per subnet.</strong>
             </div>
           </article>
           <article id="service-application-load-balancer" class="service-card" data-card data-category="Networking and Content Delivery" data-search="application load balancer layer 7 load balancer for http and https applications. choose for path-based, host-based, or http application routing. networking and content delivery">
@@ -5342,7 +5433,7 @@
             <p>Distributes traffic across targets.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use ALB for HTTP/HTTPS layer 7, NLB for ultra-high performance TCP/UDP/TLS, and GWLB for appliances.</strong>
+              <strong>Use ALB for HTTP/HTTPS layer 7, NLB for ultra-high performance TCP/UDP/TLS, and GWLB for appliances. ELB uses listeners, rules, target groups, and health checks to route only to healthy targets; it can be internet-facing or internal.</strong>
             </div>
           </article>
           <article id="service-aws-global-accelerator" class="service-card" data-card data-category="Networking and Content Delivery" data-search="aws global accelerator improves global application availability and performance using static anycast ips. choose for routing users to healthy regional endpoints over the aws global network. aws global accelerator monitors regional endpoints and routes users to healthy albs with low latency. networking and content delivery">
@@ -5415,7 +5506,7 @@
             <p>Isolated virtual network in AWS.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Know VPC is regional and subnets are AZ-scoped. Security groups are instance or ENI level and fit different rules for instances in the same subnet; NACLs apply at the subnet boundary. Gateway endpoints cover S3 and DynamoDB; interface endpoints use PrivateLink.</strong>
+              <strong>Know VPC is regional and subnets are AZ-scoped. Security groups are instance or ENI level and fit different rules for instances in the same subnet; NACLs apply at the subnet boundary. Gateway endpoints cover S3 and DynamoDB; interface endpoints use PrivateLink. Design public subnets for internet-facing tiers, private subnets for backend systems, and VPC endpoints for private S3 access.</strong>
             </div>
           </article>
           <article id="service-amazon-api-gateway-canary-release" class="service-card" data-card data-category="Networking and Content Delivery" data-search="amazon api gateway canary release deployment pattern that sends a controlled percentage of api traffic to a new version before full promotion. use it to reduce release risk for rest apis. an api gateway canary release sends a small percentage of production traffic to the new deployment, then promotes it after validation to minimize customer impact and data loss. networking and content delivery">
@@ -5439,7 +5530,7 @@
             <p>Application Load Balancer works at HTTP/HTTPS layer 7. Use it for web apps, host/path routing, target groups, and AWS WAF integration.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>CloudFront in front of the ALB reduces global latency and can vary cache behavior by the Accept-Language header. The EC2 security group should allow inbound traffic only from the ALB security group.</strong>
+              <strong>CloudFront in front of the ALB reduces global latency and can vary cache behavior by the Accept-Language header. The EC2 security group should allow inbound traffic only from the ALB security group. ALB is layer 7 for HTTP, HTTPS, and gRPC with host/path/header routing, target groups, containers, Lambda targets, and AWS WAF integration.</strong>
             </div>
           </article></div>
       </section>
