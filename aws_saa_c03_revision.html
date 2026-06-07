@@ -1712,6 +1712,10 @@
         <span>Domain 1 Security Review</span>
         <strong>16</strong>
       </a>
+<a class="category-link" href="#architecture-exam-flashcards">
+        <span>Architecture Flashcards</span>
+        <strong>13</strong>
+      </a>
 <a class="category-link" href="#elb-auto-scaling-review">
         <span>ELB and Auto Scaling Review</span>
         <strong>18</strong>
@@ -2363,6 +2367,109 @@
             <div class="flashcard-answer">
               <span>Know</span>
               <p>Use AWS Backup for centralized backup, EBS snapshots, RDS/Aurora snapshots, DynamoDB point-in-time recovery, EFS backup, FSx backup, and S3 Cross-Region Replication when objects need continuous asynchronous copy.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="flashcard-section" id="architecture-exam-flashcards">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Flashcards</p>
+            <h2>Architecture Exam Flashcards</h2>
+          </div>
+          <span class="pill">13 cards</span>
+        </div>
+        <div class="flashcard-grid">
+          <article class="study-flashcard">
+            <h3>Which load balancer is at Layer 7 of the OSI model?</h3>
+            <div class="flashcard-answer">
+              <p>The Application Load Balancer.</p>
+              <strong>Exam cue: ALB is for HTTP, HTTPS, gRPC, host/path routing, and modern web applications.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Which load balancer handles millions of requests per second?</h3>
+            <div class="flashcard-answer">
+              <p>The Network Load Balancer.</p>
+              <strong>Exam cue: NLB is Layer 4 and fits ultra-low-latency TCP, UDP, and TLS workloads.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>CloudFront vs Global Accelerator</h3>
+            <div class="flashcard-answer">
+              <p>CloudFront caches static and dynamic content at edge locations. Global Accelerator improves network routing to regional endpoints by using the AWS global network and static anycast IPs.</p>
+              <strong>Exam cue: cache content with CloudFront; accelerate non-cacheable TCP/UDP or regional application access with Global Accelerator.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>What are the two S3 replication types?</h3>
+            <div class="flashcard-answer">
+              <p>Cross-Region Replication and Same-Region Replication.</p>
+              <strong>Exam cue: CRR is for another Region; SRR is for same-Region copies, compliance, ownership, or log aggregation.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>What are the three AWS Storage Gateway options?</h3>
+            <div class="flashcard-answer">
+              <p>File Gateway, Volume Gateway, and Tape Gateway.</p>
+              <strong>Exam cue: file shares, block volumes, or virtual tape backup are the clues.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>What are the storage options for EC2 instances?</h3>
+            <div class="flashcard-answer">
+              <p>Instance store is ephemeral storage on the host. EBS volumes are persistent block storage that can remain after the instance stops or terminates, depending on settings.</p>
+              <strong>Exam cue: instance store loses data when the underlying host is lost; EBS is the persistent choice.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>What is the resiliency of Amazon EBS?</h3>
+            <div class="flashcard-answer">
+              <p>EBS volumes are created in one Availability Zone and replicated within that AZ for high availability and durability inside the zone.</p>
+              <strong>Exam cue: EBS is AZ-scoped; use snapshots or replication strategies for Region-level recovery.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>What type of instances can use Amazon EFS?</h3>
+            <div class="flashcard-answer">
+              <p>Linux instances.</p>
+              <strong>Exam cue: EFS is a managed NFS file system for Linux workloads and shared access across multiple instances.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>DynamoDB query vs scan</h3>
+            <div class="flashcard-answer">
+              <p>A query retrieves items by partition key and optional sort key conditions. A scan reads every item in the table or index and is less efficient.</p>
+              <strong>Exam cue: use Query when you know the partition key; avoid Scan for large production lookups.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>What can trigger actions from DynamoDB changes?</h3>
+            <div class="flashcard-answer">
+              <p>Use DynamoDB Streams with AWS Lambda to react to item-level changes and run automated actions.</p>
+              <strong>Exam cue: stream plus Lambda means event-driven processing after table changes.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Which AWS database is a data warehouse?</h3>
+            <div class="flashcard-answer">
+              <p>Amazon Redshift.</p>
+              <strong>Exam cue: choose Redshift for analytical queries, summarization, reporting, and data warehouse workloads.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Where does a NAT gateway sit?</h3>
+            <div class="flashcard-answer">
+              <p>In a public subnet.</p>
+              <strong>Exam cue: private subnet instances route outbound internet traffic to a NAT gateway in a public subnet.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>How do you control access between VPCs after VPC peering?</h3>
+            <div class="flashcard-answer">
+              <p>Use network ACLs and security groups, along with route tables, to control which traffic can pass between peered VPCs.</p>
+              <strong>Exam cue: VPC peering provides connectivity; security groups and NACLs still enforce access controls.</strong>
             </div>
           </article>
         </div>
@@ -3678,7 +3785,7 @@
             <p>Managed cloud data warehouse.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose for complex analytics over structured data at scale, especially columnar warehouse workloads. Kinesis Data Firehose ingests data with high availability and loads Amazon Redshift for SQL analytics.</strong>
+              <strong>Choose for complex analytics over structured data at scale, especially columnar warehouse workloads. Kinesis Data Firehose ingests data with high availability and loads Amazon Redshift for SQL analytics. Redshift is the AWS data warehouse choice for analytics and summarization workloads.</strong>
             </div>
           </article>
           <article id="service-amazon-quicksight" class="service-card" data-card data-category="Analytics" data-search="amazon quicksight managed business intelligence and dashboard service. it visualizes data, builds reports, and can consume data prepared by analytics or ml services, but it is not a model-training platform. amazon sagemaker builds and trains ml models, and amazon quicksight visualizes the augmented data in bi dashboards with low operational overhead. amazon quicksight can visualize cost and usage report data, and athena can query the cur files in s3 for the dashboard table. analytics">
@@ -4307,7 +4414,7 @@
             <p>Serverless key-value and document NoSQL database.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for low-latency, high-scale workloads with predictable access patterns. DynamoDB provides low-latency hierarchical access, and Macie can detect financial data in monthly S3 exports with SNS notifications. Choose on-demand capacity when access patterns are unknown, and DAX when DynamoDB reads need microsecond cache acceleration. Use it as durable external state storage when a stateless web tier must scale horizontally.</strong>
+              <strong>Use for low-latency, high-scale workloads with predictable access patterns. DynamoDB provides low-latency hierarchical access, and Macie can detect financial data in monthly S3 exports with SNS notifications. Choose on-demand capacity when access patterns are unknown, and DAX when DynamoDB reads need microsecond cache acceleration. Use it as durable external state storage when a stateless web tier must scale horizontally. Query uses a partition key and optional sort key condition; Scan reads the table or index and is less efficient.</strong>
             </div>
           </article>
           <article id="service-amazon-elasticache" class="service-card" data-card data-category="Database" data-search="amazon elasticache managed redis or memcached caching. choose to reduce database load, store sessions, or provide low-latency cache access. elasticache for redis provides very fast access and supports persistence features, making it a better fit than memcached when data must survive restarts. database">
@@ -5361,7 +5468,7 @@
             <p>Layer 4 load balancer for very high performance TCP, UDP, and TLS traffic.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose for static IP needs, ultra-low latency, or non-HTTP protocols. NLB is layer 4 for TCP, UDP, and TLS, with ultra-low latency, extreme performance, and optional static IP or Elastic IP per subnet.</strong>
+              <strong>Choose for static IP needs, ultra-low latency, or non-HTTP protocols. NLB is layer 4 for TCP, UDP, and TLS, with ultra-low latency, extreme performance, and optional static IP or Elastic IP per subnet. Remember: NLB is the load balancer for millions of requests per second and ultra-low latency Layer 4 traffic.</strong>
             </div>
           </article>
           <article id="service-application-load-balancer" class="service-card" data-card data-category="Networking and Content Delivery" data-search="application load balancer layer 7 load balancer for http and https applications. choose for path-based, host-based, or http application routing. networking and content delivery">
@@ -5385,7 +5492,7 @@
             <p>Allows private subnet resources to initiate outbound internet access.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose when private instances need outbound internet access without accepting inbound internet traffic.</strong>
+              <strong>Choose when private instances need outbound internet access without accepting inbound internet traffic. A NAT gateway is placed in a public subnet so private subnet resources can reach the internet outbound.</strong>
             </div>
           </article>
           <article id="service-aws-client-vpn" class="service-card" data-card data-category="Networking and Content Delivery" data-search="aws client vpn managed client-based vpn service. use for secure remote user access to aws and on-premises networks. networking and content delivery">
@@ -5409,7 +5516,7 @@
             <p>Global content delivery network.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose to cache and deliver static/dynamic content globally with low latency. Amazon CloudFront with S3 as the origin caches pages at edge locations for global scale. Use CloudFront to cache content at edge locations and reduce latency for global users.</strong>
+              <strong>Choose to cache and deliver static/dynamic content globally with low latency. Amazon CloudFront with S3 as the origin caches pages at edge locations for global scale. Use CloudFront to cache content at edge locations and reduce latency for global users. CloudFront caches content at edge locations; compare with Global Accelerator for network acceleration without caching.</strong>
             </div>
           </article>
           <article id="service-aws-direct-connect" class="service-card" data-card data-category="Networking and Content Delivery" data-search="aws direct connect dedicated private network connection to aws. use for consistent bandwidth, private connectivity, and hybrid network requirements. direct connect provides dedicated low-latency connectivity, and transit gateway centralizes connectivity for the three vpcs. networking and content delivery">
@@ -5445,7 +5552,7 @@
             <p>Improves global application availability and performance using static anycast IPs.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose for routing users to healthy regional endpoints over the AWS global network. Global Accelerator improves availability and performance by monitoring endpoints and shifting traffic to healthy regional endpoints. Choose it for static anycast IPs and improved routing to healthy regional endpoints.</strong>
+              <strong>Choose for routing users to healthy regional endpoints over the AWS global network. Global Accelerator improves availability and performance by monitoring endpoints and shifting traffic to healthy regional endpoints. Choose it for static anycast IPs and improved routing to healthy regional endpoints. Global Accelerator uses static anycast IPs and AWS global routing to reach healthy regional endpoints; it does not cache content.</strong>
             </div>
           </article>
           <article id="service-aws-privatelink" class="service-card" data-card data-category="Networking and Content Delivery" data-search="aws privatelink private access to services over aws network using vpc endpoints. use to connect privately to aws services, saas, or your own endpoint services without public internet. networking and content delivery">
@@ -5530,7 +5637,7 @@
             <p>Application Load Balancer works at HTTP/HTTPS layer 7. Use it for web apps, host/path routing, target groups, and AWS WAF integration.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>CloudFront in front of the ALB reduces global latency and can vary cache behavior by the Accept-Language header. The EC2 security group should allow inbound traffic only from the ALB security group. ALB is layer 7 for HTTP, HTTPS, and gRPC with host/path/header routing, target groups, containers, Lambda targets, and AWS WAF integration.</strong>
+              <strong>CloudFront in front of the ALB reduces global latency and can vary cache behavior by the Accept-Language header. The EC2 security group should allow inbound traffic only from the ALB security group. ALB is layer 7 for HTTP, HTTPS, and gRPC with host/path/header routing, target groups, containers, Lambda targets, and AWS WAF integration. Remember: ALB is Layer 7 of the OSI model.</strong>
             </div>
           </article></div>
       </section>
@@ -6008,7 +6115,7 @@
             <p>Block storage volumes for EC2.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose for persistent, low-latency block storage attached to EC2 instances. Turn on EBS encryption when creating sensitive data volumes, or use default EBS encryption for new volumes. Modify EBS volume type, size, or IOPS when block storage performance must scale without replacing the workload.</strong>
+              <strong>Choose for persistent, low-latency block storage attached to EC2 instances. Turn on EBS encryption when creating sensitive data volumes, or use default EBS encryption for new volumes. Modify EBS volume type, size, or IOPS when block storage performance must scale without replacing the workload. EBS is persistent block storage and is replicated within a single Availability Zone.</strong>
             </div>
           </article>
           <article id="service-amazon-efs" class="service-card" data-card data-category="Storage" data-search="amazon efs managed elastic nfs file system. use for shared linux file storage across multiple instances or containers. storage amazon elastic file system">
@@ -6021,7 +6128,7 @@
             <p>Managed elastic NFS file system.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for shared Linux file storage across multiple instances or containers. Use EFS when multiple Linux instances or containers need elastic NFS storage that scales automatically.</strong>
+              <strong>Use for shared Linux file storage across multiple instances or containers. Use EFS when multiple Linux instances or containers need elastic NFS storage that scales automatically. EFS is for Linux instances and shared NFS file access.</strong>
             </div>
           </article>
           <article id="service-amazon-fsx" class="service-card" data-card data-category="Storage" data-search="amazon fsx managed file systems such as windows file server, lustre, netapp ontap, and openzfs. choose when a workload needs a specific managed file system protocol or performance profile. storage">
@@ -6046,7 +6153,7 @@
             <p>Object storage service. Supports encryption in transit with HTTPS and encryption at rest through server-side or client-side encryption choices. It is regional object storage designed for high durability and Availability Zone resilience.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for durable, scalable object storage, static hosting, data lakes, backups, and lifecycle policies. Protect objects from deletion or overwrite with S3 Versioning and MFA Delete. For performance, look for multipart uploads, Transfer Acceleration, CloudFront caching, lifecycle policies, CRR, versioning, and Object Lock.</strong>
+              <strong>Use for durable, scalable object storage, static hosting, data lakes, backups, and lifecycle policies. Protect objects from deletion or overwrite with S3 Versioning and MFA Delete. For performance, look for multipart uploads, Transfer Acceleration, CloudFront caching, lifecycle policies, CRR, versioning, and Object Lock. S3 replication options include Cross-Region Replication and Same-Region Replication.</strong>
             </div>
           </article>
           <article id="service-amazon-s3-glacier" class="service-card" data-card data-category="Storage" data-search="amazon s3 glacier low-cost archival storage classes. choose for long-term archive data with retrieval time and cost tradeoffs. storage">
@@ -6070,7 +6177,7 @@
             <p>Hybrid storage connecting on-premises apps to AWS storage.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for hybrid environments that need file, volume, or tape gateway patterns connecting on-premises applications to AWS storage.</strong>
+              <strong>Use for hybrid environments that need file, volume, or tape gateway patterns connecting on-premises applications to AWS storage. Storage Gateway modes are File Gateway, Volume Gateway, and Tape Gateway.</strong>
             </div>
           </article>
           <article id="service-amazon-ebs-fast-snapshot-restore" class="service-card" data-card data-category="Storage" data-search="amazon ebs fast snapshot restore pre-warms ebs snapshots so new volumes initialize quickly. useful for auto scaling fleets that must launch fast. ebs fast snapshot restore reduces initialization latency for volumes created from the snapshot used by the ami. storage">
