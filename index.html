@@ -1712,6 +1712,10 @@
         <span>Domain 1 Security Review</span>
         <strong>16</strong>
       </a>
+<a class="category-link" href="#dynamodb-s3-lambda-iam-review">
+        <span>DynamoDB S3 Lambda IAM Review</span>
+        <strong>20</strong>
+      </a>
 <a class="category-link" href="#architecture-exam-flashcards">
         <span>Architecture Flashcards</span>
         <strong>13</strong>
@@ -2367,6 +2371,158 @@
             <div class="flashcard-answer">
               <span>Know</span>
               <p>Use AWS Backup for centralized backup, EBS snapshots, RDS/Aurora snapshots, DynamoDB point-in-time recovery, EFS backup, FSx backup, and S3 Cross-Region Replication when objects need continuous asynchronous copy.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="flashcard-section" id="dynamodb-s3-lambda-iam-review">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Screenshot review</p>
+            <h2>DynamoDB, S3, Lambda, and IAM</h2>
+          </div>
+          <span class="pill">20 exam cues</span>
+        </div>
+        <div class="flashcard-grid">
+          <article class="study-flashcard">
+            <h3>DynamoDB overview</h3>
+            <div class="flashcard-answer">
+              <p>DynamoDB is a fully managed, serverless NoSQL database for key-value and document data models.</p>
+              <strong>Exam cue: choose DynamoDB for internet-scale applications that need single-digit millisecond performance at any scale.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>DynamoDB performance at scale</h3>
+            <div class="flashcard-answer">
+              <p>DynamoDB supports horizontal scaling, flexible schema, tables of almost any size, and high request volume without server management.</p>
+              <strong>Exam cue: flexible key-value/document workload with massive scale usually points to DynamoDB.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>DynamoDB global tables</h3>
+            <div class="flashcard-answer">
+              <p>Global tables provide automatic multi-Region replication for fast local access and multi-active designs.</p>
+              <strong>Exam cue: active-active, local reads/writes in multiple Regions, or global replication means DynamoDB global tables.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>DynamoDB Accelerator</h3>
+            <div class="flashcard-answer">
+              <p>DAX is an in-memory cache for DynamoDB that can reduce read latency from milliseconds to microseconds.</p>
+              <strong>Exam cue: choose DAX when the stem asks for microsecond read latency from DynamoDB.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>DynamoDB Streams</h3>
+            <div class="flashcard-answer">
+              <p>DynamoDB Streams capture a time-ordered sequence of item-level changes for up to 24 hours and can trigger Lambda workflows.</p>
+              <strong>Exam cue: react to table changes with DynamoDB Streams plus Lambda.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>DynamoDB capacity modes</h3>
+            <div class="flashcard-answer">
+              <p>Provisioned capacity lets you set read/write capacity and can use auto scaling. On-demand mode instantly adapts to unpredictable traffic and charges for what you consume.</p>
+              <strong>Exam cue: predictable traffic often fits provisioned capacity; unpredictable traffic often fits on-demand.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>DynamoDB enterprise features</h3>
+            <div class="flashcard-answer">
+              <p>DynamoDB supports point-in-time recovery, ACID transactions, encryption at rest with KMS, and on-demand backup and restore.</p>
+              <strong>Exam cue: PITR protects against accidental writes/deletes; transactions mean ACID support inside DynamoDB.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>S3 object model</h3>
+            <div class="flashcard-answer">
+              <p>S3 stores objects in buckets. An object has a unique key, data, metadata, and name-value pairs.</p>
+              <strong>Exam cue: S3 is object storage, not block storage and not a native file system.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>S3 durability and availability</h3>
+            <div class="flashcard-answer">
+              <p>S3 automatically stores copies of objects across multiple Availability Zones and is designed for eleven 9s of durability.</p>
+              <strong>Exam cue: S3 fits backup, restore, archive, static assets, data lakes, IoT, and big data analytics.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>S3 security and compliance</h3>
+            <div class="flashcard-answer">
+              <p>S3 includes encryption, access management, S3 Block Public Access, auditing, and compliance support.</p>
+              <strong>Exam cue: use S3 Block Public Access to prevent public bucket or object exposure.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>S3 access management</h3>
+            <div class="flashcard-answer">
+              <p>S3 resources are private by default. Access can be granted through resource-based policies, user policies, ACLs, and pre-signed URLs.</p>
+              <strong>Exam cue: AWS evaluates all applicable access policies before allowing or denying a request.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>S3 resource-based policies</h3>
+            <div class="flashcard-answer">
+              <p>Bucket policies and access point policies use JSON and include a Principal because the policy is attached to the S3 resource.</p>
+              <strong>Exam cue: resource policy controls who can access the bucket and what S3 operations are allowed.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>S3 user policies</h3>
+            <div class="flashcard-answer">
+              <p>IAM user, group, or role policies grant an identity permission to call S3 actions on specific bucket or object ARNs.</p>
+              <strong>Exam cue: identity policy does not need a Principal because the principal is the IAM identity.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Lambda overview</h3>
+            <div class="flashcard-answer">
+              <p>Lambda is serverless compute. You provide code, and AWS manages the underlying compute resources, availability, scaling, and runtime execution.</p>
+              <strong>Exam cue: choose Lambda for event-driven code without managing servers.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>How Lambda works</h3>
+            <div class="flashcard-answer">
+              <p>Upload code, configure triggers from AWS services, HTTP endpoints, in-app activity, or schedules, and Lambda runs only when invoked.</p>
+              <strong>Exam cue: pay for requests and duration, not idle time.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Lambda trigger examples</h3>
+            <div class="flashcard-answer">
+              <p>Lambda can be triggered by S3 object changes, SNS messages, API Gateway requests, DynamoDB record changes, SQS queues, and EventBridge schedules.</p>
+              <strong>Exam cue: match the event source to the trigger named in the stem.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Lambda benefits</h3>
+            <div class="flashcard-answer">
+              <p>Lambda has no servers to manage, continuous scaling, high availability, and subsecond metering.</p>
+              <strong>Exam cue: when code is not running, compute cost is zero.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>IAM overview</h3>
+            <div class="flashcard-answer">
+              <p>IAM manages authentication and authorization for AWS resources with users, groups, roles, policies, and temporary security credentials.</p>
+              <strong>Exam cue: IAM has no additional charge and is a global service.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>IAM access controls</h3>
+            <div class="flashcard-answer">
+              <p>IAM policies can allow or deny access. Groups let users inherit permissions, roles delegate access, and temporary credentials avoid long-term keys.</p>
+              <strong>Exam cue: explicit deny overrides allow; use roles instead of hardcoded credentials.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>IAM use cases</h3>
+            <div class="flashcard-answer">
+              <p>Use IAM for fine-grained access, conditions such as time, IP, SSL, and MFA, access analysis, MFA for privileged users, and federation with corporate directories through SAML.</p>
+              <strong>Exam cue: least privilege plus MFA plus federation are common secure-access answers.</strong>
             </div>
           </article>
         </div>
@@ -4414,7 +4570,7 @@
             <p>Serverless key-value and document NoSQL database.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for low-latency, high-scale workloads with predictable access patterns. DynamoDB provides low-latency hierarchical access, and Macie can detect financial data in monthly S3 exports with SNS notifications. Choose on-demand capacity when access patterns are unknown, and DAX when DynamoDB reads need microsecond cache acceleration. Use it as durable external state storage when a stateless web tier must scale horizontally. Query uses a partition key and optional sort key condition; Scan reads the table or index and is less efficient.</strong>
+              <strong>Use for low-latency, high-scale workloads with predictable access patterns. DynamoDB provides low-latency hierarchical access, and Macie can detect financial data in monthly S3 exports with SNS notifications. Choose on-demand capacity when access patterns are unknown, and DAX when DynamoDB reads need microsecond cache acceleration. Use it as durable external state storage when a stateless web tier must scale horizontally. Query uses a partition key and optional sort key condition; Scan reads the table or index and is less efficient. DynamoDB is fully managed, serverless, key-value/document storage with single-digit millisecond performance at any scale.</strong>
             </div>
           </article>
           <article id="service-amazon-elasticache" class="service-card" data-card data-category="Database" data-search="amazon elasticache managed redis or memcached caching. choose to reduce database load, store sessions, or provide low-latency cache access. elasticache for redis provides very fast access and supports persistence features, making it a better fit than memcached when data must survive restarts. database">
@@ -4500,7 +4656,7 @@
             <p>In-memory cache for DynamoDB. Use it when DynamoDB read latency must be microseconds to sub-milliseconds.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>DynamoDB with DAX provides sub-millisecond reads, DynamoDB export stores history in S3, and Athena runs one-time SQL queries. DynamoDB Accelerator (DAX) is a managed in-memory cache built for DynamoDB and can reduce read response times from milliseconds to microseconds for read-heavy DynamoDB workloads.</strong>
+              <strong>DynamoDB with DAX provides sub-millisecond reads, DynamoDB export stores history in S3, and Athena runs one-time SQL queries. DynamoDB Accelerator (DAX) is a managed in-memory cache built for DynamoDB and can reduce read response times from milliseconds to microseconds for read-heavy DynamoDB workloads. DAX is the DynamoDB in-memory cache for microsecond read latency.</strong>
             </div>
           </article>
           <article id="service-amazon-dynamodb-global-tables" class="service-card" data-card data-category="Database" data-search="amazon dynamodb global tables multi-region dynamodb replication feature for active-active, highly available applications that need local reads and writes in multiple regions. dynamodb global tables provide automatic multi-region replication, and provisioned capacity with auto scaling is cost-effective for predictable gaming access patterns. database">
@@ -4512,7 +4668,7 @@
             <p>Multi-Region DynamoDB replication feature for active-active, highly available applications that need local reads and writes in multiple Regions.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>DynamoDB global tables provide automatic multi-Region replication, and provisioned capacity with auto scaling is cost-effective for predictable gaming access patterns.</strong>
+              <strong>DynamoDB global tables provide automatic multi-Region replication, and provisioned capacity with auto scaling is cost-effective for predictable gaming access patterns. Global tables provide automatic multi-Region replication for multi-active designs and fast local access.</strong>
             </div>
           </article>
           <article id="service-amazon-dynamodb-time-to-live-ttl" class="service-card" data-card data-category="Database" data-search="amazon dynamodb time to live (ttl) time to live feature that automatically expires dynamodb items after a timestamp, useful for limited-retention application data. api gateway, sqs, lambda, amazon comprehend, dynamodb, and dynamodb ttl create a scalable pipeline that buffers survey spikes, analyzes sentiment, stores results. database">
@@ -5780,7 +5936,7 @@
             <p>Workforce single sign-on and centralized access.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for human access to multiple AWS accounts and cloud applications. AWS IAM Identity Center integrated with AWS Directory Service for Microsoft Active Directory and a two-way trust lets users remain managed in on-premises Active Directory while.</strong>
+              <strong>Use for human access to multiple AWS accounts and cloud applications. AWS IAM Identity Center integrated with AWS Directory Service for Microsoft Active Directory and a two-way trust lets users remain managed in on-premises Active Directory while. Use federation or IAM Identity Center when users come from a corporate directory and need AWS access.</strong>
             </div>
           </article>
           <article id="service-amazon-inspector" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="amazon inspector automated vulnerability management. use to scan ec2, container images, and lambda for vulnerabilities or exposure. amazon inspector scans for software vulnerabilities, and systems manager patch manager patches ec2 instances on a schedule with reporting. security, identity, and compliance">
@@ -5902,7 +6058,7 @@
             <p>Identity and access management for AWS resources.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Know users, groups, roles, policies, least privilege, permission boundaries, and cross-account access. IAM is global, new IAM identities start with no permissions, and root user permissions cannot be reduced.</strong>
+              <strong>Know users, groups, roles, policies, least privilege, permission boundaries, and cross-account access. IAM is global, new IAM identities start with no permissions, and root user permissions cannot be reduced. IAM supports users, groups, roles, policies, MFA, conditions, temporary credentials, federation, and least privilege.</strong>
             </div>
           </article>          <article id="service-aws-private-ca" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="aws private ca aws private certificate authority managed private certificate authority service. choose for issuing and managing private certificates for internal workloads. security identity and compliance aws private certificate authority">
             <div class="service-topline">
@@ -6068,7 +6224,7 @@
             <p>Serverless function compute.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for event-driven code, short-running tasks, API backends, automation, and pay-per-use compute. A Lambda resource-based policy should allow only lambda:InvokeFunction from the EventBridge service principal. Remember the per-invocation runtime limit; use Step Functions for longer multi-step workflows and Lambda@Edge with CloudFront.</strong>
+              <strong>Use for event-driven code, short-running tasks, API backends, automation, and pay-per-use compute. A Lambda resource-based policy should allow only lambda:InvokeFunction from the EventBridge service principal. Remember the per-invocation runtime limit; use Step Functions for longer multi-step workflows and Lambda@Edge with CloudFront. Lambda triggers include S3, SNS, API Gateway, DynamoDB Streams, SQS, EventBridge schedules, and direct service events.</strong>
             </div>
           </article>          <article id="service-aws-sam-serverless" class="service-card" data-card data-category="Serverless" data-search="aws sam aws serverless application model framework for building serverless applications. choose for defining lambda api gateway and event source serverless apps. serverless aws serverless application model">
             <div class="service-topline">
@@ -6153,7 +6309,7 @@
             <p>Object storage service. Supports encryption in transit with HTTPS and encryption at rest through server-side or client-side encryption choices. It is regional object storage designed for high durability and Availability Zone resilience.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for durable, scalable object storage, static hosting, data lakes, backups, and lifecycle policies. Protect objects from deletion or overwrite with S3 Versioning and MFA Delete. For performance, look for multipart uploads, Transfer Acceleration, CloudFront caching, lifecycle policies, CRR, versioning, and Object Lock. S3 replication options include Cross-Region Replication and Same-Region Replication.</strong>
+              <strong>Use for durable, scalable object storage, static hosting, data lakes, backups, and lifecycle policies. Protect objects from deletion or overwrite with S3 Versioning and MFA Delete. For performance, look for multipart uploads, Transfer Acceleration, CloudFront caching, lifecycle policies, CRR, versioning, and Object Lock. S3 replication options include Cross-Region Replication and Same-Region Replication. S3 stores objects in buckets with keys, data, and metadata; it is designed for eleven 9s of durability across multiple AZs.</strong>
             </div>
           </article>
           <article id="service-amazon-s3-glacier" class="service-card" data-card data-category="Storage" data-search="amazon s3 glacier low-cost archival storage classes. choose for long-term archive data with retrieval time and cost tradeoffs. storage">
@@ -6249,7 +6405,7 @@
             <p>Highly durable object storage. Use it for static assets, data lakes, backups, and archives, not as a native file system.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>S3 Glacier Deep Archive after one month is the lowest-cost choice for data kept indefinitely and rarely accessed. S3 Versioning preserves prior object versions, and MFA Delete adds a strong control before permanent deletion.</strong>
+              <strong>S3 Glacier Deep Archive after one month is the lowest-cost choice for data kept indefinitely and rarely accessed. S3 Versioning preserves prior object versions, and MFA Delete adds a strong control before permanent deletion. S3 stores objects in buckets with keys, data, and metadata; it is designed for eleven 9s of durability across multiple AZs.</strong>
             </div>
           </article></div>
       </section>
