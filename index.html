@@ -1813,7 +1813,19 @@
               </article>
               <article class="skill-card">
                 <strong>Apply security best practices to <a class="skill-service-link" href="#service-iam" data-service-target="service-iam">IAM</a> and root users</strong>
-                <p>Use MFA, protect the root user, avoid long-term credentials, and apply least privilege.</p>
+                <p>Use MFA, protect the root user, avoid long-term credentials, and apply least privilege to reduce blast radius.</p>
+              </article>
+              <article class="skill-card">
+                <strong>Understand AWS accounts and the root user</strong>
+                <p>AWS accounts start with one root user that has full permissions. Protect it with MFA, avoid daily use, and create limited identities for normal administration.</p>
+              </article>
+              <article class="skill-card">
+                <strong>Know that <a class="skill-service-link" href="#service-iam" data-service-target="service-iam">IAM</a> is global</strong>
+                <p>IAM is a global service. Its identities, credentials, and policies apply across Regions, so secure access decisions are account-wide.</p>
+              </article>
+              <article class="skill-card">
+                <strong>Secure public, private, hybrid, and multi-cloud access</strong>
+                <p>Design access differently for internet-facing, private VPC, on-premises, and third-party cloud environments while keeping least privilege and traceability.</p>
               </article>
               <article class="skill-card">
                 <strong>Design <a class="skill-service-link" href="#service-iam" data-service-target="service-iam">IAM</a> authorization models</strong>
@@ -1821,11 +1833,23 @@
               </article>
               <article class="skill-card">
                 <strong>Design role-based access control</strong>
-                <p>Use <a class="skill-service-link" href="#service-aws-sts" data-service-target="service-aws-sts">STS</a>, role switching, and cross-account roles when access should be temporary or delegated.</p>
+                <p>Use <a class="skill-service-link" href="#service-aws-sts" data-service-target="service-aws-sts">STS</a>, role switching, cross-account roles, service roles, and federation when access should be temporary or delegated.</p>
               </article>
               <article class="skill-card">
                 <strong>Design multi-account security</strong>
                 <p>Use <a class="skill-service-link" href="#service-aws-organizations" data-service-target="service-aws-organizations">Organizations</a>, <a class="skill-service-link" href="#service-aws-control-tower" data-service-target="service-aws-control-tower">Control Tower</a>, and <a class="skill-service-link" href="#service-aws-organizations" data-service-target="service-aws-organizations">SCPs</a> to separate workloads and enforce guardrails.</p>
+              </article>
+              <article class="skill-card">
+                <strong>Never hardcode application credentials</strong>
+                <p>Use IAM roles for AWS services, temporary credentials, Secrets Manager, or federation instead of embedding access keys in application code.</p>
+              </article>
+              <article class="skill-card">
+                <strong>Read IAM policy documents</strong>
+                <p>Know the major policy parts: effect, action, resource, condition, and principal when it is a resource-based policy.</p>
+              </article>
+              <article class="skill-card">
+                <strong>Understand IAM policy evaluation</strong>
+                <p>Multiple policies can apply to one identity. Explicit deny wins, permissions must be allowed, and SCPs set maximum permissions without granting access.</p>
               </article>
               <article class="skill-card">
                 <strong>Use resource policies correctly</strong>
@@ -1833,7 +1857,7 @@
               </article>
               <article class="skill-card">
                 <strong>Know when to federate identity</strong>
-                <p>Connect a directory or identity provider to AWS when users should sign in with existing identities.</p>
+                <p>Connect a corporate directory or third-party identity provider to AWS so federated users can assume IAM roles instead of receiving long-term IAM user credentials.</p>
               </article>
               <article class="skill-card">
                 <strong>Design secure <a class="skill-service-link" href="#service-amazon-vpc" data-service-target="service-amazon-vpc">VPC</a> architectures</strong>
@@ -1850,6 +1874,10 @@
               <article class="skill-card">
                 <strong>Secure external connectivity</strong>
                 <p>Choose <a class="skill-service-link" href="#service-aws-site-to-site-vpn" data-service-target="service-aws-site-to-site-vpn">VPN</a> or <a class="skill-service-link" href="#service-aws-direct-connect" data-service-target="service-aws-direct-connect">Direct Connect</a> patterns that protect traffic between AWS and external networks.</p>
+              </article>
+              <article class="skill-card">
+                <strong>Design traceability for access</strong>
+                <p>Use CloudTrail, CloudWatch, logs, alarms, Organizations, Control Tower, and SCPs to monitor, audit, alert, and automate responses across accounts.</p>
               </article>
               <article class="skill-card">
                 <strong>Map AWS controls to compliance needs</strong>
@@ -4256,7 +4284,7 @@
             <p>Records AWS API activity and account events.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for audit, compliance, security investigation, and tracking who did what.</strong>
+              <strong>Use for audit, compliance, security investigation, and tracking who did what. CloudTrail is the key traceability service for API calls and account activity.</strong>
             </div>
           </article>
           <article id="service-amazon-cloudwatch" class="service-card" data-card data-category="Management and Governance" data-search="amazon cloudwatch metrics, logs, alarms, dashboards, and events. use for monitoring resources, alerting, collecting logs, and operational visibility. ec2 detailed monitoring publishes one-minute cloudwatch metrics, which supports analysis at a granularity below two minutes. management and governance">
@@ -4304,7 +4332,7 @@
             <p>Multi-account landing zone setup and governance.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for establishing governed AWS Organizations environments quickly. AWS Control Tower should be deployed from the Organizations management account, with Account Factory for account provisioning and Security Hub for AWS Foundational Security Best.</strong>
+              <strong>Use for establishing governed AWS Organizations environments quickly. Control Tower helps enforce account baselines and visibility across multi-account environments.</strong>
             </div>
           </article>
           <article id="service-aws-health-dashboard" class="service-card" data-card data-category="Management and Governance" data-search="aws health dashboard visibility into aws service events and account-specific health. use to check operational issues affecting aws services or your resources. management and governance">
@@ -4376,7 +4404,7 @@
             <p>Multi-account management and consolidated billing.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for account hierarchy, service control policies, and centralized billing. SCPs set maximum permissions for accounts and OUs; use them for allow-list guardrails or deny-list guardrails.</strong>
+              <strong>Use for account hierarchy, service control policies, and centralized billing. SCPs set maximum permissions for accounts and OUs but do not grant permissions by themselves.</strong>
             </div>
           </article>
           <article id="service-aws-service-catalog" class="service-card" data-card data-category="Management and Governance" data-search="aws service catalog approved product catalogs for users. use to let teams deploy pre-approved infrastructure while enforcing governance. aws service catalog lets the company centrally define approved products and portfolios that customers can deploy for self-service. management and governance">
@@ -4956,7 +4984,7 @@
             <p>Temporary security credentials for AWS access.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose when access should be temporary, federated, or assumed through roles. AWS Security Token Service provides short-term credentials for access to AWS resources.</strong>
+              <strong>Choose when access should be temporary, federated, cross-account, or assumed through roles. AWS Security Token Service provides short-term credentials for access to AWS resources.</strong>
             </div>
           </article>
           <article id="service-aws-artifact" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="aws artifact access to aws compliance reports and agreements. use when a question asks where to find audit reports or compliance documents. security, identity, and compliance">
@@ -5199,7 +5227,7 @@
             <p>Identity and access management for AWS resources.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Know users, groups, roles, policies, least privilege, permission boundaries, and cross-account access. New IAM users, groups, and roles start with no permissions until permissions are explicitly granted.</strong>
+              <strong>Know users, groups, roles, policies, least privilege, permission boundaries, and cross-account access. IAM is global, new IAM identities start with no permissions, and root user permissions cannot be reduced.</strong>
             </div>
           </article>          <article id="service-aws-private-ca" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="aws private ca aws private certificate authority managed private certificate authority service. choose for issuing and managing private certificates for internal workloads. security identity and compliance aws private certificate authority">
             <div class="service-topline">
@@ -5244,7 +5272,7 @@
               <span class="service-category">Security, Identity, and Compliance</span>
             </div>
             <h3><a href="https://aws.amazon.com/iam/" target="_blank" rel="noopener noreferrer">AWS Identity and Access Management (IAM)</a></h3>
-            <p>Identity and permission system for AWS. Identity-based policies attach to IAM users, groups, or roles; resource-based policies attach to supported resources.</p>
+            <p>Identity and permission system for AWS. IAM is global. Identity-based policies attach to IAM users, groups, or roles; resource-based policies attach to supported resources and include a Principal.</p>
             <div class="exam-use">
               <span>Exam cue</span>
               <strong>AWS Secrets Manager stores database credentials securely and supports automatic rotation with IAM role access. An IAM identity-based policy can be attached to IAM roles and IAM groups.</strong>
@@ -5259,7 +5287,7 @@
             <p>Permission document that defines allowed or denied AWS actions. Identity-based policies attach to users, groups, or roles.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>An IAM policy can prevent users from creating unencrypted EBS volumes, while AWS Config and Systems Manager Automation can detect and remediate existing noncompliant volumes.</strong>
+              <strong>Read policy documents for Effect, Action, Resource, Condition, and Principal when resource-based. Explicit deny wins, and policies provide granular permissions.</strong>
             </div>
           </article>
           <article id="service-aws-identity-and-access-management-iam-role" class="service-card" data-card data-category="Security, Identity, and Compliance" data-search="aws identity and access management (iam) role iam identity assumed by users, applications, or aws services. roles can receive identity-based policies and are preferred over long-term credentials. aws secrets manager stores database credentials securely and supports automatic rotation with iam role access. create an iam role in the company's account that trusts the vendor's iam role, then attach least-privilege policies to the company-side role. security, identity, and compliance">
@@ -5498,7 +5526,7 @@
             <p>Block storage for EC2 instances. It is persistent disk storage, not a general shared file system.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>EBS Fast Snapshot Restore reduces initialization latency for volumes created from the snapshot used by the AMI. An IAM policy can prevent users from creating unencrypted EBS volumes, while AWS Config and Systems Manager Automation can detect and remediate existing noncompliant volumes.</strong>
+              <strong>EBS Fast Snapshot Restore reduces initialization latency for volumes created from the snapshot used by the AMI. Read policy documents for Effect, Action, Resource, Condition, and Principal when resource-based. Explicit deny wins, and policies provide granular permissions.</strong>
             </div>
           </article>
           <article id="service-amazon-elastic-file-system-amazon-efs" class="service-card" data-card data-category="Storage" data-search="amazon elastic file system (amazon efs) managed nfs file system for linux workloads. it is shared and multi-az, but not the native windows smb option. amazon efs provides shared, durable file storage across availability zones for the catalog. amazon efs provides highly available shared file storage that can be mounted by multiple containers through an eks storageclass. storage">
