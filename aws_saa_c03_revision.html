@@ -1716,6 +1716,10 @@
         <span>DynamoDB S3 Lambda IAM Review</span>
         <strong>20</strong>
       </a>
+<a class="category-link" href="#rds-dynamodb-database-review">
+        <span>RDS and DynamoDB Review</span>
+        <strong>18</strong>
+      </a>
 <a class="category-link" href="#architecture-exam-flashcards">
         <span>Architecture Flashcards</span>
         <strong>13</strong>
@@ -2527,6 +2531,144 @@
             <div class="flashcard-answer">
               <p>Use IAM for fine-grained access, conditions such as time, IP, SSL, and MFA, access analysis, MFA for privileged users, and federation with corporate directories through SAML.</p>
               <strong>Exam cue: least privilege plus MFA plus federation are common secure-access answers.</strong>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="flashcard-section" id="rds-dynamodb-database-review">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Database review</p>
+            <h2>Amazon RDS and DynamoDB Checklist</h2>
+          </div>
+          <span class="pill">18 review points</span>
+        </div>
+        <div class="flashcard-grid">
+          <article class="study-flashcard">
+            <h3>Amazon RDS purpose</h3>
+            <div class="flashcard-answer">
+              <p>Amazon RDS is a managed relational database service. AWS handles common administration tasks such as provisioning, patching, backups, monitoring, and failover options.</p>
+              <strong>Exam cue: choose RDS when the workload needs a relational engine, SQL, joins, transactions, or existing relational application compatibility.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>RDS supported engines</h3>
+            <div class="flashcard-answer">
+              <p>RDS supports familiar engines including Amazon Aurora, PostgreSQL, MySQL, MariaDB, Oracle Database, and SQL Server.</p>
+              <strong>Exam cue: engine choice matters for licensing, feature support, migration path, performance, and cost.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>RDS administration benefit</h3>
+            <div class="flashcard-answer">
+              <p>RDS can be created and managed from the console, CLI, SDK, or APIs, reducing manual server and database software administration.</p>
+              <strong>Exam cue: if the stem says easy to administer or less operational overhead for a relational database, RDS is a likely answer.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>RDS scaling</h3>
+            <div class="flashcard-answer">
+              <p>RDS can scale compute, memory, and storage. Read replicas offload read traffic, while storage autoscaling can help when allocated storage grows.</p>
+              <strong>Exam cue: read replicas scale reads; larger instances scale vertically; Multi-AZ is for availability, not read scaling from the standby.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>RDS Multi-AZ</h3>
+            <div class="flashcard-answer">
+              <p>Multi-AZ deployments synchronously replicate data to a standby in another Availability Zone and support automatic failover.</p>
+              <strong>Exam cue: choose Multi-AZ for high availability and durability within a Region.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>RDS backups and snapshots</h3>
+            <div class="flashcard-answer">
+              <p>RDS supports automated backups, manual snapshots, point-in-time recovery, and backup retention policies.</p>
+              <strong>Exam cue: set backup frequency and retention to meet RPO while avoiding unnecessary snapshot storage cost.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>RDS automatic recovery</h3>
+            <div class="flashcard-answer">
+              <p>RDS improves reliability with managed infrastructure, monitoring, backups, and automatic host replacement for failed underlying hosts.</p>
+              <strong>Exam cue: managed availability features reduce the operational work of running critical production databases.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>RDS security</h3>
+            <div class="flashcard-answer">
+              <p>Place RDS in private subnets, control network access with security groups, and use encryption at rest and in transit where required.</p>
+              <strong>Exam cue: database instances should usually be isolated from direct public access.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>RDS migration</h3>
+            <div class="flashcard-answer">
+              <p>Use AWS Database Migration Service to migrate or replicate existing databases into AWS with minimal downtime patterns.</p>
+              <strong>Exam cue: DMS moves database data; SCT helps convert schemas when the source and target engines differ.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>RDS storage options</h3>
+            <div class="flashcard-answer">
+              <p>RDS uses SSD-backed storage options such as General Purpose SSD and Provisioned IOPS SSD depending on workload performance needs.</p>
+              <strong>Exam cue: choose Provisioned IOPS when the relational workload needs consistent high I/O performance.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>DynamoDB purpose</h3>
+            <div class="flashcard-answer">
+              <p>DynamoDB is a fully managed serverless NoSQL database for key-value and document data models.</p>
+              <strong>Exam cue: choose DynamoDB for high-scale, low-latency access with known key-based access patterns.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>DynamoDB scale</h3>
+            <div class="flashcard-answer">
+              <p>DynamoDB horizontally scales tables of almost any size and is designed for single-digit millisecond performance.</p>
+              <strong>Exam cue: internet-scale key-value workloads often point to DynamoDB rather than a relational database.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>DynamoDB capacity modes</h3>
+            <div class="flashcard-answer">
+              <p>Use provisioned capacity for predictable traffic and on-demand capacity for unknown, spiky, or less predictable access patterns.</p>
+              <strong>Exam cue: on-demand mode ramps capacity automatically; provisioned mode can use auto scaling for cost control.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>DynamoDB Global Tables</h3>
+            <div class="flashcard-answer">
+              <p>Global tables provide automatic multi-Region replication for multi-active applications that need fast local reads and writes.</p>
+              <strong>Exam cue: multi-Region, active-active, local access to the same NoSQL table means Global Tables.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>DynamoDB Accelerator</h3>
+            <div class="flashcard-answer">
+              <p>DAX is a managed in-memory cache for DynamoDB that can reduce read latency from milliseconds to microseconds.</p>
+              <strong>Exam cue: choose DAX when DynamoDB read latency must be extremely low and the workload is read-heavy.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>DynamoDB Streams</h3>
+            <div class="flashcard-answer">
+              <p>DynamoDB Streams capture time-ordered item-level changes for up to 24 hours and can trigger Lambda workflows.</p>
+              <strong>Exam cue: item changes that trigger processing, workflow, or notification usually point to Streams plus Lambda.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>DynamoDB recovery and compliance</h3>
+            <div class="flashcard-answer">
+              <p>DynamoDB supports point-in-time recovery, on-demand backup and restore, ACID transactions, and encryption at rest with AWS KMS.</p>
+              <strong>Exam cue: choose PITR when the need is recovery from accidental writes or deletes.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>RDS vs DynamoDB</h3>
+            <div class="flashcard-answer">
+              <p>Use RDS for relational structure and SQL requirements. Use DynamoDB for serverless key-value or document access at very high scale.</p>
+              <strong>Exam cue: joins and complex SQL point to RDS; simple predictable key access at massive scale points to DynamoDB.</strong>
             </div>
           </article>
         </div>
@@ -4277,7 +4419,7 @@
             <p>Pub/sub notification service for fanout and alerts. It is not a durable work queue like SQS.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>DynamoDB provides low-latency hierarchical access, and Macie can detect financial data in monthly S3 exports with SNS notifications.</strong>
+              <strong>DynamoDB provides serverless key-value and document storage with single-digit millisecond performance. Use on-demand capacity for unknown traffic, provisioned capacity with auto scaling for predictable traffic, DAX for microsecond read latency, Streams plus Lambda for item-change processing, and PITR for accidental write or delete recovery. Macie can detect financial data in monthly S3 exports with SNS notifications.</strong>
             </div>
           </article>
           <article id="service-amazon-simple-queue-service-amazon-sqs" class="service-card" data-card data-category="Application Integration" data-search="amazon simple queue service (amazon sqs) managed message queue. use it to decouple components and buffer spikes; queue depth can drive worker scaling. amazon sqs decouples job submission from processing, and ec2 auto scaling can scale workers based on queue depth. amazon sqs decouples job requests, and ec2 auto scaling based on queue depth adds workers as load grows. application integration">
@@ -4884,7 +5026,7 @@
             <p>Managed relational database service. It reduces database administration but usually hides OS-level access.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>AWS Secrets Manager stores database credentials securely and supports automatic rotation with IAM role access. Amazon RDS Custom for Oracle provides OS-level access, and a cross-Region read replica supports disaster recovery.</strong>
+              <strong>Use RDS for managed relational engines when AWS should handle provisioning, patching, backups, monitoring, and failover options. Multi-AZ provides synchronous standby failover, read replicas offload reads, and security groups plus private subnets isolate database access. AWS Secrets Manager stores database credentials securely and supports automatic rotation with IAM role access. Amazon RDS Custom for Oracle provides OS-level access, and a cross-Region read replica supports disaster recovery.</strong>
             </div>
           </article>
           <article id="service-aws-database-migration-service-aws-dms" class="service-card" data-card data-category="Database" data-search="aws database migration service (aws dms) database migration service moves and continuously replicates databases. use cdc and ongoing replication when the source must stay online. aws dms uses a replication instance and ongoing replication task to keep aurora synchronized while the source stays online. enable babelfish on aurora postgresql to run sql server-compatible queries, and use aws sct plus aws dms to convert schema and migrate data. database">
