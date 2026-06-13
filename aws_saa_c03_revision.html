@@ -1732,6 +1732,10 @@
         <span>Domain 3 Performance Review</span>
         <strong>20</strong>
       </a>
+<a class="category-link" href="#domain4-cost-review">
+        <span>Domain 4 Cost Review</span>
+        <strong>20</strong>
+      </a>
 <a class="nav-title nav-title-link" href="https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/saa-03-in-scope-services.html" target="_blank" rel="noopener noreferrer">AWS Services</a>
       <nav class="category-list" aria-label="AWS services">
         
@@ -3059,6 +3063,158 @@
         </div>
       </section>
 
+      <section class="flashcard-section" id="domain4-cost-review">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Domain 4 review</p>
+            <h2>Cost-Optimized Architectures Checklist</h2>
+          </div>
+          <span class="pill">20 review points</span>
+        </div>
+        <div class="flashcard-grid">
+          <article class="study-flashcard">
+            <h3>What does Domain 4 focus on?</h3>
+            <div class="flashcard-answer">
+              <p>Design storage, compute, database, and network architectures that deliver business value at the lowest practical price point.</p>
+              <strong>Exam cue: never pick cheapest only; pick the lowest cost that still meets security, resilience, and performance requirements.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Cost Optimization Pillar</h3>
+            <div class="flashcard-answer">
+              <p>Use the AWS Well-Architected cost optimization pillar to avoid waste, select cost-effective resources, match supply with demand, and improve over time.</p>
+              <strong>Exam cue: look for right-sizing, elasticity, managed services, usage visibility, and pricing model choices.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Know the four task areas</h3>
+            <div class="flashcard-answer">
+              <p>Domain 4 covers cost-optimized storage, compute, databases, and network architectures. Each question usually hides the cost driver in the workload details.</p>
+              <strong>Exam cue: identify the expensive part first: capacity, requests, storage class, licenses, backups, or data transfer.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Cost reporting tools</h3>
+            <div class="flashcard-answer">
+              <p>Use AWS Cost Explorer for trend analysis, AWS Budgets for alerts, AWS Cost and Usage Report for granular data, and cost allocation tags for chargeback.</p>
+              <strong>Exam cue: dashboards and analysis mean Cost Explorer or CUR; threshold alerts mean Budgets.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Storage lifecycle</h3>
+            <div class="flashcard-answer">
+              <p>Use S3 Lifecycle policies to move data to lower-cost storage classes or expire it when retention rules allow deletion.</p>
+              <strong>Exam cue: access frequency and retrieval-time requirements decide the S3 storage class.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>S3 storage class clues</h3>
+            <div class="flashcard-answer">
+              <p>Use S3 Standard for frequent access, Intelligent-Tiering for unknown or changing access, IA classes for infrequent access, and Glacier classes for archives.</p>
+              <strong>Exam cue: rare access and long retention usually points to Glacier or Deep Archive.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>EBS snapshots and DLM</h3>
+            <div class="flashcard-answer">
+              <p>Use Amazon Data Lifecycle Manager to automate EBS snapshot creation and cleanup so old snapshots do not keep generating storage cost.</p>
+              <strong>Exam cue: retention policies reduce backup waste while still meeting recovery requirements.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Choose the right data store</h3>
+            <div class="flashcard-answer">
+              <p>Pick the database from access patterns, scale, growth, access frequency, constraints, schema flexibility, and required database features.</p>
+              <strong>Exam cue: do not store every data type in RDS just because the application already has a relational database.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Move large objects out of databases</h3>
+            <div class="flashcard-answer">
+              <p>Store large binary objects, files, backups, or static assets in S3 instead of keeping them inside a relational database.</p>
+              <strong>Exam cue: large objects in RDS can increase cost and hurt performance; S3 is usually better for object storage.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Move suitable data to DynamoDB</h3>
+            <div class="flashcard-answer">
+              <p>Move high-scale key-value or document-style subsets to DynamoDB to remove database administration and scale without managing clusters.</p>
+              <strong>Exam cue: predictable access can use provisioned capacity with auto scaling; unknown access often starts with on-demand capacity.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Aurora Serverless</h3>
+            <div class="flashcard-answer">
+              <p>Aurora Serverless can be more cost-effective for variable or intermittent relational workloads because capacity scales with demand.</p>
+              <strong>Exam cue: choose Aurora Serverless when the workload is relational but unpredictable or not always active.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Scale reads economically</h3>
+            <div class="flashcard-answer">
+              <p>For read-heavy relational workloads, add read replicas or a cache before simply scaling to a larger database instance.</p>
+              <strong>Exam cue: horizontal read scaling or caching is often cheaper than vertical scaling.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Backups, RTO, and RPO</h3>
+            <div class="flashcard-answer">
+              <p>Set backup frequency and retention to meet RPO and RTO requirements, then remove snapshots after their useful life.</p>
+              <strong>Exam cue: too many backups or overly long retention can be a hidden cost problem.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Managed services lower operations cost</h3>
+            <div class="flashcard-answer">
+              <p>Managed services such as RDS, DynamoDB, Lambda, Fargate, and managed analytics services reduce server maintenance and can lower cost per transaction at scale.</p>
+              <strong>Exam cue: choose managed services when the stem values low operational overhead.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Compute pricing choices</h3>
+            <div class="flashcard-answer">
+              <p>Use On-Demand for flexibility, Reserved Instances or Savings Plans for steady use, and Spot Instances for fault-tolerant interruptible work.</p>
+              <strong>Exam cue: batch, stateless, flexible workers often fit Spot; predictable baseline usage fits commitments.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Right-size compute</h3>
+            <div class="flashcard-answer">
+              <p>Choose the instance family and size that matches CPU, memory, storage, network, or accelerator needs instead of overprovisioning.</p>
+              <strong>Exam cue: vertical scaling can solve performance but may not be the lowest-cost design.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Elasticity reduces idle spend</h3>
+            <div class="flashcard-answer">
+              <p>Use Auto Scaling, scheduled scaling, serverless services, and demand-based capacity so resources shrink when demand drops.</p>
+              <strong>Exam cue: pay-for-use designs beat fixed capacity for spiky workloads.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Network transfer cost</h3>
+            <div class="flashcard-answer">
+              <p>Review cross-AZ, cross-Region, NAT gateway, internet egress, and data path choices because transfer charges can dominate architecture cost.</p>
+              <strong>Exam cue: keep traffic local when possible and use endpoints or caching when they reduce repeated transfer.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>CloudFront and edge caching</h3>
+            <div class="flashcard-answer">
+              <p>CloudFront can reduce origin load and repeated data transfer by caching content close to users.</p>
+              <strong>Exam cue: global static or cacheable content often points to CloudFront for both performance and cost optimization.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>VPC endpoints and NAT cost</h3>
+            <div class="flashcard-answer">
+              <p>Use VPC endpoints for private access to supported AWS services and design NAT gateways carefully because processing and availability choices affect cost.</p>
+              <strong>Exam cue: private S3 or DynamoDB access from a VPC often points to gateway endpoints instead of NAT.</strong>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <section class="concept-overview" id="technologies-and-concepts" aria-labelledby="concept-title">
         <div class="overview-heading">
           <p class="section-kicker">Official exam guide focus</p>
@@ -4190,7 +4346,7 @@
             <p>Visual cost analysis and forecasting tool.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use to investigate cost trends, forecast spend, and identify cost drivers.</strong>
+              <strong>Use to investigate cost trends, forecast spend, and identify cost drivers before right-sizing or changing pricing models.</strong>
             </div>
           </article>
           <article id="service-savings-plans" class="service-card" data-card data-category="AWS Cost Management" data-search="savings plans flexible pricing model for compute usage commitments. choose to reduce costs for predictable compute usage across eligible services. aws cost management">
@@ -4668,7 +4824,7 @@
             <p>Multi-Region DynamoDB replication feature for active-active, highly available applications that need local reads and writes in multiple Regions.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>DynamoDB global tables provide automatic multi-Region replication, and provisioned capacity with auto scaling is cost-effective for predictable gaming access patterns. Global tables provide automatic multi-Region replication for multi-active designs and fast local access.</strong>
+              <strong>DynamoDB global tables provide automatic multi-Region replication, and provisioned capacity with auto scaling is cost-effective for predictable access patterns. Start with on-demand capacity when access patterns are unknown. Global tables provide automatic multi-Region replication for multi-active designs and fast local access.</strong>
             </div>
           </article>
           <article id="service-amazon-dynamodb-time-to-live-ttl" class="service-card" data-card data-category="Database" data-search="amazon dynamodb time to live (ttl) time to live feature that automatically expires dynamodb items after a timestamp, useful for limited-retention application data. api gateway, sqs, lambda, amazon comprehend, dynamodb, and dynamodb ttl create a scalable pipeline that buffers survey spikes, analyzes sentiment, stores results. database">
@@ -5271,7 +5427,7 @@
             <p>Best-practice checks and recommendations.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for cost optimization, security, fault tolerance, performance, and service limits.</strong>
+              <strong>Use for cost optimization, security, fault tolerance, performance, and service limits; exam stems may use it to find idle or underutilized resources.</strong>
             </div>
           </article>
           <article id="service-aws-well-architected-tool" class="service-card" data-card data-category="Management and Governance" data-search="aws well-architected tool reviews workloads against aws best practices. use to assess architecture across pillars and identify improvement actions. management and governance">
@@ -6405,7 +6561,7 @@
             <p>Highly durable object storage. Use it for static assets, data lakes, backups, and archives, not as a native file system.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>S3 Glacier Deep Archive after one month is the lowest-cost choice for data kept indefinitely and rarely accessed. S3 Versioning preserves prior object versions, and MFA Delete adds a strong control before permanent deletion. S3 stores objects in buckets with keys, data, and metadata; it is designed for eleven 9s of durability across multiple AZs.</strong>
+              <strong>S3 Glacier Deep Archive after one month is the lowest-cost choice for data kept indefinitely and rarely accessed. Use Lifecycle policies to move or expire objects as access patterns change. S3 Versioning preserves prior object versions, and MFA Delete adds a strong control before permanent deletion. S3 stores objects in buckets with keys, data, and metadata; it is designed for eleven 9s of durability across multiple AZs.</strong>
             </div>
           </article></div>
       </section>
