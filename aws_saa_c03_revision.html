@@ -1265,155 +1265,174 @@
       scroll-margin-top: 24px;
     }
 
-    .db-image-panel {
-      margin: 0 0 16px;
-      border: 1px solid #dbe4f0;
-      border-radius: 8px;
-      background: #f8fbfc;
-      padding: 10px;
-      overflow: hidden;
-    }
-
-    .db-image-panel img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 6px;
-      background: #ffffff;
-    }
-
-    .db-tree {
+    .db-decision-panel {
       display: grid;
       gap: 14px;
     }
 
-    .db-tree-start {
+    .db-decision-intro {
       border: 2px solid #0f766e;
       border-radius: 8px;
       background: #ecfdf5;
-      padding: 16px;
-      text-align: center;
+      padding: 14px;
     }
 
-    .db-tree-start strong {
+    .db-decision-intro strong {
       display: block;
       color: #064e3b;
       font-size: 1.05rem;
       margin-bottom: 6px;
     }
 
-    .db-tree-start p,
-    .db-question p,
-    .db-leaf p,
-    .db-callout p {
+    .db-decision-intro p,
+    .db-choice-card p,
+    .db-choice-detail,
+    .db-result-card p {
       margin: 0;
       color: #475467;
       font-size: 0.9rem;
       line-height: 1.45;
     }
 
-    .db-tree-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 12px;
-    }
-
-    .db-question {
-      position: relative;
-      border: 1px solid #dbe4f0;
-      border-radius: 8px;
-      background: #f8fbfc;
-      padding: 14px;
-      min-height: 150px;
-    }
-
-    .db-question::before {
-      content: "";
-      position: absolute;
-      top: -15px;
-      left: 50%;
-      width: 1px;
-      height: 14px;
-      background: #98a2b3;
-    }
-
-    .db-question h3 {
+    .db-filter-bar {
       display: flex;
-      align-items: center;
+      flex-wrap: wrap;
       gap: 8px;
-      margin: 0 0 8px;
-      font-size: 1rem;
-      color: #111827;
     }
 
-    .db-node-mark {
-      display: inline-grid;
-      place-items: center;
-      width: 28px;
-      height: 28px;
-      border-radius: 999px;
-      background: #0f766e;
-      color: #ffffff;
-      font-weight: 900;
-      flex: 0 0 auto;
-    }
-
-    .db-branch {
-      display: grid;
-      gap: 8px;
-      margin-top: 12px;
-    }
-
-    .db-leaf {
+    .db-filter-btn {
       border: 1px solid #cbd5e1;
-      border-left: 4px solid var(--aws);
+      border-radius: 999px;
+      background: #ffffff;
+      color: #263244;
+      cursor: pointer;
+      font-weight: 800;
+      min-height: 36px;
+      padding: 8px 12px;
+    }
+
+    .db-filter-btn.is-selected {
+      background: #0f766e;
+      border-color: #0f766e;
+      color: #ffffff;
+    }
+
+    .db-tree-layout {
+      display: grid;
+      grid-template-columns: minmax(230px, 0.8fr) minmax(0, 1.6fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .db-question-list,
+    .db-result-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .db-choice-card,
+    .db-result-card {
+      border: 1px solid #dbe4f0;
       border-radius: 8px;
       background: #ffffff;
-      padding: 10px;
-    }
-
-    .db-leaf strong {
-      display: block;
-      color: #111827;
-      margin-bottom: 4px;
-    }
-
-    .db-leaf span {
-      display: inline-block;
-      margin-top: 7px;
-      color: #7c2d12;
-      font-weight: 800;
-      font-size: 0.82rem;
-    }
-
-    .db-callout-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 10px;
-      margin-top: 2px;
-    }
-
-    .db-callout {
-      border: 1px solid #dbe4f0;
-      border-radius: 8px;
-      background: #fffbeb;
       padding: 12px;
     }
 
-    .db-callout strong {
+    .db-choice-card {
+      border-left: 4px solid #0f766e;
+      cursor: pointer;
+      text-align: left;
+      width: 100%;
+    }
+
+    .db-choice-card.is-selected {
+      background: #f0fdfa;
+      border-color: #0f766e;
+      box-shadow: 0 10px 20px rgba(15, 118, 110, 0.12);
+    }
+
+    .db-choice-card strong,
+    .db-result-card h3 {
+      color: #111827;
       display: block;
-      color: #78350f;
       margin-bottom: 5px;
     }
 
-    @media (max-width: 720px) {
-      .db-tree-grid,
-      .db-callout-grid {
+    .db-result-card {
+      border-top: 4px solid var(--aws);
+      display: grid;
+      gap: 10px;
+    }
+
+    .db-result-card[hidden] {
+      display: none;
+    }
+
+    .db-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .db-tag {
+      border-radius: 999px;
+      background: #f1f5f9;
+      color: #334155;
+      font-size: 0.76rem;
+      font-weight: 900;
+      padding: 4px 8px;
+    }
+
+    .db-tag.yes {
+      background: #ecfdf5;
+      color: #047857;
+    }
+
+    .db-tag.no {
+      background: #fff1f2;
+      color: #be123c;
+    }
+
+    .db-card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .db-toggle {
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      background: #f8fafc;
+      color: #111827;
+      cursor: pointer;
+      font-weight: 800;
+      padding: 7px 10px;
+    }
+
+    .db-choice-detail {
+      border-left: 3px solid #f59e0b;
+      background: #fffbeb;
+      border-radius: 8px;
+      padding: 9px 10px;
+    }
+
+    .db-empty {
+      border: 1px dashed #cbd5e1;
+      border-radius: 8px;
+      color: #667085;
+      padding: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 820px) {
+      .db-tree-layout {
         grid-template-columns: 1fr;
       }
 
-      .db-question::before {
-        left: 20px;
+      .db-filter-btn,
+      .db-choice-card,
+      .db-toggle {
+        width: 100%;
       }
     }
 
@@ -2841,151 +2860,33 @@
       <section class="db-infographic" id="database-infographic">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Database decision tree</p>
+            <p class="eyebrow">Dynamic database decision tree</p>
             <h2>Choose the Right AWS Database</h2>
           </div>
-          <span class="pill">Exam path</span>
+          <span class="pill">Interactive guide</span>
         </div>
 
-        <figure class="db-image-panel">
-          <img src="assets/database-decision-tree.svg" alt="AWS database decision tree infographic showing when to choose RDS, Aurora, DynamoDB, Keyspaces, ElastiCache, Redshift, Athena, Neptune, DocumentDB, Timestream, DMS, and SCT.">
-        </figure>
-
-        <div class="db-tree" aria-label="AWS database decision tree">
-          <div class="db-tree-start">
-            <strong>Start here: what does the question emphasize?</strong>
-            <p>On the exam, choose the database from the access pattern first, then confirm latency, scale, availability, and cost.</p>
+        <div class="db-decision-panel" data-db-tree>
+          <div class="db-decision-intro">
+            <strong>Start with the access pattern, then filter by exam clues.</strong>
+            <p>Use the left questions to narrow the tree. Use the filters for SQL, non-SQL, Multi-AZ/high availability, serverless, analytics, and cache services.</p>
           </div>
 
-          <div class="db-tree-grid">
-            <article class="db-question">
-              <h3><span class="db-node-mark">1</span>Does it need SQL, joins, transactions, or constraints?</h3>
-              <p>Choose a relational service when the application depends on relational modeling or an existing database engine.</p>
-              <div class="db-branch">
-                <div class="db-leaf">
-                  <strong>Amazon RDS</strong>
-                  <p>Use for managed MySQL, PostgreSQL, MariaDB, Oracle, or SQL Server workloads.</p>
-                  <span>Exam cue: Multi-AZ = availability failover; read replica = read scaling.</span>
-                </div>
-                <div class="db-leaf">
-                  <strong>Amazon Aurora</strong>
-                  <p>Use when you still need MySQL/PostgreSQL compatibility but want higher performance, replicas, serverless scaling, or global database options.</p>
-                  <span>Exam cue: Aurora Global Database fits very low cross-Region RPO/RTO.</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="db-question">
-              <h3><span class="db-node-mark">2</span>Is the access pattern simple key-value or document lookup at huge scale?</h3>
-              <p>Choose NoSQL when the stem says serverless, massive scale, high request rate, or single-digit millisecond access by key.</p>
-              <div class="db-branch">
-                <div class="db-leaf">
-                  <strong>Amazon DynamoDB</strong>
-                  <p>Use for key-value or document data with known partition-key access patterns and automatic scaling.</p>
-                  <span>Exam cue: DAX = microsecond reads; Global Tables = multi-Region active-active.</span>
-                </div>
-                <div class="db-leaf">
-                  <strong>Amazon Keyspaces</strong>
-                  <p>Use when the requirement is Apache Cassandra compatibility.</p>
-                  <span>Exam cue: Cassandra-compatible points to Keyspaces, not DocumentDB.</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="db-question">
-              <h3><span class="db-node-mark">3</span>Is the main goal to reduce repeated reads or store sessions?</h3>
-              <p>Choose a cache when the database already exists but needs lower latency or less read pressure.</p>
-              <div class="db-branch">
-                <div class="db-leaf">
-                  <strong>Amazon ElastiCache</strong>
-                  <p>Use Redis or Memcached for session state, hot keys, leaderboards, counters, and repeated read-heavy data.</p>
-                  <span>Exam cue: ElastiCache is general caching; DAX is only for DynamoDB.</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="db-question">
-              <h3><span class="db-node-mark">4</span>Is it analytics, BI, reporting, summarization, or a data warehouse?</h3>
-              <p>Choose analytical storage when the workload scans and aggregates large datasets instead of serving OLTP requests.</p>
-              <div class="db-branch">
-                <div class="db-leaf">
-                  <strong>Amazon Redshift</strong>
-                  <p>Use for OLAP, dashboards, data warehouses, complex aggregations, and structured analytics.</p>
-                  <span>Exam cue: Redshift is analytics; RDS and Aurora are transactional OLTP.</span>
-                </div>
-                <div class="db-leaf">
-                  <strong>Amazon Athena</strong>
-                  <p>Use for serverless SQL queries directly over data in Amazon S3.</p>
-                  <span>Exam cue: Query S3 without loading a warehouse = Athena.</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="db-question">
-              <h3><span class="db-node-mark">5</span>Are relationships the data model?</h3>
-              <p>Choose a graph database when the hard part is traversing connections between entities.</p>
-              <div class="db-branch">
-                <div class="db-leaf">
-                  <strong>Amazon Neptune</strong>
-                  <p>Use for fraud detection, recommendations, knowledge graphs, social graphs, network topology, and identity relationships.</p>
-                  <span>Exam cue: Relationship traversal usually means Neptune.</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="db-question">
-              <h3><span class="db-node-mark">6</span>Does it need MongoDB-compatible JSON documents?</h3>
-              <p>Choose document compatibility when the application already expects MongoDB APIs or document collections.</p>
-              <div class="db-branch">
-                <div class="db-leaf">
-                  <strong>Amazon DocumentDB</strong>
-                  <p>Use for MongoDB-compatible document workloads where AWS manages the database infrastructure.</p>
-                  <span>Exam cue: MongoDB-compatible = DocumentDB.</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="db-question">
-              <h3><span class="db-node-mark">7</span>Is every query centered on time windows, metrics, or IoT events?</h3>
-              <p>Choose time-series storage when recent and historical time-based data have different access patterns.</p>
-              <div class="db-branch">
-                <div class="db-leaf">
-                  <strong>Amazon Timestream</strong>
-                  <p>Use for metrics, telemetry, IoT readings, logs with timestamps, and time-window analytics.</p>
-                  <span>Exam cue: Time-series plus retention tiers points to Timestream.</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="db-question">
-              <h3><span class="db-node-mark">8</span>Is this mostly migration or compatibility?</h3>
-              <p>When a question names an existing engine or protocol, compatibility often decides the service.</p>
-              <div class="db-branch">
-                <div class="db-leaf">
-                  <strong>AWS DMS and AWS SCT</strong>
-                  <p>Use DMS to migrate data; use SCT when converting database schemas between engines.</p>
-                  <span>Exam cue: Homogeneous migration often uses DMS; heterogeneous migration may need SCT.</span>
-                </div>
-              </div>
-            </article>
+          <div class="db-filter-bar" aria-label="Database filters">
+            <button class="db-filter-btn is-selected" type="button" data-db-filter="all">All databases</button>
+            <button class="db-filter-btn" type="button" data-db-filter="sql">SQL: yes</button>
+            <button class="db-filter-btn" type="button" data-db-filter="nosql">SQL: no</button>
+            <button class="db-filter-btn" type="button" data-db-filter="multiAz">Multi-AZ / HA: yes</button>
+            <button class="db-filter-btn" type="button" data-db-filter="serverless">Serverless</button>
+            <button class="db-filter-btn" type="button" data-db-filter="analytics">Analytics</button>
+            <button class="db-filter-btn" type="button" data-db-filter="cache">Cache</button>
           </div>
 
-          <div class="db-callout-grid" aria-label="Database exam comparisons">
-            <div class="db-callout">
-              <strong>RDS vs Aurora</strong>
-              <p>Both are relational. Pick Aurora for AWS-optimized performance, fast replicas, Aurora Serverless, or Global Database.</p>
-            </div>
-            <div class="db-callout">
-              <strong>DynamoDB vs RDS</strong>
-              <p>Pick DynamoDB for simple key access at huge scale. Pick RDS when SQL joins, constraints, and transactions drive the design.</p>
-            </div>
-            <div class="db-callout">
-              <strong>DAX vs ElastiCache</strong>
-              <p>DAX accelerates DynamoDB reads only. ElastiCache is a general Redis/Memcached cache for apps, sessions, and databases.</p>
-            </div>
-            <div class="db-callout">
-              <strong>Redshift vs Athena</strong>
-              <p>Redshift is a managed warehouse for repeated analytics. Athena is serverless SQL directly over files in S3.</p>
+          <div class="db-tree-layout">
+            <div class="db-question-list" data-db-questions aria-label="Decision questions"></div>
+            <div>
+              <div class="db-result-grid" data-db-results aria-live="polite"></div>
+              <div class="db-empty" data-db-empty hidden>No database matches this branch.</div>
             </div>
           </div>
         </div>
@@ -7251,7 +7152,295 @@
       button.addEventListener("click", () => {
         activeFilter = button.dataset.filter;
         filters.forEach((item) => item.classList.toggle("is-selected", item === button));
-        applyFilters();
+        const databaseChoices = [
+      {
+        id: "rds",
+        name: "Amazon RDS",
+        branch: "relational",
+        sql: true,
+        multiAz: true,
+        serverless: false,
+        analytics: false,
+        cache: false,
+        model: "Managed relational database",
+        description: "Managed MySQL, PostgreSQL, MariaDB, Oracle, and SQL Server for OLTP applications.",
+        use: "Use when the app needs SQL, joins, transactions, constraints, stored procedures, or an existing relational engine.",
+        avoid: "Avoid for massive simple key-value workloads or graph traversal.",
+        cue: "Multi-AZ is standby failover. Read replicas scale reads."
+      },
+      {
+        id: "aurora",
+        name: "Amazon Aurora",
+        branch: "relational",
+        sql: true,
+        multiAz: true,
+        serverless: true,
+        analytics: false,
+        cache: false,
+        model: "AWS-optimized relational database",
+        description: "MySQL/PostgreSQL-compatible database with distributed storage, fast replicas, Serverless, and Global Database options.",
+        use: "Use when you need relational compatibility with higher performance, high availability, variable capacity, or low cross-Region RPO/RTO.",
+        avoid: "Avoid when the data model is key-value, graph, time-series, or document-only.",
+        cue: "Aurora Serverless fits variable SQL demand. Aurora Global Database fits DR and global reads."
+      },
+      {
+        id: "dynamodb",
+        name: "Amazon DynamoDB",
+        branch: "key",
+        sql: false,
+        multiAz: true,
+        serverless: true,
+        analytics: false,
+        cache: false,
+        model: "Serverless key-value and document database",
+        description: "Single-digit millisecond NoSQL database for huge scale with known partition-key access patterns.",
+        use: "Use for shopping carts, user profiles, chat messages, gaming state, IoT metadata, and high request rates.",
+        avoid: "Avoid when the question requires joins, complex SQL, or relational constraints.",
+        cue: "DAX gives microsecond reads. Global Tables gives multi-Region active-active."
+      },
+      {
+        id: "keyspaces",
+        name: "Amazon Keyspaces",
+        branch: "key",
+        sql: false,
+        multiAz: true,
+        serverless: true,
+        analytics: false,
+        cache: false,
+        model: "Managed Cassandra-compatible wide-column database",
+        description: "Serverless Apache Cassandra-compatible database for wide-column workloads.",
+        use: "Use when the requirement explicitly says Cassandra compatibility or existing Cassandra application.",
+        avoid: "Avoid for MongoDB compatibility, graph data, or traditional SQL joins.",
+        cue: "Cassandra-compatible means Keyspaces."
+      },
+      {
+        id: "elasticache",
+        name: "Amazon ElastiCache",
+        branch: "cache",
+        sql: false,
+        multiAz: true,
+        serverless: false,
+        analytics: false,
+        cache: true,
+        model: "Managed Redis or Memcached cache",
+        description: "In-memory cache for low-latency reads, sessions, counters, leaderboards, and hot data.",
+        use: "Use to reduce database load, externalize session state, or speed repeated read-heavy access.",
+        avoid: "Avoid as the only durable source of truth.",
+        cue: "ElastiCache is the general cache answer. DAX is only for DynamoDB."
+      },
+      {
+        id: "memorydb",
+        name: "Amazon MemoryDB for Redis",
+        branch: "cache",
+        sql: false,
+        multiAz: true,
+        serverless: false,
+        analytics: false,
+        cache: true,
+        model: "Durable Redis-compatible in-memory database",
+        description: "Redis-compatible database with durability for ultra-low-latency primary data.",
+        use: "Use when the app needs Redis data structures with durable primary storage, not just a cache.",
+        avoid: "Avoid when a disposable cache is enough or when SQL is required.",
+        cue: "MemoryDB is durable Redis; ElastiCache is usually cache."
+      },
+      {
+        id: "redshift",
+        name: "Amazon Redshift",
+        branch: "analytics",
+        sql: true,
+        multiAz: true,
+        serverless: true,
+        analytics: true,
+        cache: false,
+        model: "Data warehouse",
+        description: "Columnar warehouse for OLAP, BI, dashboards, summarization, and large analytical queries.",
+        use: "Use for analytics over structured data, reporting, and aggregations.",
+        avoid: "Avoid for online transaction processing and per-request app reads.",
+        cue: "Redshift is OLAP. RDS and Aurora are OLTP."
+      },
+      {
+        id: "athena",
+        name: "Amazon Athena",
+        branch: "analytics",
+        sql: true,
+        multiAz: true,
+        serverless: true,
+        analytics: true,
+        cache: false,
+        model: "Serverless SQL query service",
+        description: "Run SQL directly on files in Amazon S3 without loading data into a database.",
+        use: "Use for ad hoc queries, log analysis, and data lake queries on S3.",
+        avoid: "Avoid for low-latency OLTP or high-concurrency application transactions.",
+        cue: "Query S3 with SQL means Athena."
+      },
+      {
+        id: "neptune",
+        name: "Amazon Neptune",
+        branch: "graph",
+        sql: false,
+        multiAz: true,
+        serverless: true,
+        analytics: false,
+        cache: false,
+        model: "Graph database",
+        description: "Purpose-built database for highly connected data and relationship traversal.",
+        use: "Use for fraud detection, recommendations, social graphs, network topology, and identity graphs.",
+        avoid: "Avoid for simple key-value lookup or relational reporting.",
+        cue: "If relationships are the main query, think Neptune."
+      },
+      {
+        id: "documentdb",
+        name: "Amazon DocumentDB",
+        branch: "document",
+        sql: false,
+        multiAz: true,
+        serverless: false,
+        analytics: false,
+        cache: false,
+        model: "MongoDB-compatible document database",
+        description: "Managed document database for JSON document workloads that expect MongoDB-compatible APIs.",
+        use: "Use for content catalogs, user profiles, and applications already built for MongoDB compatibility.",
+        avoid: "Avoid for Cassandra compatibility, graph traversal, or SQL joins.",
+        cue: "MongoDB-compatible means DocumentDB."
+      },
+      {
+        id: "timestream",
+        name: "Amazon Timestream",
+        branch: "time",
+        sql: true,
+        multiAz: true,
+        serverless: true,
+        analytics: true,
+        cache: false,
+        model: "Time-series database",
+        description: "Database for timestamped metrics, events, telemetry, and IoT readings.",
+        use: "Use when queries are mainly time windows and data has recent vs historical retention patterns.",
+        avoid: "Avoid for relationship traversal, arbitrary documents, or relational OLTP.",
+        cue: "Metrics plus timestamps plus retention tiers means Timestream."
+      },
+      {
+        id: "opensearch",
+        name: "Amazon OpenSearch Service",
+        branch: "search",
+        sql: false,
+        multiAz: true,
+        serverless: true,
+        analytics: true,
+        cache: false,
+        model: "Search and log analytics engine",
+        description: "Search, full-text indexing, observability, and log analytics service.",
+        use: "Use for full-text search, log exploration, application search, and near-real-time operational analytics.",
+        avoid: "Avoid as a primary relational transaction database.",
+        cue: "Search, logs, and text relevance point to OpenSearch."
+      }
+    ];
+
+    const databaseBranches = [
+      { id: "all", title: "Show every database", text: "Use this for a full comparison." },
+      { id: "relational", title: "Need SQL, joins, or transactions?", text: "Relational OLTP: RDS or Aurora." },
+      { id: "key", title: "Need key-value scale?", text: "NoSQL scale: DynamoDB or Keyspaces." },
+      { id: "cache", title: "Need cache or sessions?", text: "Low latency repeated reads: ElastiCache or MemoryDB." },
+      { id: "analytics", title: "Need analytics or SQL on S3?", text: "Warehouse, BI, or ad hoc S3 query." },
+      { id: "graph", title: "Need relationship traversal?", text: "Connected data and graph queries." },
+      { id: "document", title: "Need MongoDB-compatible documents?", text: "JSON document workloads." },
+      { id: "time", title: "Need time-series metrics?", text: "IoT, telemetry, and timestamp windows." },
+      { id: "search", title: "Need full-text search or log analytics?", text: "Search relevance and operational logs." }
+    ];
+
+    function initDatabaseTree() {
+      const root = document.querySelector("[data-db-tree]");
+      if (!root) return;
+      const questionList = root.querySelector("[data-db-questions]");
+      const resultGrid = root.querySelector("[data-db-results]");
+      const empty = root.querySelector("[data-db-empty]");
+      const filterButtons = [...root.querySelectorAll("[data-db-filter]")];
+      let activeBranch = "all";
+      let activeFilter = "all";
+
+      function matchesFilter(item) {
+        if (activeFilter === "all") return true;
+        if (activeFilter === "sql") return item.sql;
+        if (activeFilter === "nosql") return !item.sql;
+        return Boolean(item[activeFilter]);
+      }
+
+      function renderQuestions() {
+        questionList.innerHTML = databaseBranches.map((branch) => `
+          <button class="db-choice-card${branch.id === activeBranch ? " is-selected" : ""}" type="button" data-db-branch="${branch.id}">
+            <strong>${branch.title}</strong>
+            <p>${branch.text}</p>
+          </button>
+        `).join("");
+
+        questionList.querySelectorAll("[data-db-branch]").forEach((button) => {
+          button.addEventListener("click", () => {
+            activeBranch = button.dataset.dbBranch;
+            render();
+          });
+        });
+      }
+
+      function renderResults() {
+        const visible = databaseChoices.filter((item) => {
+          const branchMatch = activeBranch === "all" || item.branch === activeBranch;
+          return branchMatch && matchesFilter(item);
+        });
+
+        resultGrid.innerHTML = visible.map((item) => `
+          <article class="db-result-card">
+            <div>
+              <h3>${item.name}</h3>
+              <p>${item.description}</p>
+            </div>
+            <div class="db-tags">
+              <span class="db-tag">${item.model}</span>
+              <span class="db-tag ${item.sql ? "yes" : "no"}">SQL: ${item.sql ? "yes" : "no"}</span>
+              <span class="db-tag ${item.multiAz ? "yes" : "no"}">Multi-AZ/HA: ${item.multiAz ? "yes" : "no"}</span>
+              <span class="db-tag ${item.serverless ? "yes" : "no"}">Serverless: ${item.serverless ? "yes" : "no"}</span>
+            </div>
+            <div class="db-card-actions">
+              <button class="db-toggle" type="button" aria-expanded="false">When to use it</button>
+            </div>
+            <div class="db-choice-detail" hidden>
+              <strong>When to use:</strong> ${item.use}<br>
+              <strong>Avoid when:</strong> ${item.avoid}<br>
+              <strong>Exam cue:</strong> ${item.cue}
+            </div>
+          </article>
+        `).join("");
+
+        resultGrid.querySelectorAll(".db-toggle").forEach((button) => {
+          button.addEventListener("click", () => {
+            const detail = button.closest(".db-result-card").querySelector(".db-choice-detail");
+            const expanded = detail.hidden;
+            detail.hidden = !expanded;
+            button.setAttribute("aria-expanded", String(expanded));
+            button.textContent = expanded ? "Hide details" : "When to use it";
+          });
+        });
+
+        empty.hidden = visible.length > 0;
+      }
+
+      function render() {
+        renderQuestions();
+        renderResults();
+      }
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          activeFilter = button.dataset.dbFilter;
+          filterButtons.forEach((item) => item.classList.toggle("is-selected", item === button));
+          renderResults();
+        });
+      });
+
+      render();
+    }
+
+    initDatabaseTree();
+
+    applyFilters();
       });
     });
 
