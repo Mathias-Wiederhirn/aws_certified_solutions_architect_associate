@@ -1690,7 +1690,7 @@
       </label>
 <a class="category-link" href="#future-exam-revision-topics">
         <span>Exam Revision Topics</span>
-        <strong>12</strong>
+        <strong>17</strong>
       </a>
 <a class="category-link" href="#aws-global-infrastructure">
         <span>Global Infrastructure</span>
@@ -1827,7 +1827,7 @@
             <p class="eyebrow">Exam revision topics</p>
             <h2>Comparisons, Differences, and When to Use</h2>
           </div>
-          <span class="pill">12 comparisons</span>
+          <span class="pill">17 comparisons</span>
         </div>
         <div class="flashcard-grid">
           <article class="study-flashcard">
@@ -1856,6 +1856,41 @@
             <div class="flashcard-answer">
               <p>Deregistration delay lets in-flight requests finish before an ALB or NLB stops sending traffic to a target.</p>
               <strong>Use it when reports, uploads, or long requests may fail during Auto Scaling scale-in. Sticky sessions keep a user on one target, but they do not protect requests during termination.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>EC2 vs Lambda vs Fargate</h3>
+            <div class="flashcard-answer">
+              <p>EC2 gives OS, network, storage, and instance-level control. Lambda runs event-driven code without servers. Fargate runs containers without managing EC2 hosts.</p>
+              <strong>Use EC2 for custom OS access, long-running services, special agents, or fixed server needs. Use Lambda for short event tasks. Use Fargate for containers with low operations.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>EC2 pricing choices</h3>
+            <div class="flashcard-answer">
+              <p>On-Demand is flexible, Reserved Instances and Savings Plans reduce steady-state cost, Spot is cheapest for interruptible work, and Capacity Reservations guarantee capacity.</p>
+              <strong>Use Spot for fault-tolerant batch. Use Reserved Instances or Savings Plans for predictable baseline usage. Use On-Demand for uncertain short-term workloads.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>EC2 storage choices</h3>
+            <div class="flashcard-answer">
+              <p>EBS is persistent block storage in one Availability Zone. Instance store is temporary local block storage. EFS is shared Linux file storage across instances.</p>
+              <strong>Use EBS for persistent attached volumes, instance store for high-speed temporary scratch data, and EFS when multiple EC2 instances need the same file system.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>EC2 placement and networking</h3>
+            <div class="flashcard-answer">
+              <p>EC2 instances run in subnets inside a VPC and are protected by security groups. Placement affects latency, availability, and data-transfer cost.</p>
+              <strong>Use multiple AZs for availability, same AZ for lowest EC2-to-EC2 transfer cost and low latency, and placement groups for tightly coupled high-performance workloads.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>EC2 Auto Scaling vs manual capacity</h3>
+            <div class="flashcard-answer">
+              <p>EC2 Auto Scaling adjusts instance count, replaces unhealthy instances, and can rebalance across Availability Zones.</p>
+              <strong>Use target tracking for demand-based scaling, scheduled scaling for predictable time windows, lifecycle hooks for cleanup before termination, and ELB health checks for self-healing fleets.</strong>
             </div>
           </article>
           <article class="study-flashcard">
