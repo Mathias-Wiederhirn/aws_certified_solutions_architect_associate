@@ -1690,7 +1690,7 @@
       </label>
 <a class="category-link" href="#future-exam-revision-topics">
         <span>Exam Revision Topics</span>
-        <strong>19</strong>
+        <strong>28</strong>
       </a>
 <a class="category-link" href="#aws-global-infrastructure">
         <span>Global Infrastructure</span>
@@ -1827,7 +1827,7 @@
             <p class="eyebrow">Exam revision topics</p>
             <h2>Question Pattern Cues and Comparisons</h2>
           </div>
-          <span class="pill">19 patterns</span>
+          <span class="pill">28 patterns</span>
         </div>
         <div class="flashcard-grid">
           <article class="study-flashcard">
@@ -1954,6 +1954,69 @@
             <div class="flashcard-answer">
               <p>Use Amazon Cognito user pools for centralized authentication, authorization flows, and user management for web and mobile applications.</p>
               <strong>Comparison cue: IAM users, groups, roles, and STS control AWS resource access; Cognito user pools control application user sign-in and identity for the app.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>EC2 data transfer cost between instances</h3>
+            <div class="flashcard-answer">
+              <p>Place EC2 instances in the same Region, and usually the same Availability Zone when architecture allows, to reduce avoidable inter-Region or cross-AZ data transfer cost.</p>
+              <strong>Comparison cue: moving compute closer is the first cost lever; Direct Connect, NAT, or internet routing do not make EC2-to-EC2 transfer cheaper by themselves.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Infrequently accessed S3 objects</h3>
+            <div class="flashcard-answer">
+              <p>Use S3 Lifecycle rules to move objects that are not accessed frequently into a lower-cost storage class.</p>
+              <strong>Comparison cue: lifecycle rules optimize storage class over time; replication copies data and can increase cost; EBS and EFS are not the cost answer for S3 object storage.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Cost tracking and dashboards</h3>
+            <div class="flashcard-answer">
+              <p>Use AWS Cost Explorer to analyze costs and usage, forecast spend, and investigate cost drivers in the Billing and Cost Management console.</p>
+              <strong>Comparison cue: Cost Explorer is for visual analysis; AWS Budgets is for alerts; Cost and Usage Report is for detailed billing data in S3.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Unused EC2 instances</h3>
+            <div class="flashcard-answer">
+              <p>If an EC2 instance is no longer needed but its data must be kept, create an EBS snapshot or AMI as appropriate, then terminate the unused instance.</p>
+              <strong>Comparison cue: stopping can reduce compute cost but still keeps EBS cost; terminating removes instance cost; snapshots preserve data for later recovery.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Prevent Auto Scaling overprovisioning</h3>
+            <div class="flashcard-answer">
+              <p>Use a target tracking scaling policy so an Auto Scaling group adjusts capacity around a chosen metric, such as average CPU utilization or request count per target.</p>
+              <strong>Comparison cue: target tracking follows demand; manual capacity risks overprovisioning; scheduled scaling fits predictable time windows.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Direct Connect for many VPCs or accounts</h3>
+            <div class="flashcard-answer">
+              <p>Use a Direct Connect gateway to associate the dedicated connection with multiple VPCs, often through Transit Gateway for many-account or many-VPC designs.</p>
+              <strong>Comparison cue: Direct Connect is the physical dedicated connection; Direct Connect gateway extends it to VPCs across accounts or Regions; Transit Gateway centralizes VPC routing.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Batch processing pricing model</h3>
+            <div class="flashcard-answer">
+              <p>Use Spot Instances for non-production, fault-tolerant batch jobs that can withstand interruption.</p>
+              <strong>Comparison cue: Spot is cheapest for interruptible work; Reserved Instances and Savings Plans fit steady predictable usage; On-Demand fits flexibility.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>On-Demand Capacity Reservations</h3>
+            <div class="flashcard-answer">
+              <p>On-Demand Capacity Reservations reserve EC2 capacity in a specific Availability Zone for as long as needed, without requiring a one-year or three-year commitment.</p>
+              <strong>Comparison cue: capacity reservations guarantee capacity; Reserved Instances mainly provide billing discounts; neither automatically scales an application.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Reserved Instances</h3>
+            <div class="flashcard-answer">
+              <p>Reserved Instances provide a significant discount compared with On-Demand pricing when usage is steady and you can commit to a term.</p>
+              <strong>Comparison cue: choose Reserved Instances for predictable baseline EC2 usage; choose Spot for interruptible batch; choose On-Demand for short-term uncertain workloads.</strong>
             </div>
           </article>
           <article class="study-flashcard">
