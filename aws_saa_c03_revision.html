@@ -1254,6 +1254,128 @@
     }
 
 
+
+    .db-infographic {
+      margin: 0 0 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      padding: clamp(16px, 2.5vw, 24px);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+      scroll-margin-top: 24px;
+    }
+
+    .db-flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .db-flow-step {
+      border: 1px solid #dbe4f0;
+      border-top: 4px solid var(--teal);
+      border-radius: 8px;
+      padding: 12px;
+      background: #f8fbfc;
+      min-height: 126px;
+    }
+
+    .db-flow-step span {
+      display: inline-grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: #0f766e;
+      color: #ffffff;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .db-flow-step strong {
+      display: block;
+      color: #111827;
+      margin-bottom: 5px;
+    }
+
+    .db-flow-step p,
+    .db-type-card p,
+    .db-matrix-card p {
+      margin: 0;
+      color: #475467;
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .db-type-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .db-type-card {
+      border: 1px solid #dbe4f0;
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 14px;
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.05);
+    }
+
+    .db-type-card h3 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .db-badge {
+      flex: 0 0 auto;
+      border-radius: 999px;
+      background: #ecfeff;
+      color: #155e75;
+      border: 1px solid #a5f3fc;
+      padding: 4px 8px;
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    .db-use-list {
+      display: grid;
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+    .db-use-list div {
+      border-left: 3px solid var(--aws);
+      background: #fffbeb;
+      padding: 8px 10px;
+      border-radius: 8px;
+      color: #263244;
+      font-size: 0.86rem;
+    }
+
+    .db-matrix {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 10px;
+    }
+
+    .db-matrix-card {
+      border: 1px solid #dbe4f0;
+      border-radius: 8px;
+      background: #f9fafb;
+      padding: 12px;
+    }
+
+    .db-matrix-card strong {
+      display: block;
+      color: #111827;
+      margin-bottom: 5px;
+    }
+
     .flashcard-section {
       margin: 0 0 22px;
       border: 1px solid var(--line);
@@ -1719,6 +1841,10 @@
 <a class="category-link" href="#dynamodb-s3-lambda-iam-review">
         <span>DynamoDB S3 Lambda IAM Review</span>
         <strong>20</strong>
+      </a>
+<a class="category-link" href="#database-infographic">
+        <span>Database Infographic</span>
+        <strong>Guide</strong>
       </a>
 <a class="category-link" href="#rds-dynamodb-database-review">
         <span>RDS and DynamoDB Review</span>
@@ -2667,6 +2793,156 @@
               <p>Use IAM for fine-grained access, conditions such as time, IP, SSL, and MFA, access analysis, MFA for privileged users, and federation with corporate directories through SAML.</p>
               <strong>Exam cue: least privilege plus MFA plus federation are common secure-access answers.</strong>
             </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="db-infographic" id="database-infographic">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Database infographic</p>
+            <h2>Database Differences and When to Use Each</h2>
+          </div>
+          <span class="pill">Decision guide</span>
+        </div>
+
+        <div class="db-flow" aria-label="Database choice decision flow">
+          <article class="db-flow-step">
+            <span>1</span>
+            <strong>Start with data shape</strong>
+            <p>Relational tables, key-value items, documents, graphs, time-series, cache, or warehouse facts.</p>
+          </article>
+          <article class="db-flow-step">
+            <span>2</span>
+            <strong>Find the access pattern</strong>
+            <p>Joins, primary-key lookup, relationship traversal, repeated reads, analytics, or time-window queries.</p>
+          </article>
+          <article class="db-flow-step">
+            <span>3</span>
+            <strong>Check scale and latency</strong>
+            <p>Single-digit milliseconds, microseconds, high write rate, read replicas, or regional/global reads.</p>
+          </article>
+          <article class="db-flow-step">
+            <span>4</span>
+            <strong>Match operations and cost</strong>
+            <p>Managed relational, serverless NoSQL, cache, analytics warehouse, or migration compatibility.</p>
+          </article>
+        </div>
+
+        <div class="db-type-grid">
+          <article class="db-type-card">
+            <h3>RDS <span class="db-badge">Relational</span></h3>
+            <p>Managed MySQL, PostgreSQL, MariaDB, Oracle, and SQL Server for traditional OLTP applications.</p>
+            <div class="db-use-list">
+              <div><strong>Use when:</strong> SQL, joins, transactions, constraints, or existing relational engines matter.</div>
+              <div><strong>Avoid when:</strong> the app needs massive key-value scale with simple access patterns.</div>
+              <div><strong>Exam cue:</strong> Multi-AZ is failover; read replicas are read scaling.</div>
+            </div>
+          </article>
+
+          <article class="db-type-card">
+            <h3>Aurora <span class="db-badge">High performance SQL</span></h3>
+            <p>AWS-built MySQL/PostgreSQL-compatible relational database with distributed storage and fast replicas.</p>
+            <div class="db-use-list">
+              <div><strong>Use when:</strong> relational compatibility is needed with higher performance or availability.</div>
+              <div><strong>Avoid when:</strong> the workload is non-relational key-value, graph, or warehouse analytics.</div>
+              <div><strong>Exam cue:</strong> Aurora Serverless fits variable relational demand; Global Database fits very low cross-Region RPO/RTO.</div>
+            </div>
+          </article>
+
+          <article class="db-type-card">
+            <h3>DynamoDB <span class="db-badge">NoSQL</span></h3>
+            <p>Serverless key-value and document database for high-scale, low-latency access by known keys.</p>
+            <div class="db-use-list">
+              <div><strong>Use when:</strong> access is by partition key, traffic is huge, or operations should be serverless.</div>
+              <div><strong>Avoid when:</strong> complex joins, ad hoc SQL, or relational constraints are required.</div>
+              <div><strong>Exam cue:</strong> DAX gives microsecond reads; Global Tables gives multi-Region active-active.</div>
+            </div>
+          </article>
+
+          <article class="db-type-card">
+            <h3>ElastiCache <span class="db-badge">Cache</span></h3>
+            <p>Managed Redis or Memcached for very low-latency cached data, sessions, counters, and repeated reads.</p>
+            <div class="db-use-list">
+              <div><strong>Use when:</strong> reads are repeated, session state must be externalized, or database load must drop.</div>
+              <div><strong>Avoid when:</strong> the cache would be the only durable source of truth.</div>
+              <div><strong>Exam cue:</strong> DAX is for DynamoDB only; ElastiCache is the general cache answer.</div>
+            </div>
+          </article>
+
+          <article class="db-type-card">
+            <h3>Redshift <span class="db-badge">Warehouse</span></h3>
+            <p>Columnar data warehouse for analytics, reporting, aggregations, and large structured datasets.</p>
+            <div class="db-use-list">
+              <div><strong>Use when:</strong> the stem says OLAP, data warehouse, BI, summarization, or complex analytics.</div>
+              <div><strong>Avoid when:</strong> the workload is OLTP transactions or per-user low-latency app reads.</div>
+              <div><strong>Exam cue:</strong> Redshift is analytics; RDS/Aurora are OLTP relational databases.</div>
+            </div>
+          </article>
+
+          <article class="db-type-card">
+            <h3>Neptune <span class="db-badge">Graph</span></h3>
+            <p>Graph database for highly connected data where relationships are the main query target.</p>
+            <div class="db-use-list">
+              <div><strong>Use when:</strong> fraud detection, recommendations, identity graphs, network graphs, or relationship traversal appear.</div>
+              <div><strong>Avoid when:</strong> the need is simple key-value lookup or SQL reporting.</div>
+              <div><strong>Exam cue:</strong> if the important word is relationships, Neptune is usually in play.</div>
+            </div>
+          </article>
+
+          <article class="db-type-card">
+            <h3>DocumentDB <span class="db-badge">Document</span></h3>
+            <p>Managed MongoDB-compatible document database for JSON document workloads.</p>
+            <div class="db-use-list">
+              <div><strong>Use when:</strong> the app expects MongoDB-compatible APIs or flexible JSON documents.</div>
+              <div><strong>Avoid when:</strong> Cassandra compatibility, graph traversal, or relational SQL is required.</div>
+              <div><strong>Exam cue:</strong> MongoDB-compatible means DocumentDB; Cassandra-compatible means Keyspaces.</div>
+            </div>
+          </article>
+
+          <article class="db-type-card">
+            <h3>Timestream <span class="db-badge">Time-series</span></h3>
+            <p>Time-series database for metrics, events, IoT readings, and timestamp-based retention tiers.</p>
+            <div class="db-use-list">
+              <div><strong>Use when:</strong> queries are mainly by time windows, recent vs historical data, or device metrics.</div>
+              <div><strong>Avoid when:</strong> relationship traversal, relational joins, or arbitrary document access is required.</div>
+              <div><strong>Exam cue:</strong> metrics plus timestamps plus retention tiers point to Timestream.</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="db-matrix" aria-label="Quick database comparison matrix">
+          <article class="db-matrix-card">
+            <strong>Need joins and SQL?</strong>
+            <p>Choose RDS or Aurora.</p>
+          </article>
+          <article class="db-matrix-card">
+            <strong>Need key-value at massive scale?</strong>
+            <p>Choose DynamoDB.</p>
+          </article>
+          <article class="db-matrix-card">
+            <strong>Need microsecond DynamoDB reads?</strong>
+            <p>Add DynamoDB Accelerator (DAX).</p>
+          </article>
+          <article class="db-matrix-card">
+            <strong>Need repeated read cache or sessions?</strong>
+            <p>Use ElastiCache.</p>
+          </article>
+          <article class="db-matrix-card">
+            <strong>Need analytics warehouse?</strong>
+            <p>Use Redshift.</p>
+          </article>
+          <article class="db-matrix-card">
+            <strong>Need graph relationships?</strong>
+            <p>Use Neptune.</p>
+          </article>
+          <article class="db-matrix-card">
+            <strong>Need MongoDB-compatible documents?</strong>
+            <p>Use DocumentDB.</p>
+          </article>
+          <article class="db-matrix-card">
+            <strong>Need time-window metrics?</strong>
+            <p>Use Timestream.</p>
           </article>
         </div>
       </section>
