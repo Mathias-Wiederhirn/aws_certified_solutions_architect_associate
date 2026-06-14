@@ -1688,6 +1688,10 @@
         </svg>
         <input id="search" type="search" placeholder="Search: VPC, queue, archive...">
       </label>
+<a class="category-link" href="#future-exam-revision-topics">
+        <span>Exam Revision Topics</span>
+        <strong>19</strong>
+      </a>
 <a class="category-link" href="#aws-global-infrastructure">
         <span>Global Infrastructure</span>
         <strong>Map</strong>
@@ -1815,9 +1819,153 @@
         <div class="hero-copy">
           <p class="eyebrow">Mathias Exam revision sheet</p>
           <h1 id="page-title">AWS Certified Solutions Architect Associate</h1>
-          <p id="future-exam-revision-topics" class="future-exam-revision-topics" aria-label="Future exam revision topics"></p>
         </div>
       </section>
+      <section class="flashcard-section" id="future-exam-revision-topics">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Exam revision topics</p>
+            <h2>Question Pattern Cues and Comparisons</h2>
+          </div>
+          <span class="pill">19 patterns</span>
+        </div>
+        <div class="flashcard-grid">
+          <article class="study-flashcard">
+            <h3>Long requests during Auto Scaling scale-in</h3>
+            <div class="flashcard-answer">
+              <p>For ALB target groups, increase deregistration delay so in-flight requests can finish before a target is removed during scale-in.</p>
+              <strong>Comparison cue: deregistration delay protects active requests; sticky sessions keep a client on the same target; cooldown controls scaling timing but does not drain requests.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>EC2 instance metadata</h3>
+            <div class="flashcard-answer">
+              <p>Instance metadata is available from the EC2 instance through the link-local address <code>169.254.169.254</code>.</p>
+              <strong>Comparison cue: use <code>http://169.254.169.254/latest/meta-data/</code>; localhost, 192.168.x.x, or malformed addresses are not the metadata endpoint.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Site-to-Site VPN components</h3>
+            <div class="flashcard-answer">
+              <p>A classic Site-to-Site VPN uses a customer gateway on the customer side and a virtual private gateway, or Transit Gateway, on the AWS side.</p>
+              <strong>Comparison cue: internet gateway gives public internet routing, NAT gateway gives private subnet outbound internet, and API Gateway is for APIs; none of these create the VPN tunnel endpoints.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Microsecond reads for key-value data</h3>
+            <div class="flashcard-answer">
+              <p>Use DynamoDB for key-value or document access at scale and DAX when the question needs microsecond read latency for repeated reads.</p>
+              <strong>Comparison cue: Aurora is relational, Neptune is graph, and ElastiCache beside Aurora does not turn relational data into a key-value DynamoDB access pattern.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Private RDS access from an application tier</h3>
+            <div class="flashcard-answer">
+              <p>Place RDS DB instances in a DB subnet group with private subnets and allow inbound database-port traffic only from the application security group.</p>
+              <strong>Comparison cue: private subnets remove direct internet routing; security-group references enforce app-to-database access. Shield, Direct Connect, and extra ENIs do not solve this access pattern.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Cost-effective RDS storage with moderate IOPS</h3>
+            <div class="flashcard-answer">
+              <p>For modest RDS IOPS needs, General Purpose SSD gp3 is often cheaper because baseline IOPS are included independently of volume size.</p>
+              <strong>Comparison cue: gp2 IOPS scale with GiB, magnetic does not support configurable IOPS, and Provisioned IOPS is for higher or stricter performance needs at higher cost.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Rarely accessed archive with quick retrieval</h3>
+            <div class="flashcard-answer">
+              <p>Use S3 Lifecycle policies to move rarely accessed objects to S3 Glacier Instant Retrieval when archive cost matters and retrieval must be available within minutes.</p>
+              <strong>Comparison cue: S3 Standard-IA is not the lowest-cost archive class, Glacier Deep Archive is slower, and EFS/EBS add file or block storage cost that is not needed for object archives.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Pilot light disaster recovery</h3>
+            <div class="flashcard-answer">
+              <p>Pilot light keeps core infrastructure defined or lightly prepared in AWS while compute is usually stopped until failover.</p>
+              <strong>Comparison cue: backup and restore is cheapest but slowest; pilot light starts stopped resources; warm standby runs reduced capacity; active-active runs full service in multiple sites.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Warm standby disaster recovery</h3>
+            <div class="flashcard-answer">
+              <p>Warm standby keeps a scaled-down live environment running so it can scale up within minutes during failover.</p>
+              <strong>Comparison cue: choose warm standby when the stem requires minimal running capacity and a short RTO; active-active is faster but usually more expensive.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Idle-period compute cost optimization</h3>
+            <div class="flashcard-answer">
+              <p>For unpredictable traffic with idle periods, use services that scale with demand, such as Fargate for containers and Aurora Serverless for relational databases.</p>
+              <strong>Comparison cue: fixed EC2 and fixed RDS keep charging during idle time; Redshift is OLAP, not OLTP; deleting stacks can break availability and persistence.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Cross-account audit access</h3>
+            <div class="flashcard-answer">
+              <p>Create an IAM role in the production account, grant least-privilege permissions, and trust the security account so auditors can assume the role.</p>
+              <strong>Comparison cue: roles delegate access across accounts; creating IAM users in the production account adds long-term credentials and is not the preferred security pattern.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Vulnerability scanning</h3>
+            <div class="flashcard-answer">
+              <p>Use Amazon Inspector to scan EC2 instances, Lambda functions, and container images in ECR for software vulnerabilities and severity.</p>
+              <strong>Comparison cue: GuardDuty detects threats, Patch Manager applies patches, and AWS Config tracks configuration compliance; Inspector is the vulnerability scanner.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>XSS and SQL injection protection</h3>
+            <div class="flashcard-answer">
+              <p>Use AWS WAF with CloudFront or an ALB to block common web exploits such as cross-site scripting and SQL injection.</p>
+              <strong>Comparison cue: Shield protects against DDoS; Firewall Manager centrally manages policies; WAF is the service that inspects HTTP requests for web exploit patterns.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Monthly 60 TB offline transfer</h3>
+            <div class="flashcard-answer">
+              <p>Use an AWS Snowball Edge Storage Optimized device when large monthly data transfer to or from on-premises is cheaper or more practical offline.</p>
+              <strong>Comparison cue: S3 replication creates extra storage and transfer cost, Storage Gateway adds ongoing transfer paths, and CloudFront is not a bulk data export service.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Temporary high-IOPS scratch storage</h3>
+            <div class="flashcard-answer">
+              <p>Use storage optimized EC2 instances with instance store when the workload needs very high local IOPS and the data is temporary.</p>
+              <strong>Comparison cue: instance store is low-latency scratch storage with no extra EBS cost; EBS is persistent and useful when data must survive instance lifecycle events.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Single EBS volume above gp3 limits</h3>
+            <div class="flashcard-answer">
+              <p>Use Provisioned IOPS SSD when a single EBS volume needs very high IOPS beyond General Purpose SSD limits.</p>
+              <strong>Comparison cue: General Purpose SSD fits many workloads, Provisioned IOPS fits high-I/O databases, and HDD volume types optimize throughput rather than IOPS.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Large unreliable uploads to S3</h3>
+            <div class="flashcard-answer">
+              <p>Use multipart upload for large files so failed parts can be retried without restarting the entire upload.</p>
+              <strong>Comparison cue: Transfer Acceleration improves speed over long distances but does not solve intermittent part failures as directly as multipart upload.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Mobile app user authentication</h3>
+            <div class="flashcard-answer">
+              <p>Use Amazon Cognito user pools for centralized authentication, authorization flows, and user management for web and mobile applications.</p>
+              <strong>Comparison cue: IAM users, groups, roles, and STS control AWS resource access; Cognito user pools control application user sign-in and identity for the app.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>How to read these questions</h3>
+            <div class="flashcard-answer">
+              <p>First identify the workload shape, then the constraint: latency, RTO/RPO, cost, security boundary, data model, transfer size, or operational overhead.</p>
+              <strong>Comparison cue: distractors often name real AWS services that solve a nearby problem, but not the exact constraint in the stem.</strong>
+            </div>
+          </article>
+        </div>
+      </section>
+
                   <section class="exam-overview" aria-labelledby="exam-focus-title">
         <div class="overview-heading">
           <p class="section-kicker">Official exam guide focus</p>
