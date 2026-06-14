@@ -1690,7 +1690,7 @@
       </label>
 <a class="category-link" href="#future-exam-revision-topics">
         <span>Exam Revision Topics</span>
-        <strong>28</strong>
+        <strong>12</strong>
       </a>
 <a class="category-link" href="#aws-global-infrastructure">
         <span>Global Infrastructure</span>
@@ -1825,205 +1825,93 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Exam revision topics</p>
-            <h2>Question Pattern Cues and Comparisons</h2>
+            <h2>Comparisons, Differences, and When to Use</h2>
           </div>
-          <span class="pill">28 patterns</span>
+          <span class="pill">12 comparisons</span>
         </div>
         <div class="flashcard-grid">
           <article class="study-flashcard">
-            <h3>Long requests during Auto Scaling scale-in</h3>
+            <h3>ALB vs NLB</h3>
             <div class="flashcard-answer">
-              <p>For ALB target groups, increase deregistration delay so in-flight requests can finish before a target is removed during scale-in.</p>
-              <strong>Comparison cue: deregistration delay protects active requests; sticky sessions keep a client on the same target; cooldown controls scaling timing but does not drain requests.</strong>
+              <p>Application Load Balancer works at layer 7 for HTTP, HTTPS, and gRPC. Network Load Balancer works at layer 4 for TCP, UDP, and TLS.</p>
+              <strong>Use ALB for web apps, host/path/header routing, AWS WAF, redirects, authentication, and Lambda or container targets. Use NLB for static IPs, extreme performance, ultra-low latency, and non-HTTP traffic.</strong>
             </div>
           </article>
           <article class="study-flashcard">
-            <h3>EC2 instance metadata</h3>
+            <h3>ALB vs Classic Load Balancer</h3>
             <div class="flashcard-answer">
-              <p>Instance metadata is available from the EC2 instance through the link-local address <code>169.254.169.254</code>.</p>
-              <strong>Comparison cue: use <code>http://169.254.169.254/latest/meta-data/</code>; localhost, 192.168.x.x, or malformed addresses are not the metadata endpoint.</strong>
+              <p>Classic Load Balancer is legacy. ALB is the normal modern answer for HTTP and HTTPS applications.</p>
+              <strong>Use ALB when the stem mentions modern web architecture, microservices, containers, multiple target groups, host-based routing, or path-based routing.</strong>
             </div>
           </article>
           <article class="study-flashcard">
-            <h3>Site-to-Site VPN components</h3>
+            <h3>NLB vs Gateway Load Balancer</h3>
             <div class="flashcard-answer">
-              <p>A classic Site-to-Site VPN uses a customer gateway on the customer side and a virtual private gateway, or Transit Gateway, on the AWS side.</p>
-              <strong>Comparison cue: internet gateway gives public internet routing, NAT gateway gives private subnet outbound internet, and API Gateway is for APIs; none of these create the VPN tunnel endpoints.</strong>
+              <p>NLB forwards layer 4 application traffic to targets. Gateway Load Balancer inserts and scales third-party virtual network appliances.</p>
+              <strong>Use NLB for high-performance TCP/UDP/TLS services. Use GWLB when traffic must transparently pass through firewalls, inspection appliances, IDS/IPS, or other network appliances.</strong>
             </div>
           </article>
           <article class="study-flashcard">
-            <h3>Microsecond reads for key-value data</h3>
+            <h3>Target group draining</h3>
             <div class="flashcard-answer">
-              <p>Use DynamoDB for key-value or document access at scale and DAX when the question needs microsecond read latency for repeated reads.</p>
-              <strong>Comparison cue: Aurora is relational, Neptune is graph, and ElastiCache beside Aurora does not turn relational data into a key-value DynamoDB access pattern.</strong>
+              <p>Deregistration delay lets in-flight requests finish before an ALB or NLB stops sending traffic to a target.</p>
+              <strong>Use it when reports, uploads, or long requests may fail during Auto Scaling scale-in. Sticky sessions keep a user on one target, but they do not protect requests during termination.</strong>
             </div>
           </article>
           <article class="study-flashcard">
-            <h3>Private RDS access from an application tier</h3>
+            <h3>RDS vs DynamoDB</h3>
             <div class="flashcard-answer">
-              <p>Place RDS DB instances in a DB subnet group with private subnets and allow inbound database-port traffic only from the application security group.</p>
-              <strong>Comparison cue: private subnets remove direct internet routing; security-group references enforce app-to-database access. Shield, Direct Connect, and extra ENIs do not solve this access pattern.</strong>
+              <p>RDS is relational and supports SQL, joins, constraints, and familiar engines. DynamoDB is serverless NoSQL for key-value and document access patterns.</p>
+              <strong>Use RDS for relational OLTP workloads. Use DynamoDB for high-scale predictable key access, single-digit millisecond latency, and serverless operational model.</strong>
             </div>
           </article>
           <article class="study-flashcard">
-            <h3>Cost-effective RDS storage with moderate IOPS</h3>
+            <h3>Aurora vs RDS standard engines</h3>
             <div class="flashcard-answer">
-              <p>For modest RDS IOPS needs, General Purpose SSD gp3 is often cheaper because baseline IOPS are included independently of volume size.</p>
-              <strong>Comparison cue: gp2 IOPS scale with GiB, magnetic does not support configurable IOPS, and Provisioned IOPS is for higher or stricter performance needs at higher cost.</strong>
+              <p>RDS manages engines such as MySQL, PostgreSQL, MariaDB, Oracle, and SQL Server. Aurora is AWS-built MySQL/PostgreSQL-compatible relational database with distributed storage.</p>
+              <strong>Use Aurora when the question needs higher performance, fast replicas, storage auto growth, Aurora Serverless, or Aurora Global Database. Use standard RDS when engine compatibility or licensing drives the answer.</strong>
             </div>
           </article>
           <article class="study-flashcard">
-            <h3>Rarely accessed archive with quick retrieval</h3>
+            <h3>Read replica vs Multi-AZ</h3>
             <div class="flashcard-answer">
-              <p>Use S3 Lifecycle policies to move rarely accessed objects to S3 Glacier Instant Retrieval when archive cost matters and retrieval must be available within minutes.</p>
-              <strong>Comparison cue: S3 Standard-IA is not the lowest-cost archive class, Glacier Deep Archive is slower, and EFS/EBS add file or block storage cost that is not needed for object archives.</strong>
+              <p>Read replicas scale read traffic and can support reporting or read-heavy workloads. Multi-AZ provides standby failover for high availability.</p>
+              <strong>Use read replicas when the stem says read scaling or offload reads. Use Multi-AZ when the stem says automatic failover, high availability, or standby database.</strong>
             </div>
           </article>
           <article class="study-flashcard">
-            <h3>Pilot light disaster recovery</h3>
+            <h3>DynamoDB DAX vs ElastiCache</h3>
             <div class="flashcard-answer">
-              <p>Pilot light keeps core infrastructure defined or lightly prepared in AWS while compute is usually stopped until failover.</p>
-              <strong>Comparison cue: backup and restore is cheapest but slowest; pilot light starts stopped resources; warm standby runs reduced capacity; active-active runs full service in multiple sites.</strong>
+              <p>DAX is a managed in-memory cache built specifically for DynamoDB. ElastiCache is a general cache service using Redis or Memcached.</p>
+              <strong>Use DAX when DynamoDB needs microsecond read latency. Use ElastiCache for session storage, caching relational query results, leaderboards, counters, or general application cache patterns.</strong>
             </div>
           </article>
           <article class="study-flashcard">
-            <h3>Warm standby disaster recovery</h3>
+            <h3>Backup and restore vs pilot light</h3>
             <div class="flashcard-answer">
-              <p>Warm standby keeps a scaled-down live environment running so it can scale up within minutes during failover.</p>
-              <strong>Comparison cue: choose warm standby when the stem requires minimal running capacity and a short RTO; active-active is faster but usually more expensive.</strong>
+              <p>Backup and restore keeps backups only and rebuilds after a disaster. Pilot light keeps critical core infrastructure prepared, with most compute stopped until failover.</p>
+              <strong>Use backup and restore for lowest cost and longest RTO. Use pilot light when you need faster recovery than backup and restore while keeping steady-state DR cost low.</strong>
             </div>
           </article>
           <article class="study-flashcard">
-            <h3>Idle-period compute cost optimization</h3>
+            <h3>Pilot light vs warm standby</h3>
             <div class="flashcard-answer">
-              <p>For unpredictable traffic with idle periods, use services that scale with demand, such as Fargate for containers and Aurora Serverless for relational databases.</p>
-              <strong>Comparison cue: fixed EC2 and fixed RDS keep charging during idle time; Redshift is OLAP, not OLTP; deleting stacks can break availability and persistence.</strong>
+              <p>Pilot light usually has stopped or minimal resources. Warm standby runs a scaled-down version of the full environment.</p>
+              <strong>Use pilot light for lower cost and recovery in tens of minutes. Use warm standby when the stem needs a short RTO, minimal running capacity, and scale-up within minutes.</strong>
             </div>
           </article>
           <article class="study-flashcard">
-            <h3>Cross-account audit access</h3>
+            <h3>Warm standby vs active-active</h3>
             <div class="flashcard-answer">
-              <p>Create an IAM role in the production account, grant least-privilege permissions, and trust the security account so auditors can assume the role.</p>
-              <strong>Comparison cue: roles delegate access across accounts; creating IAM users in the production account adds long-term credentials and is not the preferred security pattern.</strong>
+              <p>Warm standby serves little or no production traffic until failover. Active-active serves production traffic from multiple sites at the same time.</p>
+              <strong>Use warm standby when cost must be minimized but RTO is still short. Use active-active when the business requires the fastest recovery, global availability, or continuous multi-Region service and can accept higher cost.</strong>
             </div>
           </article>
           <article class="study-flashcard">
-            <h3>Vulnerability scanning</h3>
+            <h3>DR answer strategy</h3>
             <div class="flashcard-answer">
-              <p>Use Amazon Inspector to scan EC2 instances, Lambda functions, and container images in ECR for software vulnerabilities and severity.</p>
-              <strong>Comparison cue: GuardDuty detects threats, Patch Manager applies patches, and AWS Config tracks configuration compliance; Inspector is the vulnerability scanner.</strong>
-            </div>
-          </article>
-          <article class="study-flashcard">
-            <h3>XSS and SQL injection protection</h3>
-            <div class="flashcard-answer">
-              <p>Use AWS WAF with CloudFront or an ALB to block common web exploits such as cross-site scripting and SQL injection.</p>
-              <strong>Comparison cue: Shield protects against DDoS; Firewall Manager centrally manages policies; WAF is the service that inspects HTTP requests for web exploit patterns.</strong>
-            </div>
-          </article>
-          <article class="study-flashcard">
-            <h3>Monthly 60 TB offline transfer</h3>
-            <div class="flashcard-answer">
-              <p>Use an AWS Snowball Edge Storage Optimized device when large monthly data transfer to or from on-premises is cheaper or more practical offline.</p>
-              <strong>Comparison cue: S3 replication creates extra storage and transfer cost, Storage Gateway adds ongoing transfer paths, and CloudFront is not a bulk data export service.</strong>
-            </div>
-          </article>
-          <article class="study-flashcard">
-            <h3>Temporary high-IOPS scratch storage</h3>
-            <div class="flashcard-answer">
-              <p>Use storage optimized EC2 instances with instance store when the workload needs very high local IOPS and the data is temporary.</p>
-              <strong>Comparison cue: instance store is low-latency scratch storage with no extra EBS cost; EBS is persistent and useful when data must survive instance lifecycle events.</strong>
-            </div>
-          </article>
-          <article class="study-flashcard">
-            <h3>Single EBS volume above gp3 limits</h3>
-            <div class="flashcard-answer">
-              <p>Use Provisioned IOPS SSD when a single EBS volume needs very high IOPS beyond General Purpose SSD limits.</p>
-              <strong>Comparison cue: General Purpose SSD fits many workloads, Provisioned IOPS fits high-I/O databases, and HDD volume types optimize throughput rather than IOPS.</strong>
-            </div>
-          </article>
-          <article class="study-flashcard">
-            <h3>Large unreliable uploads to S3</h3>
-            <div class="flashcard-answer">
-              <p>Use multipart upload for large files so failed parts can be retried without restarting the entire upload.</p>
-              <strong>Comparison cue: Transfer Acceleration improves speed over long distances but does not solve intermittent part failures as directly as multipart upload.</strong>
-            </div>
-          </article>
-          <article class="study-flashcard">
-            <h3>Mobile app user authentication</h3>
-            <div class="flashcard-answer">
-              <p>Use Amazon Cognito user pools for centralized authentication, authorization flows, and user management for web and mobile applications.</p>
-              <strong>Comparison cue: IAM users, groups, roles, and STS control AWS resource access; Cognito user pools control application user sign-in and identity for the app.</strong>
-            </div>
-          </article>
-          <article class="study-flashcard">
-            <h3>EC2 data transfer cost between instances</h3>
-            <div class="flashcard-answer">
-              <p>Place EC2 instances in the same Region, and usually the same Availability Zone when architecture allows, to reduce avoidable inter-Region or cross-AZ data transfer cost.</p>
-              <strong>Comparison cue: moving compute closer is the first cost lever; Direct Connect, NAT, or internet routing do not make EC2-to-EC2 transfer cheaper by themselves.</strong>
-            </div>
-          </article>
-          <article class="study-flashcard">
-            <h3>Infrequently accessed S3 objects</h3>
-            <div class="flashcard-answer">
-              <p>Use S3 Lifecycle rules to move objects that are not accessed frequently into a lower-cost storage class.</p>
-              <strong>Comparison cue: lifecycle rules optimize storage class over time; replication copies data and can increase cost; EBS and EFS are not the cost answer for S3 object storage.</strong>
-            </div>
-          </article>
-          <article class="study-flashcard">
-            <h3>Cost tracking and dashboards</h3>
-            <div class="flashcard-answer">
-              <p>Use AWS Cost Explorer to analyze costs and usage, forecast spend, and investigate cost drivers in the Billing and Cost Management console.</p>
-              <strong>Comparison cue: Cost Explorer is for visual analysis; AWS Budgets is for alerts; Cost and Usage Report is for detailed billing data in S3.</strong>
-            </div>
-          </article>
-          <article class="study-flashcard">
-            <h3>Unused EC2 instances</h3>
-            <div class="flashcard-answer">
-              <p>If an EC2 instance is no longer needed but its data must be kept, create an EBS snapshot or AMI as appropriate, then terminate the unused instance.</p>
-              <strong>Comparison cue: stopping can reduce compute cost but still keeps EBS cost; terminating removes instance cost; snapshots preserve data for later recovery.</strong>
-            </div>
-          </article>
-          <article class="study-flashcard">
-            <h3>Prevent Auto Scaling overprovisioning</h3>
-            <div class="flashcard-answer">
-              <p>Use a target tracking scaling policy so an Auto Scaling group adjusts capacity around a chosen metric, such as average CPU utilization or request count per target.</p>
-              <strong>Comparison cue: target tracking follows demand; manual capacity risks overprovisioning; scheduled scaling fits predictable time windows.</strong>
-            </div>
-          </article>
-          <article class="study-flashcard">
-            <h3>Direct Connect for many VPCs or accounts</h3>
-            <div class="flashcard-answer">
-              <p>Use a Direct Connect gateway to associate the dedicated connection with multiple VPCs, often through Transit Gateway for many-account or many-VPC designs.</p>
-              <strong>Comparison cue: Direct Connect is the physical dedicated connection; Direct Connect gateway extends it to VPCs across accounts or Regions; Transit Gateway centralizes VPC routing.</strong>
-            </div>
-          </article>
-          <article class="study-flashcard">
-            <h3>Batch processing pricing model</h3>
-            <div class="flashcard-answer">
-              <p>Use Spot Instances for non-production, fault-tolerant batch jobs that can withstand interruption.</p>
-              <strong>Comparison cue: Spot is cheapest for interruptible work; Reserved Instances and Savings Plans fit steady predictable usage; On-Demand fits flexibility.</strong>
-            </div>
-          </article>
-          <article class="study-flashcard">
-            <h3>On-Demand Capacity Reservations</h3>
-            <div class="flashcard-answer">
-              <p>On-Demand Capacity Reservations reserve EC2 capacity in a specific Availability Zone for as long as needed, without requiring a one-year or three-year commitment.</p>
-              <strong>Comparison cue: capacity reservations guarantee capacity; Reserved Instances mainly provide billing discounts; neither automatically scales an application.</strong>
-            </div>
-          </article>
-          <article class="study-flashcard">
-            <h3>Reserved Instances</h3>
-            <div class="flashcard-answer">
-              <p>Reserved Instances provide a significant discount compared with On-Demand pricing when usage is steady and you can commit to a term.</p>
-              <strong>Comparison cue: choose Reserved Instances for predictable baseline EC2 usage; choose Spot for interruptible batch; choose On-Demand for short-term uncertain workloads.</strong>
-            </div>
-          </article>
-          <article class="study-flashcard">
-            <h3>How to read these questions</h3>
-            <div class="flashcard-answer">
-              <p>First identify the workload shape, then the constraint: latency, RTO/RPO, cost, security boundary, data model, transfer size, or operational overhead.</p>
-              <strong>Comparison cue: distractors often name real AWS services that solve a nearby problem, but not the exact constraint in the stem.</strong>
+              <p>Rank DR choices by cost and recovery speed: backup and restore, pilot light, warm standby, active-active.</p>
+              <strong>Exam cue: RTO/RPO choose the strategy. Low cost points left; very low RTO/RPO points right. Database DR may require read replicas, Aurora Global Database, snapshots, backups, or cross-Region replication.</strong>
             </div>
           </article>
         </div>
