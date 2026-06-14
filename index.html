@@ -1265,6 +1265,23 @@
       scroll-margin-top: 24px;
     }
 
+    .db-image-panel {
+      margin: 0 0 16px;
+      border: 1px solid #dbe4f0;
+      border-radius: 8px;
+      background: #f8fbfc;
+      padding: 10px;
+      overflow: hidden;
+    }
+
+    .db-image-panel img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      background: #ffffff;
+    }
+
     .db-tree {
       display: grid;
       gap: 14px;
@@ -2829,6 +2846,10 @@
           </div>
           <span class="pill">Exam path</span>
         </div>
+
+        <figure class="db-image-panel">
+          <img src="assets/database-decision-tree.svg" alt="AWS database decision tree infographic showing when to choose RDS, Aurora, DynamoDB, Keyspaces, ElastiCache, Redshift, Athena, Neptune, DocumentDB, Timestream, DMS, and SCT.">
+        </figure>
 
         <div class="db-tree" aria-label="AWS database decision tree">
           <div class="db-tree-start">
