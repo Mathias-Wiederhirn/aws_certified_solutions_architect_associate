@@ -2711,7 +2711,7 @@
             <p class="eyebrow">Screenshot review</p>
             <h2>DynamoDB, S3, Lambda, and IAM</h2>
           </div>
-          <span class="pill">20 exam cues</span>
+          <span class="pill">27 exam cues</span>
         </div>
         <div class="flashcard-grid">
           <article class="study-flashcard">
@@ -2803,6 +2803,55 @@
             <div class="flashcard-answer">
               <p>IAM user, group, or role policies grant an identity permission to call S3 actions on specific bucket or object ARNs.</p>
               <strong>Exam cue: identity policy does not need a Principal because the principal is the IAM identity.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>S3 Intelligent-Tiering</h3>
+            <div class="flashcard-answer">
+              <p>S3 Intelligent-Tiering automatically moves objects between access tiers when access patterns are unknown or change over time.</p>
+              <strong>Exam cue: choose Intelligent-Tiering when data access is unpredictable and you want cost optimization without manual lifecycle guesses.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>S3 server-side encryption</h3>
+            <div class="flashcard-answer">
+              <p>SSE-S3 uses Amazon S3 managed keys. SSE-KMS uses AWS KMS keys and gives auditability and key policy control. SSE-C uses customer-provided keys on each request.</p>
+              <strong>Exam cue: choose SSE-KMS for KMS control and CloudTrail key usage; choose SSE-S3 for simple managed encryption; choose SSE-C when the customer must provide the key.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Client-side encryption</h3>
+            <div class="flashcard-answer">
+              <p>With client-side encryption, the application encrypts data before sending it to AWS. AWS stores encrypted objects but does not perform the encryption operation.</p>
+              <strong>Exam cue: choose client-side encryption when data must be encrypted before it reaches S3 or AWS services.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>CloudFront OAI</h3>
+            <div class="flashcard-answer">
+              <p>Origin Access Identity (OAI) is a legacy CloudFront identity used to restrict S3 origins so users access objects through CloudFront instead of directly from S3.</p>
+              <strong>Exam cue: for new designs prefer Origin Access Control (OAC), but recognize OAI in older exam-style CloudFront plus S3 private origin questions.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Lambda supported languages</h3>
+            <div class="flashcard-answer">
+              <p>Lambda managed runtimes commonly include Node.js, Python, Java, .NET, Ruby, and Go. You can also use custom runtimes or container images for other languages.</p>
+              <strong>Exam cue: choose Lambda when supported runtime code should run event-driven without servers; use containers or custom runtime for unsupported language needs.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Amazon MQ</h3>
+            <div class="flashcard-answer">
+              <p>Amazon MQ is a managed ActiveMQ and RabbitMQ broker service for applications that need standard messaging protocols and broker compatibility.</p>
+              <strong>Exam cue: choose Amazon MQ for migration compatibility; choose SQS/SNS/EventBridge for cloud-native decoupling.</strong>
+            </div>
+          </article>
+          <article class="study-flashcard">
+            <h3>Redis vs Memcached</h3>
+            <div class="flashcard-answer">
+              <p>Redis supports richer data structures, replication, snapshots, and persistence options. Memcached is a simple high-throughput distributed memory object cache.</p>
+              <strong>Exam cue: choose Redis when persistence, replication, or advanced structures matter; choose Memcached for simple ephemeral cache scale.</strong>
             </div>
           </article>
           <article class="study-flashcard">
@@ -4712,7 +4761,7 @@
             <p>Managed message broker for ActiveMQ and RabbitMQ.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose when migrating apps that require standard broker protocols or existing messaging compatibility.</strong>
+              <strong>Choose when migrating apps that require standard broker protocols or existing messaging compatibility. Amazon MQ supports managed ActiveMQ and RabbitMQ brokers; prefer SQS, SNS, or EventBridge for cloud-native decoupling when broker protocol compatibility is not required.</strong>
             </div>
           </article>
           <article id="service-amazon-sns" class="service-card" data-card data-category="Application Integration" data-search="amazon sns pub/sub messaging and fanout notifications. use for one-to-many message delivery, alerts, mobile push, email, sms, or fanout to sqs/lambda. application integration amazon simple notification service">
@@ -5227,7 +5276,7 @@
               <strong>Use for low-latency, high-scale workloads with predictable access patterns. DynamoDB provides low-latency hierarchical access, and Macie can detect financial data in monthly S3 exports with SNS notifications. Choose on-demand capacity when access patterns are unknown, and DAX when DynamoDB reads need microsecond cache acceleration. Use it as durable external state storage when a stateless web tier must scale horizontally. Query uses a partition key and optional sort key condition; Scan reads the table or index and is less efficient. DynamoDB is fully managed, serverless, key-value/document storage with single-digit millisecond performance at any scale.</strong>
             </div>
           </article>
-          <article id="service-amazon-elasticache" class="service-card" data-card data-category="Database" data-search="amazon elasticache managed redis or memcached caching. choose to reduce database load, store sessions, or provide low-latency cache access. elasticache for redis provides very fast access and supports persistence features, making it a better fit than memcached when data must survive restarts. database">
+          <article id="service-amazon-elasticache" class="service-card" data-card data-category="Database" data-search="amazon elasticache managed redis or memcached caching. choose to reduce database load, store sessions, or provide low-latency cache access. elasticache for redis provides very fast access and supports persistence features, making it a better fit than memcached when data must survive restarts. database redis memcached elasticache for memcached elasticache for redis">
             <div class="service-topline">
               <span class="service-icon"><img src="assets/aws-icons/elasticache.svg" alt="" loading="lazy"></span>
               <span class="service-category">Database</span>
@@ -5236,7 +5285,7 @@
             <p>Managed Redis or Memcached caching.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Choose to reduce database load, store sessions, or provide low-latency cache access. Use caching instead of read replicas when repeated reads should avoid database connection and query overhead. Use lazy loading or write-through caching patterns for repeated reads and low-latency access. Use it to externalize session or state data so web/application servers can remain stateless and scale horizontally.</strong>
+              <strong>Choose to reduce database load, store sessions, or provide low-latency cache access. Redis supports richer data structures, replication, snapshots, and persistence options. Memcached is simpler and fits ephemeral distributed memory object caching. Use caching instead of read replicas when repeated reads should avoid database connection and query overhead. Use lazy loading or write-through caching patterns for repeated reads and low-latency access. Use it to externalize session or state data so web/application servers can remain stateless and scale horizontally.</strong>
             </div>
           </article>
           <article id="service-amazon-keyspaces" class="service-card" data-card data-category="Database" data-search="amazon keyspaces managed apache cassandra-compatible database. use for cassandra workloads without managing cassandra clusters. database amazon keyspaces (for apache cassandra)">
@@ -5347,6 +5396,18 @@
             <div class="exam-use">
               <span>Exam cue</span>
               <strong>ElastiCache for Redis provides very fast access and supports persistence features, making it a better fit than Memcached when data must survive restarts.</strong>
+            </div>
+          </article>
+          <article id="service-amazon-elasticache-for-memcached" class="service-card" data-card data-category="Database" data-search="amazon elasticache for memcached memcached-compatible elasticache engine for simple high-throughput distributed memory object caching. choose memcached for simple ephemeral cache scale when persistence, replication, and advanced redis data structures are not required. database">
+            <div class="service-topline">
+              <span class="service-icon"><img src="assets/aws-icons/elasticache.svg" alt="" loading="lazy"></span>
+              <span class="service-category">Database</span>
+            </div>
+            <h3><a href="https://aws.amazon.com/elasticache/memcached/" target="_blank" rel="noopener noreferrer">Amazon ElastiCache for Memcached</a></h3>
+            <p>Memcached-compatible ElastiCache engine for simple high-throughput distributed memory object caching.</p>
+            <div class="exam-use">
+              <span>Exam cue</span>
+              <strong>Choose Memcached for simple ephemeral cache scale when persistence, replication, and advanced Redis data structures are not required. Choose Redis when the stem needs persistence, replication, pub/sub, sorted sets, or richer data structures.</strong>
             </div>
           </article>
           <article id="service-amazon-neptune-streams" class="service-card" data-card data-category="Database" data-search="amazon neptune streams change stream feature for amazon neptune that captures graph database changes for downstream processing. amazon neptune is a managed graph database for highly connected data, and neptune streams can capture database changes for downstream processing. database">
@@ -6317,6 +6378,18 @@
               <strong>Use for secure remote user access to AWS and on-premises networks.</strong>
             </div>
           </article>
+          <article id="service-cloudfront-origin-access-identity-oai" class="service-card" data-card data-category="Networking and Content Delivery" data-search="cloudfront origin access identity oai legacy cloudfront identity for private s3 origins. use to restrict direct s3 access and require users to access objects through cloudfront. prefer origin access control oac for new designs. networking and content delivery security">
+            <div class="service-topline">
+              <span class="service-icon"><img src="assets/aws-icons/cloudfront.svg" alt="" loading="lazy"></span>
+              <span class="service-category">Networking and Content Delivery</span>
+            </div>
+            <h3><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html" target="_blank" rel="noopener noreferrer">Origin Access Identity (OAI)</a></h3>
+            <p>Legacy CloudFront identity for private S3 origins.</p>
+            <div class="exam-use">
+              <span>Exam cue</span>
+              <strong>Use OAI to recognize older CloudFront plus private S3 origin patterns. For new architectures, prefer Origin Access Control (OAC) to keep S3 private behind CloudFront.</strong>
+            </div>
+          </article>
           <article id="service-amazon-cloudfront" class="service-card" data-card data-category="Networking and Content Delivery" data-search="amazon cloudfront global content delivery network. choose to cache and deliver static/dynamic content globally with low latency. amazon cloudfront with s3 as the origin caches pages at edge locations for global scale. networking and content delivery">
             <div class="service-topline">
               <span class="service-icon"><img src="assets/aws-icons/cloudfront.svg" alt="" loading="lazy"></span>
@@ -6869,7 +6942,7 @@
               <strong>Choose when you want to run ECS/EKS containers without managing EC2 instances. Amazon ECR, Amazon ECS with Fargate, and target tracking provide managed container deployment and automatic scaling.</strong>
             </div>
           </article>
-          <article id="service-aws-lambda" class="service-card" data-card data-category="Serverless" data-search="aws lambda serverless function compute. use for event-driven code, short-running tasks, api backends, automation, and pay-per-use compute. a lambda resource-based policy should allow only lambda:invokefunction from the eventbridge service principal. serverless">
+          <article id="service-aws-lambda" class="service-card" data-card data-category="Serverless" data-search="aws lambda serverless function compute. use for event-driven code, short-running tasks, api backends, automation, and pay-per-use compute. a lambda resource-based policy should allow only lambda:invokefunction from the eventbridge service principal. serverless supported runtimes node.js python java .net ruby go custom runtimes container images">
             <div class="service-topline">
               <span class="service-icon"><img src="assets/aws-icons/lambda.svg" alt="" loading="lazy"></span>
               <span class="service-category">Serverless</span>
@@ -6878,7 +6951,7 @@
             <p>Serverless function compute.</p>
             <div class="exam-use">
               <span>Exam cue</span>
-              <strong>Use for event-driven code, short-running tasks, API backends, automation, and pay-per-use compute. A Lambda resource-based policy should allow only lambda:InvokeFunction from the EventBridge service principal. Remember the per-invocation runtime limit; use Step Functions for longer multi-step workflows and Lambda@Edge with CloudFront. Lambda triggers include S3, SNS, API Gateway, DynamoDB Streams, SQS, EventBridge schedules, and direct service events.</strong>
+              <strong>Use for event-driven code, short-running tasks, API backends, automation, and pay-per-use compute. Lambda managed runtimes commonly include Node.js, Python, Java, .NET, Ruby, and Go; custom runtimes and container images support other languages. A Lambda resource-based policy should allow only lambda:InvokeFunction from the EventBridge service principal. Remember the per-invocation runtime limit; use Step Functions for longer multi-step workflows and Lambda@Edge with CloudFront. Lambda triggers include S3, SNS, API Gateway, DynamoDB Streams, SQS, EventBridge schedules, and direct service events.</strong>
             </div>
           </article>          <article id="service-aws-sam-serverless" class="service-card" data-card data-category="Serverless" data-search="aws sam aws serverless application model framework for building serverless applications. choose for defining lambda api gateway and event source serverless apps. serverless aws serverless application model">
             <div class="service-topline">
@@ -7152,7 +7225,37 @@
       button.addEventListener("click", () => {
         activeFilter = button.dataset.filter;
         filters.forEach((item) => item.classList.toggle("is-selected", item === button));
-        const databaseChoices = [
+        applyFilters();
+      });
+    });
+
+    document.querySelectorAll(".skill-service-link, .concept-service-link").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        jumpToService(link);
+      });
+    });
+
+    if (backToTopic) {
+      backToTopic.addEventListener("click", () => {
+        if (topicReturnTarget) {
+          topicReturnTarget.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+        if (highlightedService) {
+          highlightedService.classList.remove("is-jump-target");
+          highlightedService = null;
+        }
+        backToTopic.hidden = true;
+      });
+    }
+
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        links.forEach((item) => item.classList.toggle("is-active", item === link));
+      });
+    });
+
+    const databaseChoices = [
       {
         id: "rds",
         name: "Amazon RDS",
@@ -7439,36 +7542,6 @@
     }
 
     initDatabaseTree();
-
-    applyFilters();
-      });
-    });
-
-    document.querySelectorAll(".skill-service-link, .concept-service-link").forEach((link) => {
-      link.addEventListener("click", (event) => {
-        event.preventDefault();
-        jumpToService(link);
-      });
-    });
-
-    if (backToTopic) {
-      backToTopic.addEventListener("click", () => {
-        if (topicReturnTarget) {
-          topicReturnTarget.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-        if (highlightedService) {
-          highlightedService.classList.remove("is-jump-target");
-          highlightedService = null;
-        }
-        backToTopic.hidden = true;
-      });
-    }
-
-    links.forEach((link) => {
-      link.addEventListener("click", () => {
-        links.forEach((item) => item.classList.toggle("is-active", item === link));
-      });
-    });
 
     applyFilters();
   </script>
